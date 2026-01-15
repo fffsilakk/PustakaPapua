@@ -1,4 +1,5 @@
 import { createApp } from "vue";
+import { createPinia } from "pinia";
 import "./style.css";
 import "preline";
 import App from "./App.vue";
@@ -12,6 +13,7 @@ import router from "./routers";
 const app = createApp(App);
 app.use(router);
 app.mount("#app");
+app.use(createPinia());
 // app.component("BackButton", BackButton);
 // app.component("RightSidebar", RightSidebar);
 // app.component("LeftSidebar", LeftSidebar);

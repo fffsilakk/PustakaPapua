@@ -66,20 +66,25 @@
   <!-- Main App Content -->
   <!-- Menggunakan v-show agar elemen tetap ada di DOM (hanya hidden) saat loading -->
   <div v-show="!isLoading">
-    <PublicNavbar />
+    <!-- <PublicNavbar /> -->
+    <Navbar />
     <BackToTop />
     <router-view />
-    <PublicFooter />
+    <Footer />
+    <!-- <PublicFooter /> -->
+    <ConnectionStatus />
   </div>
 </template>
 
 <script setup lang="ts">
-import PublicNavbar from "../components/public/PublicNavbar.vue";
-import PublicFooter from "../components/public/PublicFooter.vue";
+import Navbar from "../components/public/common/Navbar.vue";
+import Footer from "../components/public/common/FooterSection.vue";
+// import PublicNavbar from "../components/public/PublicNavbar.vue";
+// import PublicFooter from "../components/public/PublicFooter.vue";
 import BackToTop from "../services/BackToTop.vue";
 import { ref, onMounted, nextTick } from "vue";
 import type { IStaticMethods } from "preline/preline";
-
+import ConnectionStatus from "../components/public/common/ConnectionStatus.vue";
 const isLoading = ref(true);
 
 declare global {
