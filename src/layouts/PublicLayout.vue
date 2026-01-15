@@ -5,7 +5,6 @@
       v-if="isLoading"
       class="fixed inset-0 z-[60] flex flex-col items-center justify-center bg-gradient-to-br from-emerald-50 via-white to-green-50 dark:from-neutral-900 dark:via-neutral-800 dark:to-emerald-950"
     >
-      <!-- Animated Background Circles -->
       <div class="absolute inset-0 overflow-hidden">
         <div
           class="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-200/30 dark:bg-emerald-600/10 rounded-full blur-3xl animate-pulse-slow"
@@ -15,7 +14,6 @@
         ></div>
       </div>
 
-      <!-- Logo Container -->
       <div class="relative z-10 flex flex-col items-center gap-6">
         <!-- Logo with Scale Animation -->
         <div class="relative">
@@ -30,12 +28,11 @@
           ></div>
         </div>
 
-        <!-- Loading Text -->
         <div class="text-center space-y-2">
           <h2
             class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 dark:text-white animate-fade-in-up"
           >
-            ナレDev
+            PustakaPapua
           </h2>
           <!-- <p
             class="text-sm sm:text-base text-gray-600 dark:text-gray-400 animate-fade-in-up-delay"
@@ -44,7 +41,6 @@
           </p> -->
         </div>
 
-        <!-- Modern Spinner -->
         <div class="flex gap-2 mt-4">
           <div
             class="w-3 h-3 bg-emerald-600 dark:bg-emerald-400 rounded-full animate-bounce"
@@ -72,7 +68,7 @@
     <router-view />
     <Footer />
     <!-- <PublicFooter /> -->
-    <ConnectionStatus />
+    <!-- <ConnectionStatus /> -->
   </div>
 </template>
 
@@ -84,7 +80,7 @@ import Footer from "../components/public/common/FooterSection.vue";
 import BackToTop from "../services/BackToTop.vue";
 import { ref, onMounted, nextTick } from "vue";
 import type { IStaticMethods } from "preline/preline";
-import ConnectionStatus from "../components/public/common/ConnectionStatus.vue";
+// import ConnectionStatus from "../components/public/common/ConnectionStatus.vue";
 const isLoading = ref(true);
 
 declare global {

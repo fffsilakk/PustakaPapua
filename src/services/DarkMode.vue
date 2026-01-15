@@ -52,33 +52,6 @@ const handleScroll = (): void => {
   scrolled.value = window.scrollY > 20;
 };
 
-// Mobile menu toggle
-// const toggleMobileMenu = (): void => {
-//   mobileMenuOpen.value = !mobileMenuOpen.value;
-
-//   if (mobileMenuOpen.value) {
-//     document.body.style.overflow = "hidden";
-//   } else {
-//     document.body.style.overflow = "";
-//   }
-// };
-
-// // Close mobile menu
-// const closeMobileMenu = (): void => {
-//   mobileMenuOpen.value = false;
-//   document.body.style.overflow = "";
-// };
-
-// // Dropdown handlers
-// const toggleDropdown = (dropdown: string): void => {
-//   activeDropdown.value = activeDropdown.value === dropdown ? null : dropdown;
-// };
-
-// const toggleDesktopDropdown = (dropdown: string): void => {
-//   activeDesktopDropdown.value =
-//     activeDesktopDropdown.value === dropdown ? null : dropdown;
-// };
-
 const closeDesktopDropdown = (): void => {
   activeDesktopDropdown.value = null;
 };
