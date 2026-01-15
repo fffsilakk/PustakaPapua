@@ -20,7 +20,7 @@ export const umkmProducts: UmkmProduct[] = [
     shortDescription:
       "Kopi arabika khas pegunungan Papua dengan cita rasa lembut.",
     imageUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROyxui_6hQE29EflH125MrP-hutTr9JmZirg&s",
+      "https://elscoffee.com/content/uploads/2021/07/Banner-E-Commerce-Wamena-100gr.jpg",
   },
   {
     id: "noken-rajut-sentani",

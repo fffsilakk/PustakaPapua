@@ -99,35 +99,39 @@ interface GalleryItem {
 const galleryItems: GalleryItem[] = [
   {
     id: "1",
-    imageUrl: "",
+    imageUrl:
+      "https://img.inews.co.id/media/620/files/inews_new/2023/10/27/tarian_suku_asmat.jpg",
     caption: "Tari Perang Asmat",
     origin: "Asmat, Papua Selatan",
   },
   {
     id: "2",
-    imageUrl: "",
+    imageUrl:
+      "https://mediaindonesia.gumlet.io/news/2025/05/08/1746673934_cf0e3a01aeae86a38642.jpg?w=376&dpr=2.6",
     caption: "Alat Musik Tifa",
     origin: "Berbagai Suku Papua",
   },
   {
     id: "3",
-    imageUrl: "",
+    imageUrl:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Asmat_Shields_%28UBC%29.JPG/250px-Asmat_Shields_%28UBC%29.JPG",
     caption: "Ukiran Kayu Motif Papua",
-    origin: "Sentani, Papua",
+    origin: "Asmat, Papua Selatan",
   },
   {
     id: "4",
-    imageUrl: "",
+    imageUrl:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/One_of_the_warrior_from_Kurulu_District.jpg/250px-One_of_the_warrior_from_Kurulu_District.jpg",
     caption: "Pakaian Adat Suku Dani",
     origin: "Lani Jaya, Pegunungan Tengah",
   },
-  //   {
-  //     id: "5",
-  //     imageUrl:
-  //       "https://images.unsplash.com/photo-1613273187216-72c6e6d1e4e1?q=80&w=600",
-  //     caption: "Rumah Adat Honai",
-  //     origin: "Pegunungan Tengah, Papua",
-  //   },
+  {
+    id: "5",
+    imageUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWnp4V2vGPXR_nYrN1qLwvkGxyH-4Mm0Dn0w&s",
+    caption: "Rumah Adat Honai",
+    origin: "Pegunungan Tengah, Papua",
+  },
   //   {
   //     id: "6",
   //     imageUrl:
@@ -142,13 +146,13 @@ const galleryItems: GalleryItem[] = [
   //     caption: "Upacara Adat Bakar Batu",
   //     origin: "Wamena, Pegunungan Tengah",
   //   },
-  //   {
-  //     id: "8",
-  //     imageUrl:
-  //       "https://images.unsplash.com/photo-1594732670733-4f11b6f0e4b7?q=80&w=600",
-  //     caption: "Anyaman Noken Tradisional",
-  //     origin: "Berbagai Suku Papua",
-  //   },
+  {
+    id: "8",
+    imageUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3upEDaAwU4OHbyJwHLl6blP7qaKKH4sZOhw&s",
+    caption: "Anyaman Noken Tradisional",
+    origin: "Berbagai Suku Papua",
+  },
 ];
 
 const isModalOpen = ref(false);

@@ -60,11 +60,11 @@ defineProps<{
 }>();
 
 const items: { value: FilterValue; label: string; icon: string }[] = [
-  { value: "all", label: "Semua", icon: "🌈" },
-  { value: "tarian", label: "Tarian", icon: "🎭" },
-  { value: "musik", label: "Musik", icon: "🪘" },
-  { value: "bahasa", label: "Bahasa", icon: "🗣️" },
-  { value: "cerita", label: "Cerita Rakyat", icon: "📜" },
+  { value: "all", label: "Semua", icon: "" },
+  { value: "tarian", label: "Tarian", icon: "" },
+  { value: "musik", label: "Musik", icon: "" },
+  { value: "bahasa", label: "Bahasa", icon: "" },
+  { value: "cerita", label: "Cerita Rakyat", icon: "" },
   { value: "favorite", label: "Favorit", icon: "⭐" },
 ];
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="cursor-default relative group inline-block">
     <div
       class="px-3 py-1.5 rounded-full text-[11px] border shadow-sm flex items-center gap-2 cursor-default"
       :class="

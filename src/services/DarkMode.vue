@@ -68,7 +68,7 @@ const handleOutsideClick = (e: MouseEvent): void => {
   <!-- Toggle Dark Mode -->
   <button
     @click="toggleDarkMode"
-    class="flex items-center mt-2 py-3 justify-center w-9 h-9 rounded-full cursor-pointer hover:bg-gray-200 dark:hover:bg-neutral-800 transition"
+    class="flex items-center py-3 justify-center w-9 h-9 rounded-full cursor-pointer hover:bg-gray-200 dark:hover:bg-neutral-800 transition"
     type="button"
     aria-label="Toggle dark mode"
   >

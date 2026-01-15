@@ -12,13 +12,14 @@
     <div class="max-w-[85rem] mx-auto w-full px-4 sm:px-6 lg:px-8">
       <div class="flex-1 flex items-center justify-end gap-x-2 pt-1 mr-2">
         <dark-mode class="shrink-0 size-2.5" />
-        <!-- <button
-          type="button"
-          class="cursor-pointer flex items-center text-sm text-gray-800 hover:text-emerald-600 dark:text-neutral-200 dark:hover:text-emerald-400"
+        <a
+          href="https://github.com/fffsilakk/SmartPustaka"
+          target="_blank"
+          title="Github"
+          rel="noopener"
         >
-          <DarkMode class="mb-2" />
-          <span class="font-medium">Theme</span>
-        </button> -->
+          <ChGithub class="shrink-0" />
+        </a>
         <ConnectionStatus />
       </div>
     </div>
@@ -316,11 +317,13 @@
 import { ref, onMounted, onUnmounted } from "vue";
 import DarkMode from "../../../services/DarkMode.vue";
 import SearchButton from "../../../services/SearchButton.vue";
+
 import ConnectionStatus from "../common/ConnectionStatus.vue";
 import {
   IcHomeAlt,
   TaOutlineArrowRoundaboutRight,
   QuHamburgerSidebar,
+  ChGithub,
 } from "@kalimahapps/vue-icons";
 
 // State management

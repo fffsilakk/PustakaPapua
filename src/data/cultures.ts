@@ -24,14 +24,11 @@ export const cultures: CultureItem[] = [
     category: "tarian",
     region: "Papua",
     shortDescription:
-      "Tarian pergaulan yang populer di Papua, sering dibawakan dalam acara adat dan penyambutan.",
-    description: [
-      "Tari Sajojo merupakan salah satu tarian paling dikenal dari Papua, dengan gerakan dinamis dan penuh semangat.",
-      "Biasanya dibawakan secara berkelompok dan diiringi lagu daerah yang ceria.",
-      "Tarian ini sering digunakan untuk menyambut tamu dan membangun kebersamaan.",
-    ],
-    imageUrl: "/culture/sajojo.png",
-    isOfflineAvailable: false,
+      "Tarian pergaulan yang populer di Papua, sering dibawakan dalam acara adat.",
+    description: ["..."],
+    imageUrl:
+      "https://ik.imagekit.io/tvlk/blog/2025/02/antarafoto-upacara-pembukaan-pon-papua-021021-agr-9a.jpg",
+    isOfflineAvailable: true,
     isFavorite: false,
   },
   {
@@ -41,13 +38,23 @@ export const cultures: CultureItem[] = [
     region: "Pegunungan Tengah",
     shortDescription:
       "Salah satu bahasa daerah di pegunungan Papua yang digunakan oleh masyarakat Mee.",
-    description: [
-      "Bahasa Mee digunakan oleh masyarakat di wilayah pegunungan tengah Papua.",
-      "Melestarikan bahasa daerah berarti menjaga identitas dan pengetahuan lokal.",
-      "Melalui platform digital, generasi muda bisa belajar kosakata dan ungkapan dasar Bahasa Mee.",
-    ],
-    imageUrl: "/culture/mee.jpg",
+    description: ["..."],
+    imageUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX_U5-T646OImWYfiNUWoeWFztupTOwCE-Xg&s",
     isOfflineAvailable: false,
+    isFavorite: true,
+  },
+  {
+    id: "biwar-sang-penakluk-naga", // ID diperbaiki
+    name: "Biwar Sang Penakluk Naga",
+    category: "cerita",
+    region: "Mimika",
+    shortDescription:
+      "Kisah pemuda berani asal Papua yang pantang menyerah menghadapi segala rintangan.",
+    description: ["..."],
+    imageUrl:
+      "https://images.unsplash.com/photo-1544084944-15269ec7b5a0?q=80&w=600",
+    isOfflineAvailable: true,
     isFavorite: false,
   },
 ];

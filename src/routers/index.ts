@@ -32,10 +32,15 @@ const routes = [
         props: true,
       },
       { path: "/umkm", name: "UmkmCatalog", component: UmkmCatalogView },
+
       {
-        path: "/umkm/:id",
-        name: "UmkmProductDetail",
-        component: UmkmProductDetailView,
+        path: "/budaya/biwar-sang-penakluk-naga",
+        name: "biwar-sang-penakluk-naga",
+        component: () =>
+          import("../components/public/culture/ceritaRakyat/PenaklukNaga.vue"),
+        meta: {
+          title: "Cerita Rakyat | biwar-sang-penakluk-naga",
+        },
         props: true,
       },
       { path: "/cart", name: "Cart", component: CartView },

@@ -223,7 +223,7 @@ const slides: UmkmSlide[] = [
     tag: "Kuliner",
     price: "Edisi Premium",
     image:
-      "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=400",
+      "https://elscoffee.com/content/uploads/2021/07/Banner-E-Commerce-Wamena-100gr.jpg",
   },
   {
     title: "Patung Ukir Asmat",
