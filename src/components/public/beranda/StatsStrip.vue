@@ -1,122 +1,195 @@
 <template>
   <section
-    class="border-y border-slate-200/70 bg-slate-50/80 py-10 md:py-14 dark:border-slate-800/80 dark:bg-slate-900/60"
+    class="relative overflow-hidden border-y border-slate-200/60 py-16 md:py-24 bg-slate-50/50 dark:border-slate-800/50 dark:bg-[#020617]"
   >
-    <div class="max-w-6xl mx-auto px-4">
-      <!-- Label atas -->
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-30 dark:opacity-20"
+    >
       <div
-        class="flex items-center justify-center gap-2 text-[10px] text-slate-500 dark:text-slate-400 mb-6"
+        class="absolute top-0 left-1/4 w-64 h-64 bg-emerald-400/20 blur-[100px] rounded-full"
+      ></div>
+      <div
+        class="absolute bottom-0 right-1/4 w-64 h-64 bg-cyan-400/20 blur-[100px] rounded-full"
+      ></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6">
+      <div
+        class="flex items-center justify-center gap-4 mb-16"
+        data-aos="fade-down"
       >
-        <span class="h-px w-6 bg-slate-200 dark:bg-slate-700" />
-        <span class="uppercase tracking-[0.18em]">
-          Fondasi Smart Pustaka Timur
+        <span
+          class="h-px w-10 bg-gradient-to-r from-transparent to-slate-300 dark:to-slate-700"
+        />
+        <span
+          class="text-[11px] font-bold uppercase tracking-[0.25em] text-slate-400 dark:text-slate-500"
+        >
+          Fondasi Smart Pustaka
         </span>
-        <span class="h-px w-6 bg-slate-200 dark:bg-slate-700" />
+        <span
+          class="h-px w-10 bg-gradient-to-l from-transparent to-slate-300 dark:to-slate-700"
+        />
       </div>
 
-      <!-- Timeline wrapper -->
-      <div
-        class="relative flex flex-col gap-8 text-[11px] text-slate-600 md:flex-row md:items-stretch md:justify-between dark:text-slate-300"
-      >
-        <!-- Garis tengah responsif -->
+      <div class="relative grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
         <div
-          class="pointer-events-none absolute left-4 top-4 bottom-4 md:left-1/2 md:top-1/2 md:bottom-auto md:h-px md:-translate-x-1/2 md:w-[68%] rounded-full bg-gradient-to-b from-emerald-400/40 via-cyan-400/40 to-amber-400/40 md:bg-gradient-to-r"
-        />
+          class="hidden md:block absolute top-12 left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-amber-500/20"
+        ></div>
 
-        <!-- Item 1 -->
-        <div class="relative flex items-start gap-3 md:flex-1 md:pr-6">
-          <!-- Dot + connector -->
-          <div class="flex flex-col items-center">
+        <div
+          class="group relative flex flex-col items-center md:items-start text-center md:text-left"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <div
+            class="relative z-10 mb-6 flex h-20 w-20 items-center justify-center rounded-3xl bg-white border border-slate-200 shadow-xl transition-transform duration-500 group-hover:-rotate-12 dark:bg-slate-900 dark:border-slate-800 dark:shadow-none"
+          >
             <div
-              class="relative flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-600 shadow-sm dark:bg-emerald-500/20 dark:text-emerald-300"
+              class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-500/10 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-400"
             >
-              <span
-                class="absolute inset-0 rounded-full border border-emerald-400/30 animate-pulse"
-              />
-              <span class="relative h-2 w-2 rounded-full bg-emerald-500" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253"
+                />
+              </svg>
             </div>
-            <div class="mt-2 h-full w-px bg-emerald-400/35 md:hidden" />
+            <div
+              class="absolute inset-0 rounded-3xl bg-emerald-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"
+            ></div>
           </div>
 
-          <!-- Content -->
-          <div>
-            <p
-              class="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2.5 py-1 text-[10px] font-semibold text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-300"
+          <div class="space-y-3">
+            <span
+              class="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-emerald-100 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400"
             >
               3 Modul Inti
-            </p>
+            </span>
             <h3
-              class="mt-1 text-[12px] font-semibold text-slate-900 dark:text-slate-50"
+              class="text-lg font-bold text-slate-900 dark:text-white leading-tight"
             >
               Edukasi, Budaya, UMKM
             </h3>
-            <p class="mt-1 max-w-xs">
-              Edukasi, budaya, dan UMKM menyatu dalam satu platform terintegrasi
-              untuk generasi Timur.
+            <p
+              class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed max-w-[260px]"
+            >
+              Platform terintegrasi yang menyatukan kearifan lokal dengan
+              peluang ekonomi kreatif.
             </p>
           </div>
         </div>
 
-        <!-- Item 2 -->
-        <div class="relative flex items-start gap-3 md:flex-1 md:px-6">
-          <div class="flex flex-col items-center">
+        <div
+          class="group relative flex flex-col items-center md:items-center text-center"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <div
+            class="relative z-10 mb-6 flex h-20 w-20 items-center justify-center rounded-3xl bg-white border border-slate-200 shadow-xl transition-transform duration-500 group-hover:scale-110 dark:bg-slate-900 dark:border-slate-800 dark:shadow-none"
+          >
             <div
-              class="relative flex h-8 w-8 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 shadow-sm dark:bg-cyan-500/20 dark:text-cyan-300"
+              class="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-600 dark:bg-cyan-500/20 dark:text-cyan-400"
             >
-              <span
-                class="absolute inset-0 rounded-full border border-cyan-400/30 animate-ping"
-              />
-              <span class="relative h-2 w-2 rounded-full bg-cyan-400" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+                />
+              </svg>
             </div>
-            <div class="mt-2 h-full w-px bg-cyan-400/35 md:hidden" />
+            <div
+              class="absolute inset-0 rounded-3xl bg-cyan-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"
+            ></div>
           </div>
 
-          <div class="text-left md:text-center">
-            <p
-              class="inline-flex items-center gap-1.5 rounded-full bg-cyan-500/10 px-2.5 py-1 text-[10px] font-semibold text-cyan-700 dark:bg-cyan-500/15 dark:text-cyan-300"
+          <div class="space-y-3">
+            <span
+              class="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-cyan-100 text-cyan-700 dark:bg-cyan-500/10 dark:text-cyan-400"
             >
               Offline-First PWA
-            </p>
+            </span>
             <h3
-              class="mt-1 text-[12px] font-semibold text-slate-900 dark:text-slate-50"
+              class="text-lg font-bold text-slate-900 dark:text-white leading-tight"
             >
-              Unduh Sekali, Akses Berulang
+              Unduh Sekali, Akses Selamanya
             </h3>
-            <p class="mt-1 max-w-xs mx-auto md:mx-auto">
-              Konten diunduh saat ada sinyal, lalu tetap dapat diakses di daerah
-              blank spot tanpa internet.
+            <p
+              class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed max-w-[260px]"
+            >
+              Dirancang khusus untuk daerah sulit sinyal agar belajar tidak
+              pernah terhenti.
             </p>
           </div>
         </div>
 
-        <!-- Item 3 -->
-        <div class="relative flex items-start gap-3 md:flex-1 md:pl-6">
-          <div class="flex flex-col items-center">
+        <div
+          class="group relative flex flex-col items-center md:items-end text-center md:text-right"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <div
+            class="relative z-10 mb-6 flex h-20 w-20 items-center justify-center rounded-3xl bg-white border border-slate-200 shadow-xl transition-transform duration-500 group-hover:rotate-12 dark:bg-slate-900 dark:border-slate-800 dark:shadow-none"
+          >
             <div
-              class="relative flex h-8 w-8 items-center justify-center rounded-full bg-amber-500/10 text-amber-600 shadow-sm dark:bg-amber-500/20 dark:text-amber-300"
+              class="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-500/10 text-amber-600 dark:bg-amber-500/20 dark:text-amber-400"
             >
-              <span
-                class="absolute inset-0 rounded-full border border-amber-400/30 animate-pulse"
-              />
-              <span class="relative h-2 w-2 rounded-full bg-amber-400" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
             </div>
-            <div class="mt-2 h-full w-px bg-amber-400/35 md:hidden" />
+            <div
+              class="absolute inset-0 rounded-3xl bg-amber-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"
+            ></div>
           </div>
 
-          <div class="text-left md:text-right">
-            <p
-              class="inline-flex items-center gap-1.5 rounded-full bg-amber-500/10 px-2.5 py-1 text-[10px] font-semibold text-amber-700 dark:bg-amber-500/15 dark:text-amber-300"
+          <div class="space-y-3">
+            <span
+              class="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-amber-100 text-amber-700 dark:bg-amber-500/10 dark:text-amber-400"
             >
               Fokus Papua
-            </p>
+            </span>
             <h3
-              class="mt-1 text-[12px] font-semibold text-slate-900 dark:text-slate-50"
+              class="text-lg font-bold text-slate-900 dark:text-white leading-tight"
             >
               Konteks Timur Indonesia
             </h3>
-            <p class="mt-1 max-w-xs">
-              Dirancang sesuai realitas sosial, budaya, dan infrastruktur
-              Indonesia Timur, bukan solusi generik.
+            <p
+              class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed max-w-[260px]"
+            >
+              Bukan solusi generik, tapi materi yang relevan dengan realitas
+              sosial budaya lokal.
             </p>
           </div>
         </div>
@@ -124,5 +197,3 @@
     </div>
   </section>
 </template>
-
-<script setup lang="ts"></script>

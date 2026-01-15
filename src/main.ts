@@ -1,6 +1,8 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 import { useOfflineStore } from "./stores/offlineStore";
+import "aos/dist/aos.css";
+import AOS from "aos";
 import "./style.css";
 import "preline";
 import App from "./App.vue";
@@ -11,6 +13,7 @@ import router from "./routers";
 // import LeftSidebar from "./layouts/tutorials/LeftSidebar.vue";
 // import Iam from "./services/Iam.vue";
 
+AOS.init();
 const app = createApp(App);
 app.use(router);
 app.mount("#app");

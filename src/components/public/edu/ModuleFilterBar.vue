@@ -8,7 +8,7 @@
       :class="
         item.value === modelValue
           ? 'border-emerald-400 bg-emerald-500/10 text-emerald-300'
-          : 'border-slate-700 text-slate-300 hover:border-emerald-400'
+          : 'border-slate-700 text-slate-800 dark:text-slate-300 hover:border-emerald-400'
       "
       @click="$emit('update:modelValue', item.value)"
     >
