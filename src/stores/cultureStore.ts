@@ -7,7 +7,7 @@ import {
 
 interface CultureState {
   items: CultureItem[];
-  selectedCategory: CultureCategory | "all";
+  selectedCategory: CultureCategory | "all" | "favorite";
 }
 
 const OFFLINE_KEY = "spt-offline-culture-ids";
@@ -44,19 +44,27 @@ export const useCultureStore = defineStore("culture", {
       selectedCategory: "all",
     };
   },
+
   getters: {
     filteredItems(state): CultureItem[] {
       if (state.selectedCategory === "all") return state.items;
+
+      if (state.selectedCategory === "favorite") {
+        return state.items.filter((i) => i.isFavorite);
+      }
+
       return state.items.filter((i) => i.category === state.selectedCategory);
     },
     getById: (state) => {
       return (id: string) => state.items.find((i) => i.id === id);
     },
   },
+
   actions: {
-    setCategory(category: CultureCategory | "all") {
+    setCategory(category: CultureCategory | "all" | "favorite") {
       this.selectedCategory = category;
     },
+
     toggleFavorite(id: string) {
       this.items = this.items.map((i) =>
         i.id === id ? { ...i, isFavorite: !i.isFavorite } : i
@@ -68,6 +76,7 @@ export const useCultureStore = defineStore("culture", {
 
       saveIds(FAVORITE_KEY, favoriteIds);
     },
+
     markOffline(id: string) {
       this.items = this.items.map((i) =>
         i.id === id ? { ...i, isOfflineAvailable: true } : i

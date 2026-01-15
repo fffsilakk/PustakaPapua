@@ -1,34 +1,41 @@
-<template>
-  <section class="max-w-6xl mx-auto px-4 py-8">
-    <header class="mb-6">
-      <h1 class="text-2xl font-semibold mb-1">Budaya Papua & Timur</h1>
-      <p class="text-sm text-slate-300">
-        Jelajahi tarian, musik, bahasa, dan cerita rakyat dari Papua dan wilayah
-        Timur. Konten ini dapat disimpan untuk dipelajari kembali secara
-        offline.
-      </p>
-    </header>
-
-    <CultureCategoryTabs v-model="selectedCategory" />
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-      <CultureCard
-        v-for="item in filteredItems"
-        :key="item.id"
-        :item="item"
-        @favorite-click="() => cultureStore.toggleFavorite(item.id)"
-        @offline-click="() => cultureStore.markOffline(item.id)"
-      />
-    </div>
-  </section>
-</template>
-
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
 import { useCultureStore } from "../../stores/cultureStore";
-import CultureCard from "../../components/public/culture/CultureCard.vue";
+
+import CultureHeader from "../../components/public/culture/CultureHeader.vue";
 import CultureCategoryTabs from "../../components/public/culture/CultureCategoryTabs.vue";
+import CultureListGrid from "../../components/public/culture/CultureListGrid.vue";
+import CultureRegionStrip from "../../components/public/culture/CultureRegionStrip.vue";
+import CulturePhotoGallery from "../../components/public/culture/CulturePhotoGallery.vue";
+import CultureWhySection from "../../components/public/culture/CultureWhySection.vue";
 
 const cultureStore = useCultureStore();
 const { filteredItems, selectedCategory } = storeToRefs(cultureStore);
+
+const handleFavorite = (id: string) => {
+  cultureStore.toggleFavorite(id);
+};
+
+const handleOffline = (id: string) => {
+  cultureStore.markOffline(id);
+};
 </script>
+
+<template>
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
+    <CultureHeader />
+
+    <section class="mb-5">
+      <CultureCategoryTabs v-model="selectedCategory" />
+    </section>
+
+    <CultureListGrid
+      :items="filteredItems"
+      @favorite-click="handleFavorite"
+      @offline-click="handleOffline"
+    />
+    <CultureRegionStrip />
+    <CulturePhotoGallery />
+    <CultureWhySection />
+  </main>
+</template>

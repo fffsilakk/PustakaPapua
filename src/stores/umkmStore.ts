@@ -13,6 +13,7 @@ interface CartItem {
 interface UmkmState {
   products: UmkmProduct[];
   selectedCategory: UmkmCategory | "all";
+  searchQuery: string; // TAMBAHKAN INI agar TS mengenali searchQuery
   cart: CartItem[];
 }
 
@@ -39,18 +40,37 @@ export const useUmkmStore = defineStore("umkm", {
   state: (): UmkmState => ({
     products: umkmProducts,
     selectedCategory: "all",
+    searchQuery: "", // INISIALISASI state kosong
     cart: loadCart(),
   }),
+
   getters: {
+    /**
+     * Getter yang sudah digabung:
+     * Memfilter berdasarkan Kategori DAN Kata Kunci Pencarian
+     */
     filteredProducts(state): UmkmProduct[] {
-      if (state.selectedCategory === "all") return state.products;
-      return state.products.filter(
-        (p) => p.category === state.selectedCategory
-      );
+      return state.products.filter((p) => {
+        // 1. Cek Kategori
+        const matchesCategory =
+          state.selectedCategory === "all" ||
+          p.category === state.selectedCategory;
+
+        // 2. Cek Pencarian (Nama produk atau deskripsi)
+        const query = state.searchQuery.toLowerCase().trim();
+        const matchesSearch =
+          p.name.toLowerCase().includes(query) ||
+          p.shortDescription.toLowerCase().includes(query) ||
+          p.origin.toLowerCase().includes(query);
+
+        return matchesCategory && matchesSearch;
+      });
     },
+
     cartCount(state): number {
       return state.cart.reduce((sum, item) => sum + item.quantity, 0);
     },
+
     cartDetailed(state): (UmkmProduct & { quantity: number })[] {
       return state.cart
         .map((ci) => {
@@ -60,6 +80,7 @@ export const useUmkmStore = defineStore("umkm", {
         })
         .filter(Boolean) as (UmkmProduct & { quantity: number })[];
     },
+
     cartTotal(): number {
       return this.cartDetailed.reduce(
         (sum, item) => sum + item.price * item.quantity,
@@ -67,10 +88,17 @@ export const useUmkmStore = defineStore("umkm", {
       );
     },
   },
+
   actions: {
     setCategory(category: UmkmCategory | "all") {
       this.selectedCategory = category;
     },
+
+    // Action tambahan untuk mereset pencarian jika diperlukan
+    setSearchQuery(query: string) {
+      this.searchQuery = query;
+    },
+
     addToCart(productId: string) {
       const existing = this.cart.find((c) => c.productId === productId);
       if (existing) {
@@ -80,10 +108,12 @@ export const useUmkmStore = defineStore("umkm", {
       }
       saveCart(this.cart);
     },
+
     removeFromCart(productId: string) {
       this.cart = this.cart.filter((c) => c.productId !== productId);
       saveCart(this.cart);
     },
+
     updateQuantity(productId: string, quantity: number) {
       if (quantity <= 0) {
         this.removeFromCart(productId);
@@ -95,6 +125,7 @@ export const useUmkmStore = defineStore("umkm", {
         saveCart(this.cart);
       }
     },
+
     clearCart() {
       this.cart = [];
       saveCart(this.cart);

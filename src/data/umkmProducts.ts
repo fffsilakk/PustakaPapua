@@ -19,7 +19,8 @@ export const umkmProducts: UmkmProduct[] = [
     origin: "Wamena, Papua",
     shortDescription:
       "Kopi arabika khas pegunungan Papua dengan cita rasa lembut.",
-    imageUrl: "/umkm/kopi-wamena.jpg",
+    imageUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROyxui_6hQE29EflH125MrP-hutTr9JmZirg&s",
   },
   {
     id: "noken-rajut-sentani",

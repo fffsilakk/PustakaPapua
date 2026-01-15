@@ -1,4 +1,9 @@
-export type CultureCategory = "tarian" | "musik" | "bahasa" | "cerita";
+export type CultureCategory =
+  | "tarian"
+  | "musik"
+  | "bahasa"
+  | "cerita"
+  | "favorite";
 
 export interface CultureItem {
   id: string;
