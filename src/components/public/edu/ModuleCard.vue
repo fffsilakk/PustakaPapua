@@ -38,11 +38,17 @@
       <button
         type="button"
         class="text-[11px] text-slate-300 hover:text-emerald-300"
+        :disabled="loading"
         @click="$emit('offline-click')"
       >
-        {{
-          module.isOfflineAvailable ? "Perbarui Konten" : "Simpan untuk Offline"
-        }}
+        <span v-if="loading">Menyimpan...</span>
+        <span v-else>
+          {{
+            module.isOfflineAvailable
+              ? "Perbarui Konten"
+              : "Simpan untuk Offline"
+          }}
+        </span>
       </button>
     </footer>
   </article>
@@ -55,6 +61,7 @@ import type { EduModule } from "../../../data/eduModules";
 
 const props = defineProps<{
   module: EduModule;
+  loading?: boolean;
 }>();
 
 const categoryLabel = computed(() => {

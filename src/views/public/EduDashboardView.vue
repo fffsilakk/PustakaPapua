@@ -8,13 +8,16 @@
       </p>
     </header>
 
+    <!-- Filter kategori -->
     <ModuleFilterBar v-model="selectedCategory" />
 
+    <!-- Daftar modul -->
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
       <ModuleCard
         v-for="mod in filteredModules"
         :key="mod.id"
         :module="mod"
+        :loading="loadingId === mod.id"
         @offline-click="handleOfflineClick(mod.id)"
       />
     </div>
@@ -22,6 +25,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
 import { storeToRefs } from "pinia";
 import { useEduStore } from "../../stores/eduStore";
 import ModuleCard from "../../components/public/edu/ModuleCard.vue";
@@ -30,9 +34,12 @@ import ModuleFilterBar from "../../components/public/edu/ModuleFilterBar.vue";
 const eduStore = useEduStore();
 const { filteredModules, selectedCategory } = storeToRefs(eduStore);
 
-const handleOfflineClick = (id: string) => {
-  // sementara: langsung tandai tersedia offline
+const loadingId = ref<string | null>(null);
+
+const handleOfflineClick = async (id: string) => {
+  loadingId.value = id;
+  await new Promise((resolve) => setTimeout(resolve, 1200));
   eduStore.markOffline(id);
-  // nanti di sini kita hubungkan dengan logika IndexedDB + PWA
+  loadingId.value = null;
 };
 </script>

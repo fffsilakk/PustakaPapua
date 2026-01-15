@@ -69,6 +69,11 @@
   <section v-else class="max-w-4xl mx-auto px-4 py-8">
     <p class="text-sm text-slate-300">Modul tidak ditemukan.</p>
   </section>
+
+  <p class="text-[11px] text-slate-400 mt-1">
+    Setelah modul disimpan, konten ini tetap bisa dibuka meskipun perangkat
+    tidak terhubung internet.
+  </p>
 </template>
 
 <script setup lang="ts">
