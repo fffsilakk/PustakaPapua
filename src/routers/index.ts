@@ -1,37 +1,3 @@
-// // src/router/index.ts
-// import { createRouter, createWebHistory } from "vue-router";
-// import PublicLayout from "../layouts/PublicLayout.vue";
-
-// // Import komponen view Public
-// import BerandaView from "../views/public/BerandaView.vue";
-
-// // Import komponen view Services
-// import NotFound from "../services/NotFound.vue";
-// const routes = [
-//   {
-//     path: "/",
-//     component: PublicLayout,
-//     children: [
-//       {
-//         path: "",
-//         name: "beranda",
-//         component: BerandaView,
-//         meta: {
-//           title: "ナレDev | Beranda",
-//         },
-//       },
-//       {
-//         path: "/:pathMatch(.*)*",
-//         name: "not-found",
-//         component: NotFound,
-//         meta: {
-//           title: "404 - Tidak Ditemukan",
-//         },
-//       },
-//     ],
-//   },
-// ];
-
 import { createRouter, createWebHistory } from "vue-router";
 import PublicLayout from "../layouts/PublicLayout.vue";
 

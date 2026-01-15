@@ -1,7 +1,15 @@
 <template>
   <article
-    class="rounded-xl border border-slate-800 bg-slate-900/60 overflow-hidden flex flex-col"
+    class="relative rounded-xl border border-slate-800 bg-slate-900/60 overflow-hidden flex flex-col"
   >
+    <!-- Overlay saat OFFLINE & item BELUM tersimpan offline -->
+    <div
+      v-if="!isOnline && !item.isOfflineAvailable"
+      class="absolute inset-0 bg-slate-950/80 flex items-center justify-center text-[11px] text-slate-400 z-10 px-3 text-center"
+    >
+      Tidak tersedia di mode offline. Simpan terlebih dahulu saat online.
+    </div>
+
     <div class="h-32 bg-slate-800">
       <img
         v-if="item.imageUrl"
@@ -44,6 +52,11 @@
         <RouterLink
           :to="`/budaya/${item.id}`"
           class="text-xs px-3 py-1 rounded-md bg-slate-800 hover:bg-slate-700"
+          :class="
+            !isOnline && !item.isOfflineAvailable
+              ? 'pointer-events-none opacity-40'
+              : ''
+          "
         >
           Lihat Detail
         </RouterLink>
@@ -64,10 +77,14 @@
 import { computed } from "vue";
 import { RouterLink } from "vue-router";
 import type { CultureItem } from "../../../data/cultures";
+import { useOfflineStore } from "../../../stores/offlineStore";
 
 const props = defineProps<{
   item: CultureItem;
 }>();
+
+const offlineStore = useOfflineStore();
+const isOnline = computed(() => offlineStore.isOnline);
 
 const categoryLabel = computed(() => {
   switch (props.item.category) {

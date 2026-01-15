@@ -48,10 +48,15 @@
         </p>
         <button
           type="button"
-          class="text-xs px-4 py-2 rounded-md bg-emerald-500 text-slate-950 hover:bg-emerald-400"
+          class="text-xs px-4 py-2 rounded-md font-medium"
+          :class="
+            isOnline
+              ? 'bg-emerald-500 text-slate-950 hover:bg-emerald-400'
+              : 'bg-slate-800 text-slate-400 cursor-not-allowed'
+          "
           @click="handleCheckout"
         >
-          Simulasi Checkout
+          {{ isOnline ? "Simulasi Checkout" : "Checkout membutuhkan koneksi" }}
         </button>
       </div>
     </div>
@@ -59,11 +64,16 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from "vue";
 import { storeToRefs } from "pinia";
 import { useUmkmStore } from "../../stores/umkmStore";
+import { useOfflineStore } from "../../stores/offlineStore";
 
 const umkmStore = useUmkmStore();
 const { cartDetailed: items, cartTotal: total } = storeToRefs(umkmStore);
+
+const offlineStore = useOfflineStore();
+const isOnline = computed(() => offlineStore.isOnline);
 
 const formatPrice = (value: number) =>
   new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR" }).format(
@@ -77,6 +87,13 @@ const onQuantityChange = (id: string, event: Event) => {
 };
 
 const handleCheckout = () => {
+  if (!isOnline.value) {
+    alert(
+      "Checkout membutuhkan koneksi internet. Silakan coba lagi saat online."
+    );
+    return;
+  }
+
   alert(
     "Ini simulasi checkout untuk keperluan demo lomba. Di versi produksi akan dihubungkan ke payment gateway."
   );

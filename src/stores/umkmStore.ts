@@ -16,11 +16,30 @@ interface UmkmState {
   cart: CartItem[];
 }
 
+const CART_KEY = "spt-umkm-cart";
+
+function loadCart(): CartItem[] {
+  try {
+    const raw = localStorage.getItem(CART_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveCart(cart: CartItem[]) {
+  try {
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  } catch {
+    // abaikan error quota
+  }
+}
+
 export const useUmkmStore = defineStore("umkm", {
   state: (): UmkmState => ({
     products: umkmProducts,
     selectedCategory: "all",
-    cart: [],
+    cart: loadCart(),
   }),
   getters: {
     filteredProducts(state): UmkmProduct[] {
@@ -41,7 +60,7 @@ export const useUmkmStore = defineStore("umkm", {
         })
         .filter(Boolean) as (UmkmProduct & { quantity: number })[];
     },
-    cartTotal(_state): number {
+    cartTotal(): number {
       return this.cartDetailed.reduce(
         (sum, item) => sum + item.price * item.quantity,
         0
@@ -59,9 +78,11 @@ export const useUmkmStore = defineStore("umkm", {
       } else {
         this.cart.push({ productId, quantity: 1 });
       }
+      saveCart(this.cart);
     },
     removeFromCart(productId: string) {
       this.cart = this.cart.filter((c) => c.productId !== productId);
+      saveCart(this.cart);
     },
     updateQuantity(productId: string, quantity: number) {
       if (quantity <= 0) {
@@ -69,10 +90,14 @@ export const useUmkmStore = defineStore("umkm", {
         return;
       }
       const item = this.cart.find((c) => c.productId === productId);
-      if (item) item.quantity = quantity;
+      if (item) {
+        item.quantity = quantity;
+        saveCart(this.cart);
+      }
     },
     clearCart() {
       this.cart = [];
+      saveCart(this.cart);
     },
   },
 });

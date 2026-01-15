@@ -17,62 +17,76 @@
       </p>
     </header>
 
+    <!-- Pesan jika offline dan belum tersimpan -->
     <div
-      class="rounded-lg overflow-hidden border border-slate-800 bg-slate-900/60 mb-4"
+      v-if="!isOnline && !item.isOfflineAvailable"
+      class="rounded-lg border border-slate-800 bg-slate-900/80 px-4 py-3 mb-4 text-xs text-slate-300"
     >
-      <img
-        v-if="item.imageUrl"
-        :src="item.imageUrl"
-        :alt="item.name"
-        class="w-full h-56 object-cover"
-      />
+      Konten ini belum disimpan untuk offline. Silakan akses kembali saat online
+      lalu klik
+      <span class="text-emerald-300">"Simpan Offline"</span>
+      agar dapat dibuka tanpa koneksi internet.
     </div>
 
-    <section
-      class="mb-4 flex flex-wrap gap-3 items-center justify-between rounded-lg border border-slate-800 bg-slate-900/60 px-4 py-3"
-    >
-      <div class="text-xs text-slate-300 max-w-md">
-        Melalui dokumentasi digital seperti ini, generasi muda bisa mengenal dan
-        melestarikan budaya lokal meski tinggal jauh dari pusat kota.
+    <!-- Konten utama hanya muncul jika online, atau sudah tersimpan offline -->
+    <div v-else>
+      <div
+        class="rounded-lg overflow-hidden border border-slate-800 bg-slate-900/60 mb-4"
+      >
+        <img
+          v-if="item.imageUrl"
+          :src="item.imageUrl"
+          :alt="item.name"
+          class="w-full h-56 object-cover"
+        />
       </div>
-      <div class="flex items-center gap-3">
-        <button
-          type="button"
-          class="text-[11px] px-3 py-1 rounded-md border"
-          :class="
-            item.isFavorite
-              ? 'border-emerald-400 text-emerald-300'
-              : 'border-slate-600 text-slate-300 hover:border-emerald-400'
-          "
-          @click="toggleFavorite"
-        >
-          {{ item.isFavorite ? "Hapus dari Favorit" : "Tambah ke Favorit" }}
-        </button>
-        <button
-          type="button"
-          class="text-[11px] px-3 py-1 rounded-md border border-emerald-500 text-emerald-300 hover:bg-emerald-500/10"
-          @click="markOffline"
-        >
-          {{
-            item.isOfflineAvailable
-              ? "Perbarui Konten Offline"
-              : "Simpan Offline"
-          }}
-        </button>
-      </div>
-    </section>
 
-    <section class="rounded-lg border border-slate-800 bg-slate-900/60 p-4">
-      <div class="space-y-3">
-        <p
-          v-for="(paragraph, idx) in item.description"
-          :key="idx"
-          class="text-sm text-slate-200 leading-relaxed"
-        >
-          {{ paragraph }}
-        </p>
-      </div>
-    </section>
+      <section
+        class="mb-4 flex flex-wrap gap-3 items-center justify-between rounded-lg border border-slate-800 bg-slate-900/60 px-4 py-3"
+      >
+        <div class="text-xs text-slate-300 max-w-md">
+          Melalui dokumentasi digital seperti ini, generasi muda bisa mengenal
+          dan melestarikan budaya lokal meski tinggal jauh dari pusat kota.
+        </div>
+        <div class="flex items-center gap-3">
+          <button
+            type="button"
+            class="text-[11px] px-3 py-1 rounded-md border"
+            :class="
+              item.isFavorite
+                ? 'border-emerald-400 text-emerald-300'
+                : 'border-slate-600 text-slate-300 hover:border-emerald-400'
+            "
+            @click="toggleFavorite"
+          >
+            {{ item.isFavorite ? "Hapus dari Favorit" : "Tambah ke Favorit" }}
+          </button>
+          <button
+            type="button"
+            class="text-[11px] px-3 py-1 rounded-md border border-emerald-500 text-emerald-300 hover:bg-emerald-500/10"
+            @click="markOffline"
+          >
+            {{
+              item.isOfflineAvailable
+                ? "Perbarui Konten Offline"
+                : "Simpan Offline"
+            }}
+          </button>
+        </div>
+      </section>
+
+      <section class="rounded-lg border border-slate-800 bg-slate-900/60 p-4">
+        <div class="space-y-3">
+          <p
+            v-for="(paragraph, idx) in item.description"
+            :key="idx"
+            class="text-sm text-slate-200 leading-relaxed"
+          >
+            {{ paragraph }}
+          </p>
+        </div>
+      </section>
+    </div>
   </section>
 
   <section v-else class="max-w-4xl mx-auto px-4 py-8">
@@ -84,10 +98,14 @@
 import { computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useCultureStore } from "../../stores/cultureStore";
+import { useOfflineStore } from "../../stores/offlineStore";
 
 const route = useRoute();
 const router = useRouter();
 const cultureStore = useCultureStore();
+const offlineStore = useOfflineStore();
+
+const isOnline = computed(() => offlineStore.isOnline);
 
 const itemId = computed(() => route.params.id as string);
 const item = computed(() => cultureStore.getById(itemId.value));
@@ -120,6 +138,6 @@ const toggleFavorite = () => {
 const markOffline = () => {
   if (!item.value) return;
   cultureStore.markOffline(item.value.id);
-  // nanti di sini integrasi download konten ke cache offline
+  // di sini nanti bisa ditambah logika simpan konten ke cache/IndexedDB
 };
 </script>

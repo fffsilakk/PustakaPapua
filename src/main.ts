@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
+import { useOfflineStore } from "./stores/offlineStore";
 import "./style.css";
 import "preline";
 import App from "./App.vue";
@@ -14,6 +15,9 @@ const app = createApp(App);
 app.use(router);
 app.mount("#app");
 app.use(createPinia());
+const offlineStore = useOfflineStore();
+offlineStore.initListener();
+
 // app.component("BackButton", BackButton);
 // app.component("RightSidebar", RightSidebar);
 // app.component("LeftSidebar", LeftSidebar);

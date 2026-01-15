@@ -19,7 +19,7 @@ export const umkmProducts: UmkmProduct[] = [
     origin: "Wamena, Papua",
     shortDescription:
       "Kopi arabika khas pegunungan Papua dengan cita rasa lembut.",
-    imageUrl: "/assets/images/umkm/kopi-wamena.jpg",
+    imageUrl: "/umkm/kopi-wamena.jpg",
   },
   {
     id: "noken-rajut-sentani",
@@ -29,7 +29,7 @@ export const umkmProducts: UmkmProduct[] = [
     origin: "Sentani, Papua",
     shortDescription:
       "Tas tradisional Papua yang dirajut tangan oleh mama-mama Papua.",
-    imageUrl: "/assets/images/umkm/noken-sentani.jpg",
+    imageUrl: "/umkm/noken.jpg",
   },
   {
     id: "ubi-jalar-ungu-1kg",
@@ -39,6 +39,6 @@ export const umkmProducts: UmkmProduct[] = [
     origin: "Lembah Baliem",
     shortDescription:
       "Ubi jalar ungu khas pegunungan, bisa jadi bahan pangan lokal bergizi.",
-    imageUrl: "/assets/images/umkm/ubi-ungu.jpg",
+    imageUrl: "/umkm/ubi-ungu.jpg",
   },
 ];

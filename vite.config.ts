@@ -14,10 +14,10 @@ export default defineConfig({
         enabled: true, // biar PWA aktif juga di mode dev
       },
       includeAssets: [
-        "favicon.ico",
+        // "favicon.png",
         "apple-touch-icon.png",
-        "pwa-192x192.png",
-        "pwa-512x512.png",
+        // "pwa-192x192.png",
+        // "pwa-512x512.jpg",
       ],
       manifest: {
         name: "Smart Pustaka Timur",
@@ -29,16 +29,16 @@ export default defineConfig({
         display: "standalone",
         start_url: "/",
         icons: [
-          {
-            src: "pwa-192x192.png",
-            sizes: "192x192",
-            type: "image/png",
-          },
-          {
-            src: "pwa-512x512.png",
-            sizes: "512x512",
-            type: "image/png",
-          },
+          // {
+          //   src: "pwa-192x192.png",
+          //   sizes: "192x192",
+          //   type: "image/png",
+          // },
+          // {
+          //   src: "pwa-512x512.jpg",
+          //   sizes: "512x512",
+          //   type: "image/jpg",
+          // },
         ],
       },
       workbox: {

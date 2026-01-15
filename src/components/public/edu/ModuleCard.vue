@@ -1,7 +1,15 @@
 <template>
   <article
-    class="rounded-xl border border-slate-800 bg-slate-900/60 p-4 flex flex-col gap-2"
+    class="relative rounded-xl border border-slate-800 bg-slate-900/60 p-4 flex flex-col gap-2"
   >
+    <!-- Overlay saat OFFLINE & modul BELUM tersimpan offline -->
+    <div
+      v-if="!isOnline && !module.isOfflineAvailable"
+      class="absolute inset-0 bg-slate-950/80 flex items-center justify-center text-[11px] text-slate-400 z-10"
+    >
+      Tidak tersedia di mode offline
+    </div>
+
     <header class="flex items-start justify-between gap-2">
       <div>
         <h3 class="font-semibold text-sm mb-1">
@@ -32,6 +40,11 @@
       <RouterLink
         :to="`/belajar/${module.id}`"
         class="text-xs px-3 py-1 rounded-md bg-emerald-500 text-slate-950 font-medium hover:bg-emerald-400"
+        :class="
+          !isOnline && !module.isOfflineAvailable
+            ? 'pointer-events-none opacity-40'
+            : ''
+        "
       >
         Buka Modul
       </RouterLink>
@@ -58,11 +71,15 @@
 import { computed } from "vue";
 import { RouterLink } from "vue-router";
 import type { EduModule } from "../../../data/eduModules";
+import { useOfflineStore } from "../../../stores/offlineStore";
 
 const props = defineProps<{
   module: EduModule;
   loading?: boolean;
 }>();
+
+const offlineStore = useOfflineStore();
+const isOnline = computed(() => offlineStore.isOnline);
 
 const categoryLabel = computed(() => {
   switch (props.module.category) {

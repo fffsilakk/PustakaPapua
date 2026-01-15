@@ -10,11 +10,37 @@ interface EduState {
   selectedCategory: EduCategory | "all";
 }
 
+const OFFLINE_KEY = "spt-offline-edu-ids";
+
+function loadOfflineIds(): string[] {
+  try {
+    const raw = localStorage.getItem(OFFLINE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveOfflineIds(ids: string[]) {
+  try {
+    localStorage.setItem(OFFLINE_KEY, JSON.stringify(ids));
+  } catch {
+    // abaikan error quota, dll untuk sementara
+  }
+}
+
 export const useEduStore = defineStore("edu", {
-  state: (): EduState => ({
-    modules: eduModules,
-    selectedCategory: "all",
-  }),
+  state: (): EduState => {
+    const offlineIds = loadOfflineIds();
+
+    return {
+      modules: eduModules.map((m) => ({
+        ...m,
+        isOfflineAvailable: offlineIds.includes(m.id),
+      })),
+      selectedCategory: "all",
+    };
+  },
   getters: {
     filteredModules(state): EduModule[] {
       if (state.selectedCategory === "all") return state.modules;
@@ -32,6 +58,12 @@ export const useEduStore = defineStore("edu", {
       this.modules = this.modules.map((m) =>
         m.id === id ? { ...m, isOfflineAvailable: true } : m
       );
+
+      const offlineIds = this.modules
+        .filter((m) => m.isOfflineAvailable)
+        .map((m) => m.id);
+
+      saveOfflineIds(offlineIds);
     },
   },
 });
