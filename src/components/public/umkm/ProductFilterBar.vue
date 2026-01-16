@@ -26,22 +26,22 @@
 </template> -->
 
 <script setup lang="ts">
-type FilterValue = "all" | "makanan" | "kerajinan" | "kopi";
+// type FilterValue = "all" | "makanan" | "kerajinan" | "kopi";
 
-defineProps<{
-  modelValue: FilterValue;
-}>();
+// defineProps<{
+//   modelValue: FilterValue;
+// }>();
 
-const items: { value: FilterValue; label: string }[] = [
-  { value: "all", label: "Semua Produk" },
-  { value: "makanan", label: "Makanan" },
-  { value: "kerajinan", label: "Kerajinan" },
-  { value: "kopi", label: "Kopi Papua" },
-];
+// const items: { value: FilterValue; label: string }[] = [
+//   { value: "all", label: "Semua Produk" },
+//   { value: "makanan", label: "Makanan" },
+//   { value: "kerajinan", label: "Kerajinan" },
+//   { value: "kopi", label: "Kopi Papua" },
+// ];
 
-defineEmits<{
-  (e: "update:modelValue", value: FilterValue): void;
-}>();
+// defineEmits<{
+//   (e: "update:modelValue", value: FilterValue): void;
+// }>();
 </script>
 
 <style scoped>
