@@ -35,13 +35,13 @@
         >
           <!-- Logo Badge -->
           <div
-            class="flex h-9 w-10 items-center justify-center rounded-1xl shadow-md shadow-emerald-500/30 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-emerald-500/50 group-hover:rotate-6"
+            class="flex h-9 w-13 items-center justify-center transition-all duration-300"
           >
-            <!-- <img
-              src="/Logo/Logo_NarDev.png"
+            <img
+              src="/Logo/Logoo.png"
               alt="NareDev"
-              class="h-10 w-auto transition-transform hover:rotate-6"
-            /> -->
+              class="h-8 w-full transition-transform hover:rotate-6"
+            />
           </div>
           <span
             class="bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent dark:from-emerald-400 dark:to-cyan-400"

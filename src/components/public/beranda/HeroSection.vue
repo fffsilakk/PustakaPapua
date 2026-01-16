@@ -94,12 +94,36 @@
                 <div
                   class="aspect-video bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border border-emerald-100 dark:border-emerald-800/30 flex items-center justify-center"
                 >
-                  <span class="text-2xl">📖</span>
+                  <!-- <span class="text-2xl">📖</span> -->
+                  <div
+                    class="flex h-15 w-15 items-center justify-center transition-all duration-300"
+                  >
+                    <img
+                      src="/Logo/Logoo.png"
+                      alt="NareDev"
+                      class="h-10 w-full transition-transform hover:rotate-6"
+                    />
+                    <h3>Pustaka Papua</h3>
+                  </div>
                 </div>
                 <div
                   class="aspect-video bg-cyan-50 dark:bg-cyan-900/20 rounded-lg border border-cyan-100 dark:border-cyan-800/30 flex items-center justify-center"
                 >
-                  <span class="text-2xl">🏺</span>
+                  <div
+                    class="flex h-full w-full items-center justify-center transition-all duration-300"
+                  >
+                    <div
+                      class="flex h-15 w-15 items-center justify-center transition-all duration-300"
+                    >
+                      <img
+                        src="/assets/cendrawasi.png"
+                        alt="NareDev"
+                        class="h-10 w-full transition-transform hover:rotate-6"
+                      />
+                      <h3>Cendrawasih</h3>
+                    </div>
+                  </div>
+                  <!-- <span class="text-2xl">🏺</span> -->
                 </div>
               </div>
               <div class="mt-4 space-y-2">
