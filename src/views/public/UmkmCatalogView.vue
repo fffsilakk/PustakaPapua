@@ -34,15 +34,38 @@ const { filteredProducts, selectedCategory } = storeToRefs(umkmStore);
     <ProductFilterBar v-model="selectedCategory" />
     <UmkmSearchBar v-model="searchQuery" />
 
+    <!-- Grid produk: hanya tampilkan visibleProducts -->
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
       <ProductCard
-        v-for="product in filteredProducts"
+        v-for="product in visibleProducts"
         :key="product.id"
         :product="product"
         @add-to-cart="umkmStore.addToCart(product.id)"
         @show-detail="openDetail"
       />
     </div>
+
+    <!-- Tombol Lihat selengkapnya -->
+    <div
+      v-if="visibleCount < filteredProducts.length"
+      class="flex justify-center mt-6"
+    >
+      <button
+        type="button"
+        class="px-4 py-2 rounded-full text-xs font-semibold border border-slate-700 text-slate-200 hover:border-emerald-400 hover:text-emerald-300"
+        @click="loadMore"
+      >
+        Lihat selengkapnya
+      </button>
+    </div>
+
+    <!-- Info jika semua sudah tampil -->
+    <p
+      v-else-if="filteredProducts.length > 0"
+      class="mt-6 text-center text-[11px] text-slate-500"
+    >
+      Semua produk sudah ditampilkan.
+    </p>
 
     <UmkmStatsStrip class="mt-10" />
     <UmkmStoryStrip class="mt-10" />
@@ -116,7 +139,7 @@ const { filteredProducts, selectedCategory } = storeToRefs(umkmStore);
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import { storeToRefs } from "pinia";
 import { useUmkmStore } from "../../stores/umkmStore";
 import UmkmHeader from "../../components/public/umkm/UmkmHeader.vue";
@@ -131,7 +154,27 @@ const umkmStore = useUmkmStore();
 const { filteredProducts, selectedCategory, searchQuery } =
   storeToRefs(umkmStore);
 
-// state modal
+// ==== LOGIKA LIHAT SELENGKAPNYA (6 per batch) ====
+const PAGE_SIZE = 6;
+const visibleCount = ref(PAGE_SIZE);
+
+const visibleProducts = computed(() =>
+  filteredProducts.value.slice(0, visibleCount.value)
+);
+
+const loadMore = () => {
+  visibleCount.value = Math.min(
+    visibleCount.value + PAGE_SIZE,
+    filteredProducts.value.length
+  );
+};
+
+// reset ke 6 setiap filter / search berubah
+watch([filteredProducts, selectedCategory, searchQuery], () => {
+  visibleCount.value = PAGE_SIZE;
+});
+
+// ==== STATE MODAL DETAIL ====
 const showDetailModal = ref(false);
 const activeProduct = ref<UmkmProduct | null>(null);
 

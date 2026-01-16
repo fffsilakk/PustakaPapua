@@ -26,16 +26,16 @@
         <p
           class="text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-tight"
         >
-          Komunitas Pelajar Papua
+          Komunitas Papua
         </p>
       </div>
 
       <h1
         class="mt-6 text-center md:text-left text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-slate-900 dark:text-white"
       >
-        Pustaka Papua, <br />
+        Jelajahi,<br />
         <span class="text-emerald-600 dark:text-emerald-400"
-          >Belajar Offline.</span
+          >Pustaka Papua.</span
         >
       </h1>
 

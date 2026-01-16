@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="mb-8 overflow-x-auto no-scrollbar">
     <div
       class="inline-flex bg-slate-100 dark:bg-slate-800/50 p-1.5 rounded-[20px] border border-slate-200 dark:border-slate-800"
@@ -23,7 +23,7 @@
       </button>
     </div>
   </div>
-</template>
+</template> -->
 
 <script setup lang="ts">
 type FilterValue = "all" | "makanan" | "kerajinan" | "kopi";
