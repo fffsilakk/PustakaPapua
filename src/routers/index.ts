@@ -32,7 +32,12 @@ const routes = [
         props: true,
       },
       { path: "/umkm", name: "UmkmCatalog", component: UmkmCatalogView },
-
+      {
+        path: "/umkm/:id",
+        name: "UmkmProductDetail",
+        component: UmkmProductDetailView,
+        props: true,
+      },
       {
         path: "/budaya/biwar-sang-penakluk-naga",
         name: "biwar-sang-penakluk-naga",
