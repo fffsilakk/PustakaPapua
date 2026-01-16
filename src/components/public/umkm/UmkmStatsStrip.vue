@@ -23,7 +23,6 @@
         ></div>
 
         <div class="flex flex-col items-center min-w-[120px]">
-          <!-- <span class="text-2xl mb-1">📦</span> -->
           <h4 class="text-xl font-bold text-slate-800 dark:text-slate-100">
             {{ totalCategories }}
           </h4>
@@ -39,7 +38,6 @@
         ></div>
 
         <div class="flex flex-col items-center min-w-[120px]">
-          <!-- <span class="text-2xl mb-1">💬</span> -->
           <h4 class="text-xl font-bold text-slate-800 dark:text-slate-100">
             Online
           </h4>

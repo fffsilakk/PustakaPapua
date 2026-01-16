@@ -8,7 +8,6 @@ import EduModuleDetailView from "../views/public/EduModuleDetailView.vue";
 import CultureListView from "../views/public/CultureListView.vue";
 import CultureDetailView from "../views/public/CultureDetailView.vue";
 import UmkmCatalogView from "../views/public/UmkmCatalogView.vue";
-import UmkmProductDetailView from "../views/public/UmkmProductDetailView.vue";
 import CartView from "../views/public/CartView.vue";
 
 const routes = [
@@ -32,12 +31,6 @@ const routes = [
         props: true,
       },
       { path: "/umkm", name: "UmkmCatalog", component: UmkmCatalogView },
-      {
-        path: "/umkm/:id",
-        name: "UmkmProductDetail",
-        component: UmkmProductDetailView,
-        props: true,
-      },
       {
         path: "/budaya/biwar-sang-penakluk-naga",
         name: "biwar-sang-penakluk-naga",

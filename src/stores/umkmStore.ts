@@ -87,6 +87,9 @@ export const useUmkmStore = defineStore("umkm", {
         0
       );
     },
+    getById: (state) => {
+      return (id: string) => state.products.find((p) => p.id === id) ?? null;
+    },
   },
 
   actions: {

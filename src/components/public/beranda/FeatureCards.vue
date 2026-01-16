@@ -142,7 +142,7 @@
         <div
           class="mt-8 flex items-center gap-2 text-sm font-bold text-cyan-600 dark:text-cyan-400"
         >
-          <span>Jelajahi Galeri</span>
+          <span>Jelajahi Budaya</span>
           <svg
             class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-2"
             fill="none"
