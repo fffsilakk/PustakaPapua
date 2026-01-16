@@ -1,33 +1,3 @@
-<!-- <template>
-  <section class="max-w-6xl mx-auto px-4 py-8">
-    <UmkmHeader />
-    <ProductFilterBar v-model="selectedCategory" />
-    <UmkmSearchBar v-model="umkmStore.searchQuery" />
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-      <ProductCard
-        v-for="product in filteredProducts"
-        :key="product.id"
-        :product="product"
-        @add-to-cart="umkmStore.addToCart(product.id)"
-      />
-    </div>
-    <UmkmStatsStrip class="mt-10" />
-    <UmkmStoryStrip class="mt-10" />
-  </section>
-</template>
-
-<script setup lang="ts">
-import { storeToRefs } from "pinia";
-import { useUmkmStore } from "../../stores/umkmStore";
-import UmkmHeader from "../../components/public/umkm/UmkmHeader.vue";
-import ProductCard from "../../components/public/umkm/ProductCard.vue";
-import ProductFilterBar from "../../components/public/umkm/ProductFilterBar.vue";
-import UmkmSearchBar from "../../components/public/umkm/UmkmSearchBar.vue";
-import UmkmStatsStrip from "../../components/public/umkm/UmkmStatsStrip.vue";
-
-const umkmStore = useUmkmStore();
-const { filteredProducts, selectedCategory } = storeToRefs(umkmStore);
-</script> -->
 <template>
   <section class="max-w-6xl mx-auto px-4 py-8">
     <UmkmHeader />
@@ -52,7 +22,7 @@ const { filteredProducts, selectedCategory } = storeToRefs(umkmStore);
     >
       <button
         type="button"
-        class="px-4 py-2 rounded-full text-xs font-semibold border border-slate-700 text-slate-200 hover:border-emerald-400 hover:text-emerald-300"
+        class="px-4 cursor-pointer py-2 rounded-full text-xs font-semibold border border-emerald-400 hover:border-emerald-400 text-emerald-600 hover:text-emerald-400 transition-all"
         @click="loadMore"
       >
         Lihat selengkapnya

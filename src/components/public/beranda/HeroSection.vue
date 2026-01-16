@@ -100,10 +100,15 @@
                   >
                     <img
                       src="/Logo/Logoo.png"
-                      alt="NareDev"
-                      class="h-10 w-full transition-transform hover:rotate-6"
+                      alt="Logo"
+                      class="h-10 w-full transition-transform hover:rotate-3"
                     />
-                    <h3>Pustaka Papua</h3>
+                    <span
+                      class="bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent dark:from-emerald-400 dark:to-cyan-400"
+                    >
+                      Pustaka
+                      <span class="block -mt-2"> Papua </span>
+                    </span>
                   </div>
                 </div>
                 <div

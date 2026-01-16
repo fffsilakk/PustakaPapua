@@ -97,11 +97,11 @@
       >
         <RouterLink
           :to="`/budaya/${item.id}`"
-          class="text-[10px] font-black uppercase tracking-widest px-5 py-2.5 rounded-2xl transition-all shadow-sm flex items-center gap-2"
+          class="text-[10px] px-5 py-2.5 rounded-xl text-xs font-medium transition-all shadow-sm flex items-center gap-2"
           :class="
             !isOnline && !item.isOfflineAvailable
               ? 'bg-slate-100 text-slate-300 pointer-events-none'
-              : 'bg-slate-900 text-white hover:bg-emerald-600 hover:shadow-lg hover:shadow-emerald-200 dark:bg-white dark:text-slate-900 dark:hover:bg-emerald-400'
+              : 'bg-emerald-500 text-white hover:bg-emerald-600 hover:shadow-sm hover:shadow-emerald-200  dark:hover:bg-emerald-400'
           "
         >
           Lihat Detail<span>→</span>
@@ -109,14 +109,14 @@
 
         <button
           type="button"
-          class="flex items-center gap-2 transition-all group/btn px-3 py-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50"
+          class="flex items-center gap-2 cursor-pointer transition-all group/btn px-3 py-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50"
           @click.stop="$emit('offline-click')"
         >
           <div
             :class="
               item.isOfflineAvailable
                 ? 'text-emerald-500'
-                : 'text-slate-300 dark:text-slate-600 group-hover/btn:text-emerald-400'
+                : 'text-slate-400 dark:text-slate-600 group-hover/btn:text-emerald-400'
             "
           >
             <svg
@@ -135,7 +135,7 @@
           <span
             class="text-[9px] font-black uppercase tracking-widest"
             :class="
-              item.isOfflineAvailable ? 'text-emerald-500' : 'text-slate-400'
+              item.isOfflineAvailable ? 'text-emerald-500' : 'text-slate-500'
             "
           >
             {{ item.isOfflineAvailable ? "Tersimpan" : "Simpan" }}

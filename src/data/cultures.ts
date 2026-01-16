@@ -53,7 +53,33 @@ export const cultures: CultureItem[] = [
       "Kisah pemuda berani asal Papua yang pantang menyerah menghadapi segala rintangan.",
     description: ["..."],
     imageUrl:
-      "https://images.unsplash.com/photo-1544084944-15269ec7b5a0?q=80&w=600",
+      "https://indonesiakaya.com/wp-content/uploads/2024/11/IK_Papua_Header.jpeg",
+    isOfflineAvailable: true,
+    isFavorite: false,
+  },
+  {
+    id: "legenda-cobo-pui", // ID diperbaiki
+    name: "Legenda Cabo Pui dan Batu Ajaib",
+    category: "cerita",
+    region: "Mimika",
+    shortDescription:
+      "Legenda Cabo Pui, pemuda Papua yang rela mengorbankan segalanya demi menyelamatkan kampungnya dari kelaparan.",
+    description: ["..."],
+    imageUrl:
+      "https://indonesiakaya.com/wp-content/uploads/2025/07/download.jpeg",
+    isOfflineAvailable: true,
+    isFavorite: false,
+  },
+  {
+    id: "empat-raja", // ID diperbaiki
+    name: "Empat Raja",
+    category: "cerita",
+    region: "Mimika",
+    shortDescription:
+      "Berawal dari penemuan enam butir telur yang berkembang menjadi empat pulau tersohor di tanah Papua, Raja Ampat.",
+    description: ["..."],
+    imageUrl:
+      "https://indonesiakaya.com/wp-content/uploads/2023/09/IK_Papua_Header.jpeg",
     isOfflineAvailable: true,
     isFavorite: false,
   },

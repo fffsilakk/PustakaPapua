@@ -47,7 +47,7 @@
 
         <div class="flex flex-wrap justify-center lg:justify-start gap-6 pt-2">
           <div class="flex items-center gap-2">
-            <span class="text-lg">🎬</span>
+            <!-- <span class="text-lg">🎬</span> -->
             <div class="text-left">
               <p
                 class="text-xs font-black text-slate-900 dark:text-white leading-none"
@@ -62,7 +62,7 @@
           <div
             class="flex items-center gap-2 border-l border-slate-200 dark:border-slate-800 pl-6"
           >
-            <span class="text-lg">🌍</span>
+            <!-- <span class="text-lg">🌍</span> -->
             <div class="text-left">
               <p
                 class="text-xs font-black text-slate-900 dark:text-white leading-none"

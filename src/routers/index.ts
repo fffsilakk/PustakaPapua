@@ -9,6 +9,7 @@ import CultureListView from "../views/public/CultureListView.vue";
 import CultureDetailView from "../views/public/CultureDetailView.vue";
 import UmkmCatalogView from "../views/public/UmkmCatalogView.vue";
 import CartView from "../views/public/CartView.vue";
+import test from "../components/public/culture/ceritaRakyat/test.vue";
 
 const routes = [
   {
@@ -41,7 +42,30 @@ const routes = [
         },
         props: true,
       },
+      {
+        path: "/budaya/empat-raja",
+        name: "empat-raja",
+        component: () =>
+          import("../components/public/culture/ceritaRakyat/EmpatRaja.vue"),
+        meta: {
+          title: "Cerita Rakyat | empat-raja",
+        },
+        props: true,
+      },
+      {
+        path: "/budaya/legenda-cobo-pui",
+        name: "legenda-cobo-pui",
+        component: () =>
+          import(
+            "../components/public/culture/ceritaRakyat/LegendaCaboPui.vue"
+          ),
+        meta: {
+          title: "Cerita Rakyat | legenda-cobo-pui",
+        },
+        props: true,
+      },
       { path: "/cart", name: "Cart", component: CartView },
+      { path: "/test", name: "test", component: test },
     ],
   },
 ];

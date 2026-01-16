@@ -15,32 +15,23 @@
       </div>
 
       <div class="relative z-10 flex flex-col items-center gap-6">
-        <!-- Logo with Scale Animation -->
-        <div class="relative">
-          <!-- <img
-            src="/Logo/Logo_NarDev.png"
-            alt="NarDev Logo"
-            class="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 animate-scale-bounce"
-          /> -->
-          <!-- Glow Effect -->
+        <a
+          class="flex items-center gap-1 font-bold text-xl text-black focus:outline-none focus:opacity-80 dark:text-white group transition-all duration-300 hover:scale-105"
+          aria-label="Brand"
+        >
+          <!-- Logo Badge -->
           <div
-            class="absolute inset-0 bg-emerald-400/20 dark:bg-emerald-500/30 rounded-full blur-2xl animate-pulse"
-          ></div>
-        </div>
-
-        <div class="text-center space-y-2">
-          <h2
-            class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 dark:text-white animate-fade-in-up"
+            class="flex h-20 w-15 items-center justify-center transition-all duration-300"
           >
-            PustakaPapua
-          </h2>
-          <!-- <p
-            class="text-sm sm:text-base text-gray-600 dark:text-gray-400 animate-fade-in-up-delay"
+            <img src="/Logo/Logoo.png" alt="Logo" class="h-10 w-full" />
+          </div>
+          <span
+            class="bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent dark:from-emerald-400 dark:to-cyan-400"
           >
-            Komunitas Pelajar Mahasiswa Yahukimo
-          </p> -->
-        </div>
-
+            Pustaka
+            <span class="block -mt-2"> Papua </span>
+          </span>
+        </a>
         <div class="flex gap-2 mt-4">
           <div
             class="w-3 h-3 bg-emerald-600 dark:bg-emerald-400 rounded-full animate-bounce"

@@ -39,7 +39,7 @@
           >
             <img
               src="/Logo/Logoo.png"
-              alt="NareDev"
+              alt="Logo"
               class="h-8 w-full transition-transform hover:rotate-6"
             />
           </div>
