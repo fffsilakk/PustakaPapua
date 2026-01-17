@@ -206,6 +206,20 @@
                   Rumah Adat
                 </a>
               </router-link>
+              <router-link to="/upacara">
+                <a
+                  class="p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300"
+                >
+                  Upacara Adat
+                </a>
+              </router-link>
+              <router-link to="/senjataTradisional">
+                <a
+                  class="p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300"
+                >
+                  Senjata Tradisional
+                </a>
+              </router-link>
             </div>
           </div>
         </div>
@@ -435,6 +449,20 @@
               >
                 <router-link to="/rumahAdat" @click="closeMobileMenu"
                   >Rumah Adat</router-link
+                >
+              </li>
+              <li
+                class="px-2 font-medium py-2 text-sm text-gray-800 hover:text-emerald-600 dark:text-neutral-200"
+              >
+                <router-link to="/upacara" @click="closeMobileMenu"
+                  >Upacara Adat</router-link
+                >
+              </li>
+              <li
+                class="px-2 font-medium py-2 text-sm text-gray-800 hover:text-emerald-600 dark:text-neutral-200"
+              >
+                <router-link to="/senjataTradisional" @click="closeMobileMenu"
+                  >Senjata Tradisional</router-link
                 >
               </li>
             </ul>
