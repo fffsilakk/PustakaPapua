@@ -1,4 +1,3 @@
-<!-- src/components/public/tentang papua/upacara/UpacaraListGrid.vue -->
 <script setup lang="ts">
 import { ref } from "vue";
 import { storeToRefs } from "pinia";
@@ -25,138 +24,180 @@ const handleCloseDetail = () => {
 
 <template>
   <section
-    class="bg-slate-50/60 px-4 pb-16 pt-4 sm:px-6 lg:px-8 dark:bg-slate-950/60"
+    class="min-h-[400px] bg-slate-50/50 px-4 pb-20 pt-8 dark:bg-slate-950/50"
   >
-    <!-- Judul section kecil -->
-    <div class="mx-auto mb-6 flex max-w-6xl items-center justify-between gap-3">
-      <div>
-        <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-50">
-          Daftar upacara adat
+    <div
+      v-motion
+      :initial="{ opacity: 0, x: -15 }"
+      :enter="{ opacity: 1, x: 0 }"
+      class="mx-auto mb-10 flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-end sm:justify-between px-2"
+    >
+      <div class="space-y-1">
+        <h2
+          class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-3xl"
+        >
+          Daftar Upacara Adat
         </h2>
         <p class="text-sm text-slate-500 dark:text-slate-400">
-          Pilih salah satu upacara untuk melihat cerita dan maknanya.
+          Pilih salah satu tradisi untuk mendalami makna dan nilai filosofisnya.
         </p>
       </div>
-      <p class="text-xs text-slate-500 dark:text-slate-400">
-        {{ filtered.length }} upacara
-      </p>
+
+      <div
+        class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-1.5 text-[11px] font-bold text-slate-600 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400"
+      >
+        <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+        {{ filtered.length }} Tradisi Ditemukan
+      </div>
     </div>
 
-    <!-- Grid kartu -->
-    <div
-      class="mx-auto grid max-w-6xl gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:gap-6"
-    >
+    <div class="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
       <UpacaraCard
-        v-for="upacara in filtered"
+        v-for="(upacara, index) in filtered"
         :key="upacara.id"
+        v-motion
+        :initial="{ opacity: 0, y: 20 }"
+        :enter="{ opacity: 1, y: 0, transition: { delay: index * 80 } }"
         :upacara="upacara"
         @open-detail="handleOpenDetail"
       />
-      <!-- @toggle-favorite="upacaraStore.toggleFavorite" -->
     </div>
 
-    <!-- Empty state -->
     <div
       v-if="filtered.length === 0"
-      class="mx-auto mt-10 flex max-w-lg flex-col items-center rounded-2xl border border-dashed border-slate-300 bg-white/80 px-6 py-10 text-center dark:border-slate-700 dark:bg-slate-900/80"
+      v-motion
+      :initial="{ opacity: 0 }"
+      :enter="{ opacity: 1 }"
+      class="mx-auto mt-20 flex max-w-md flex-col items-center rounded-3xl border border-dashed border-slate-300 bg-white/50 p-12 text-center dark:border-slate-700 dark:bg-slate-900/50"
     >
-      <p class="text-sm font-semibold text-slate-700 dark:text-slate-100">
-        Belum ada upacara yang cocok dengan filter.
-      </p>
-      <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
-        Coba ubah kata kunci atau kategori yang digunakan.
+      <div class="mb-4 text-4xl opacity-50">🏮</div>
+      <h3 class="text-base font-bold text-slate-800 dark:text-white">
+        Pencarian Tidak Cocok
+      </h3>
+      <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">
+        Kami tidak menemukan upacara adat dengan kata kunci tersebut. Coba cari
+        dengan nama suku atau wilayah lain.
       </p>
     </div>
 
-    <!-- Modal detail -->
     <Teleport to="body">
-      <transition name="fade">
+      <Transition name="modal">
         <div
           v-if="showDetail && selectedUpacara"
-          class="fixed inset-0 z-40 flex items-center justify-center bg-slate-900/70 px-4"
-          @click.self="handleCloseDetail"
+          class="fixed inset-0 z-[100] flex items-center justify-center p-4"
         >
           <div
-            class="relative max-h-[90vh] w-full max-w-xl overflow-y-auto rounded-2xl bg-white shadow-2xl dark:border dark:border-slate-700 dark:bg-slate-950"
+            class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
+            @click="handleCloseDetail"
+          />
+
+          <div
+            class="relative z-10 w-full max-w-2xl overflow-hidden rounded-[2rem] border border-white bg-white shadow-2xl dark:border-slate-800 dark:bg-slate-900"
           >
             <button
-              type="button"
-              class="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-500 shadow-sm hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
               @click="handleCloseDetail"
+              class="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-500 transition-colors hover:bg-rose-100 hover:text-rose-500 dark:bg-slate-800"
             >
               ✕
             </button>
 
-            <!-- Gambar -->
-            <div
-              class="h-48 w-full overflow-hidden rounded-t-2xl bg-slate-200 dark:bg-slate-800"
-            >
-              <img
-                :src="selectedUpacara.thumbnail"
-                :alt="selectedUpacara.name"
-                class="h-full w-full object-cover"
-              />
-            </div>
+            <div class="flex flex-col md:flex-row">
+              <div class="relative h-56 w-full md:h-auto md:w-5/12">
+                <img
+                  :src="selectedUpacara.thumbnail"
+                  :alt="selectedUpacara.name"
+                  class="h-full w-full object-cover"
+                />
+              </div>
 
-            <!-- Konten detail -->
-            <div class="px-5 pb-5 pt-4">
-              <p
-                class="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-300"
-              >
-                Upacara adat · {{ selectedUpacara.region }}
-              </p>
-              <h3
-                class="mt-1 text-xl font-semibold text-slate-900 dark:text-slate-50"
-              >
-                {{ selectedUpacara.name }}
-              </h3>
-              <p class="text-xs text-slate-500 dark:text-slate-400">
-                {{ selectedUpacara.tribe }}
-              </p>
+              <div class="flex-1 p-8">
+                <span
+                  class="inline-block rounded-lg bg-emerald-50 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400"
+                >
+                  {{ selectedUpacara.region }}
+                </span>
 
-              <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
-                {{ selectedUpacara.description }}
-              </p>
+                <h3
+                  class="mt-3 text-2xl font-bold text-slate-900 dark:text-white"
+                >
+                  {{ selectedUpacara.name }}
+                </h3>
 
-              <dl
-                class="mt-4 grid grid-cols-1 gap-3 text-sm text-slate-700 dark:text-slate-200 sm:grid-cols-2"
-              >
-                <div v-if="selectedUpacara.category">
-                  <dt
-                    class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400"
+                <p
+                  class="text-xs font-semibold text-emerald-600 dark:text-emerald-500"
+                >
+                  Suku {{ selectedUpacara.tribe }}
+                </p>
+
+                <div
+                  class="mt-4 border-t border-slate-100 pt-4 dark:border-slate-800"
+                >
+                  <p
+                    class="text-sm leading-relaxed text-slate-600 dark:text-slate-400 italic"
                   >
-                    Jenis upacara
-                  </dt>
-                  <dd class="mt-0.5 capitalize">
-                    {{ selectedUpacara.category }}
-                  </dd>
+                    "{{ selectedUpacara.description }}"
+                  </p>
                 </div>
-                <div v-if="selectedUpacara.mainMoment">
-                  <dt
-                    class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400"
+
+                <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <div class="rounded-xl bg-slate-50 p-3 dark:bg-slate-800/50">
+                    <p class="text-[10px] font-bold uppercase text-slate-400">
+                      Kategori
+                    </p>
+                    <p
+                      class="text-xs font-semibold text-slate-700 dark:text-slate-200 capitalize"
+                    >
+                      {{ selectedUpacara.category }}
+                    </p>
+                  </div>
+                  <div
+                    v-if="selectedUpacara.mainMoment"
+                    class="rounded-xl bg-slate-50 p-3 dark:bg-slate-800/50"
                   >
-                    Biasanya dilakukan saat
-                  </dt>
-                  <dd class="mt-0.5">
-                    {{ selectedUpacara.mainMoment }}
-                  </dd>
+                    <p class="text-[10px] font-bold uppercase text-slate-400">
+                      Waktu Pelaksanaan
+                    </p>
+                    <p
+                      class="text-xs font-semibold text-slate-700 dark:text-slate-200"
+                    >
+                      {{ selectedUpacara.mainMoment }}
+                    </p>
+                  </div>
                 </div>
-              </dl>
+
+                <button
+                  @click="handleCloseDetail"
+                  class="mt-8 w-full rounded-2xl bg-slate-900 py-4 text-xs font-bold text-white transition-all hover:bg-emerald-600 dark:bg-emerald-600"
+                >
+                  Tutup Informasi
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </transition>
+      </Transition>
     </Teleport>
   </section>
 </template>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.18s ease-out;
+/* Modal Transition */
+.modal-enter-active,
+.modal-leave-active {
+  transition: all 0.3s ease;
 }
-.fade-enter-from,
-.fade-leave-to {
+.modal-enter-from,
+.modal-leave-to {
   opacity: 0;
+  transform: scale(0.95);
+}
+
+/* Custom Scrollbar for Modal if content is long */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 4px;
+}
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 10px;
 }
 </style>
