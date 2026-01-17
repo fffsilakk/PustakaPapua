@@ -17,9 +17,9 @@ const handleClear = () => {
 </script>
 
 <template>
-  <section class="bg-transparent px-4 pt-4 sm:px-6 lg:px-8">
+  <section class="bg-transparent px-4 pt-4 sm:px-10 lg:px-8">
     <div
-      class="mx-auto flex max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+      class="mx-auto flex max-w-5xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
     >
       <div>
         <h2

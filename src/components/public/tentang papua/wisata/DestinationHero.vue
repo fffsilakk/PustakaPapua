@@ -1,203 +1,201 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { onMounted } from "vue";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const subtitle =
-  "Dari Raja Ampat, Danau Sentani, Lembah Baliem, hingga Taman Nasional Lorentz, setiap sudut Papua menyimpan keindahan alam dan budaya yang unik.";
-
-const elements = ref<HTMLElement[]>([]);
-let observer: IntersectionObserver | null = null;
-
-const setRef = (el: Element | null | any, _refs?: Record<string, unknown>) => {
-  if (el instanceof HTMLElement) {
-    elements.value.push(el);
-  }
-};
+  "Dari Raja Ampat hingga Puncak Jaya, temukan fragmen surga yang jatuh ke bumi. Perpaduan magis antara tradisi leluhur dan kemegahan alam yang tak tersentuh.";
 
 onMounted(() => {
-  if (typeof window === "undefined" || !("IntersectionObserver" in window))
-    return;
-
-  observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("destination-hero-enter");
-          observer?.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.2,
-      rootMargin: "0px 0px -40px 0px",
-    }
-  );
-
-  elements.value.forEach((el) => observer?.observe(el));
-});
-
-onUnmounted(() => {
-  observer?.disconnect();
+  AOS.init({
+    duration: 1000,
+    once: true,
+    easing: "ease-out-back",
+  });
 });
 </script>
 
 <template>
   <section
-    class="relative overflow-hidden bg-gradient-to-b from-sky-50 via-emerald-50 to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950"
+    class="relative min-h-screen overflow-hidden bg-[#fafafa] dark:bg-slate-950 flex items-center"
   >
     <div
-      :ref="setRef"
-      class="mx-auto flex max-w-6xl flex-col items-center gap-10 px-4 pb-16 pt-16 opacity-0 translate-y-8 transition-all duration-800 ease-out sm:px-6 md:flex-row md:gap-12 md:pb-20 md:pt-20 lg:px-8"
+      class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none"
     >
-      <!-- Kiri: teks -->
-      <div class="w-full md:w-1/2 flex flex-col justify-center">
-        <p
-          class="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-700 shadow-sm dark:border-sky-400/30 dark:bg-slate-900/70 dark:text-sky-200"
-        >
-          <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          Tentang Papua · Tempat Wisata
-        </p>
+      <div
+        class="absolute -top-[10%] -left-[5%] w-[40%] h-[40%] rounded-full bg-emerald-100/50 blur-[120px] dark:bg-emerald-900/20"
+      ></div>
+      <div
+        class="absolute top-[20%] -right-[5%] w-[30%] h-[30%] rounded-full bg-sky-100/50 blur-[120px] dark:bg-sky-900/20"
+      ></div>
+    </div>
 
-        <h1
-          class="mt-5 text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl md:text-5xl dark:text-slate-50"
-        >
-          Jelajahi keindahan
-          <span
-            class="bg-gradient-to-r from-emerald-500 via-sky-500 to-amber-500 bg-clip-text text-transparent"
+    <div class="container mx-auto px-6 py-20 relative z-10">
+      <div class="flex flex-col lg:flex-row items-center gap-16">
+        <div class="w-full lg:w-3/5" data-aos="fade-right">
+          <div
+            class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800 mb-8"
           >
-            Papua.
-          </span>
-        </h1>
+            <span class="relative flex h-2 w-2">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+              ></span>
+              <span
+                class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"
+              ></span>
+            </span>
+            <span
+              class="text-[10px] font-bold tracking-[0.2em] uppercase text-slate-500 dark:text-slate-400"
+            >
+              Wonderful Indonesia • Papua Edition
+            </span>
+          </div>
 
-        <p
-          class="mt-4 text-base text-slate-700 sm:text-lg md:text-[17px] dark:text-slate-300"
-        >
-          {{ subtitle }}
-        </p>
-
-        <div class="mt-7 flex flex-wrap items-center gap-4">
-          <button
-            type="button"
-            class="inline-flex items-center justify-center rounded-xl bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-emerald-400/40 transition hover:-translate-y-0.5 hover:bg-emerald-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-emerald-50 dark:focus-visible:ring-offset-slate-950"
+          <h1
+            class="text-5xl md:text-7xl font-black text-slate-900 dark:text-white leading-[1.1] mb-6"
           >
-            Lihat destinasi utama
-          </button>
+            Eksplorasi <br />
+            <span class="relative">
+              <span
+                class="relative z-10 bg-gradient-to-r from-emerald-600 to-sky-600 bg-clip-text text-transparent"
+                >Mahakarya</span
+              >
+              <svg
+                class="absolute -bottom-2 left-0 w-full h-3 text-emerald-200 dark:text-emerald-800/30 -z-10"
+                viewBox="0 0 100 10"
+                preserveAspectRatio="none"
+              >
+                <path
+                  d="M0 5 Q 25 0, 50 5 T 100 5"
+                  stroke="currentColor"
+                  stroke-width="8"
+                  fill="transparent"
+                />
+              </svg>
+            </span>
+            Alam Papua.
+          </h1>
 
-          <button
-            type="button"
-            class="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white/80 px-4 py-2.5 text-sm font-semibold text-slate-800 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-400 hover:text-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-emerald-50 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200 dark:hover:text-emerald-200 dark:focus-visible:ring-offset-slate-950"
+          <p
+            class="max-w-xl text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-10"
           >
-            Lihat destinasi favorit
-          </button>
+            {{ subtitle }}
+          </p>
+
+          <div class="flex flex-wrap gap-4 mb-12">
+            <button
+              class="group relative px-8 py-4 bg-slate-900 dark:bg-emerald-500 text-white rounded-2xl font-bold transition-all hover:scale-105 hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] dark:hover:shadow-emerald-500/30 overflow-hidden"
+            >
+              <span class="relative z-10">Mulai Petualangan</span>
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-emerald-400 to-sky-400 opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+            </button>
+
+            <button
+              class="px-8 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 rounded-2xl font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+            >
+              Jelajahi Galeri
+            </button>
+          </div>
         </div>
 
-        <dl
-          class="mt-7 flex flex-wrap gap-5 text-sm text-slate-700 dark:text-slate-300"
-        >
-          <div class="flex items-start gap-3">
-            <div
-              class="mt-0.5 flex h-8 w-8 items-center justify-center rounded-full bg-sky-100 text-sky-700 dark:bg-sky-500/20 dark:text-sky-200"
-            >
-              🌊
-            </div>
-            <div>
-              <dt class="font-semibold">Wisata bahari</dt>
-              <dd class="text-slate-500 dark:text-slate-400">
-                Raja Ampat dan Teluk Cenderawasih dengan terumbu karang dan hiu
-                paus.
-              </dd>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-3">
-            <div
-              class="mt-0.5 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-200"
-            >
-              ⛰️
-            </div>
-            <div>
-              <dt class="font-semibold">Lembah & pegunungan</dt>
-              <dd class="text-slate-500 dark:text-slate-400">
-                Lembah Baliem dan Lorentz untuk budaya dan petualangan alam.
-              </dd>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-3">
-            <div
-              class="mt-0.5 flex h-8 w-8 items-center justify-center rounded-full bg-amber-100 text-amber-700 dark:bg-amber-500/20 dark:text-amber-200"
-            >
-              🚤
-            </div>
-            <div>
-              <dt class="font-semibold">Danau & kampung adat</dt>
-              <dd class="text-slate-500 dark:text-slate-400">
-                Danau Sentani dengan kampung-kampung di tepian air yang hidup.
-              </dd>
-            </div>
-          </div>
-        </dl>
-      </div>
-
-      <!-- Kanan: gambar wisata -->
-      <div
-        :ref="setRef"
-        class="w-full md:w-1/2 opacity-0 translate-y-8 md:translate-x-4 transition-all duration-800 ease-out delay-150"
-      >
         <div
-          class="relative mx-auto h-72 max-w-md overflow-hidden rounded-3xl bg-slate-900 shadow-[0_18px_50px_rgba(15,23,42,0.4)] sm:h-80 md:h-88 lg:h-96"
+          class="w-4/5 lg:w-2/5 relative"
+          data-aos="zoom-in-up"
+          data-aos-delay="200"
         >
-          <img
-            src="https://images.unsplash.com/photo-1703769605297-cc74106244d9?q=80&w=1184&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Pemandangan Raja Ampat di Papua"
-            class="h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-105"
-          />
-
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/10 to-transparent"
-          ></div>
-
-          <div
-            class="absolute left-4 right-4 bottom-4 space-y-2 text-sm text-slate-50"
-          >
+          <div class="relative z-20 group mt-5">
             <div
-              class="inline-flex items-center gap-2 rounded-full bg-slate-900/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em]"
+              class="absolute -inset-4 bg-gradient-to-tr from-emerald-500 to-sky-500 rounded-[2.5rem] opacity-20 blur-2xl group-hover:opacity-40 transition duration-1000"
+            ></div>
+            <div
+              class="relative overflow-hidden rounded-[2rem] bg-slate-200 aspect-[4/5] shadow-2xl"
             >
-              <span
-                class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"
+              <img
+                src="https://images.unsplash.com/photo-1703769605297-cc74106244d9?q=80&w=1184&auto=format&fit=crop"
+                alt="Raja Ampat"
+                class="w-full h-full object-cover transform transition duration-1000 group-hover:scale-110"
               />
-              Panorama Raja Ampat
-            </div>
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"
+              ></div>
 
-            <p class="text-[13px] leading-snug text-slate-100/90">
-              Gugusan pulau karst dan laut sebening kaca menjadikan Raja Ampat
-              ikon wisata Papua.
-            </p>
+              <div
+                class="absolute bottom-8 left-8 right-8 p-6 backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl"
+              >
+                <p class="text-white font-medium">
+                  "Surga terakhir di bumi yang memberikan ketenangan jiwa."
+                </p>
+                <p class="text-emerald-400 text-sm mt-2 font-bold">
+                  — Raja Ampat, Papua Barat
+                </p>
+              </div>
+            </div>
           </div>
 
-          <!-- Ornamen -->
+          <!-- <div
+            class="absolute -top-10 -right-10 w-32 h-32 bg-white dark:bg-slate-800 rounded-3xl shadow-xl flex items-center justify-center p-4 z-30 animate-bounce-slow"
+            data-aos="fade-left"
+            data-aos-delay="500"
+          >
+            <div class="text-center">
+              <span class="text-3xl block mb-1">⭐</span>
+              <p class="text-[10px] font-bold text-slate-400 uppercase">
+                Top Rated
+              </p>
+            </div>
+          </div> -->
+
           <div
-            class="pointer-events-none absolute -top-6 -right-6 h-20 w-20 rounded-full border border-sky-300/70 bg-sky-200/30 blur-[1px]"
-          ></div>
-          <div
-            class="pointer-events-none absolute -bottom-5 -left-5 h-16 w-16 rounded-3xl border border-emerald-300/70 bg-emerald-200/40"
-          ></div>
+            class="absolute -bottom-6 -left-12 hidden md:block w-48 p-4 bg-white dark:bg-slate-800 rounded-2xl shadow-xl z-30"
+            data-aos="fade-up"
+            data-aos-delay="700"
+          >
+            <div class="flex items-center gap-3">
+              <div
+                class="h-10 w-10 rounded-full bg-sky-100 dark:bg-sky-900/50 flex items-center justify-center text-xl"
+              >
+                📍
+              </div>
+              <div>
+                <p class="text-xs font-bold dark:text-white">
+                  Lokasi Strategis
+                </p>
+                <p class="text-[10px] text-slate-500">Mudah diakses</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
-    <!-- Background dekoratif -->
-    <div
-      class="pointer-events-none absolute -top-10 left-[-10%] h-40 w-40 rounded-full bg-sky-300/30 blur-3xl dark:bg-sky-500/25"
-    ></div>
-    <div
-      class="pointer-events-none absolute bottom-[-5rem] right-[-10%] h-40 w-40 rounded-full bg-emerald-300/30 blur-3xl dark:bg-emerald-500/25"
-    ></div>
   </section>
 </template>
 
 <style scoped>
-.destination-hero-enter {
-  opacity: 1 !important;
-  transform: translateY(0) translateX(0) !important;
+@keyframes bounce-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 4s ease-in-out infinite;
+}
+
+/* Custom Scrollbar untuk vibe premium */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #10b981;
+  border-radius: 10px;
 }
 </style>
