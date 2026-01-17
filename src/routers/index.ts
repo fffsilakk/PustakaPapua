@@ -25,22 +25,50 @@ const routes = [
     path: "/",
     component: PublicLayout,
     children: [
-      { path: "", name: "Landing", component: LandingView },
-      { path: "/belajar", name: "EduDashboard", component: EduDashboardView },
+      {
+        path: "",
+        name: "Landing",
+        component: LandingView,
+        meta: {
+          title: "Beranda | Pustaka Papua",
+        },
+      },
+      {
+        path: "/belajar",
+        name: "EduDashboard",
+        component: EduDashboardView,
+        meta: {
+          title: "Belajar | Pustaka Papua",
+        },
+      },
       {
         path: "/belajar/:id",
         name: "EduModuleDetail",
         component: EduModuleDetailView,
         props: true,
       },
-      { path: "/budaya", name: "CultureList", component: CultureListView },
+      {
+        path: "/budaya",
+        name: "CultureList",
+        component: CultureListView,
+        meta: {
+          title: "Budaya | Pustaka Papua",
+        },
+      },
       {
         path: "/budaya/:id",
         name: "CultureDetail",
         component: CultureDetailView,
         props: true,
       },
-      { path: "/umkm", name: "UmkmCatalog", component: UmkmCatalogView },
+      {
+        path: "/umkm",
+        name: "UmkmCatalog",
+        component: UmkmCatalogView,
+        meta: {
+          title: "UMKM | Pustaka Papua",
+        },
+      },
       {
         path: "/ceritaRakyat/biwar-sang-penakluk-naga",
         name: "biwar-sang-penakluk-naga",
@@ -73,7 +101,14 @@ const routes = [
         },
         props: true,
       },
-      { path: "/cart", name: "Cart", component: CartView },
+      {
+        path: "/cart",
+        name: "Cart",
+        component: CartView,
+        meta: {
+          title: "Cart | Pustaka Papua",
+        },
+      },
       {
         path: "/ceritaRakyat",
         name: "ceritaRakyat",
