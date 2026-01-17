@@ -158,6 +158,48 @@ const handleCloseDetail = () => {
                   </dd>
                 </div>
               </dl>
+              <!-- ... di dalam modal DanceListGrid.vue, setelah <dl> -->
+              <div
+                v-if="
+                  selectedDance.funFacts?.length ||
+                  selectedDance.reflectionQuestions?.length
+                "
+                class="mt-6 rounded-2xl border border-amber-100 bg-amber-50/70 px-4 py-4 text-sm dark:border-amber-500/30 dark:bg-amber-500/5"
+              >
+                <h4
+                  class="text-xs font-semibold uppercase tracking-[0.16em] text-amber-800 dark:text-amber-300"
+                >
+                  Mode belajar · Tahukah kamu?
+                </h4>
+
+                <ul
+                  v-if="selectedDance.funFacts?.length"
+                  class="mt-2 list-disc space-y-1 pl-4 text-slate-700 dark:text-slate-200"
+                >
+                  <li v-for="(fact, idx) in selectedDance.funFacts" :key="idx">
+                    {{ fact }}
+                  </li>
+                </ul>
+
+                <div
+                  v-if="selectedDance.reflectionQuestions?.length"
+                  class="mt-4 rounded-xl bg-white/70 px-3 py-3 text-xs dark:bg-slate-900/70"
+                >
+                  <p class="font-semibold text-slate-800 dark:text-slate-100">
+                    Pertanyaan refleksi untuk siswa:
+                  </p>
+                  <ol
+                    class="mt-2 list-decimal space-y-1 pl-4 text-slate-700 dark:text-slate-200"
+                  >
+                    <li
+                      v-for="(q, idx) in selectedDance.reflectionQuestions"
+                      :key="idx"
+                    >
+                      {{ q }}
+                    </li>
+                  </ol>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -171,6 +171,13 @@
             aria-labelledby="hs-header-base-dropdown"
           >
             <div class="py-1 md:px-1 space-y-0.5">
+              <router-link to="/wisata">
+                <a
+                  class="p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300"
+                >
+                  Wisata
+                </a>
+              </router-link>
               <router-link to="/ceritaRakyat">
                 <a
                   class="p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300"
@@ -365,15 +372,18 @@
               <span class="font-medium">UMKM</span>
             </a>
           </router-link>
-          <!-- Dropdown -->
-          <div class="flex flex-col cursor-pointer text-sm">
+
+          <!-- Dropdown Tentang Papua -->
+          <div class="flex flex-col text-sm">
             <button
+              @click="isAboutOpen = !isAboutOpen"
               type="button"
-              class="peer group w-full text-left px-4 pr-2 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-emerald-600 rounded-lg focus:outline-none transition-all duration-300 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:hover:text-emerald-400"
+              class="w-full text-left px-4 pr-2 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-emerald-600 rounded-lg focus:outline-none transition-all duration-300 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:hover:text-emerald-400"
             >
               <span class="font-medium">Tentang Papua</span>
               <svg
-                class="w-5 h-5 inline float-right transition-transform duration-200 -rotate-90 group-focus:rotate-0"
+                :class="{ 'rotate-0': isAboutOpen, '-rotate-90': !isAboutOpen }"
+                class="w-5 h-5 inline float-right transition-transform duration-200"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -389,38 +399,47 @@
             </button>
 
             <ul
-              class="hidden overflow-hidden peer-focus:block w-full border border-gray-500 border-y rounded shadow-md mt-1 py-2"
+              v-show="isAboutOpen"
+              class="w-50px border-l-2 border-emerald-500 ml-4 mt-1 py-1 space-y-1"
             >
               <li
-                class="px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-emerald-600 rounded-lg focus:outline-none transition-all duration-300 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:hover:text-emerald-400 cursor-pointer"
+                class="px-2 font-medium py-2 text-sm text-gray-800 hover:text-emerald-600 dark:text-neutral-200"
               >
-                <router-link to="/ceritaRakyat" @click="closeMobileMenu">
-                  Cerita Rakyat
-                </router-link>
+                <router-link to="/wisata" @click="closeMobileMenu"
+                  >Wisata</router-link
+                >
               </li>
               <li
-                class="px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-emerald-600 rounded-lg focus:outline-none transition-all duration-300 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:hover:text-emerald-400 cursor-pointer"
+                class="px-2 font-medium py-2 text-sm text-gray-800 hover:text-emerald-600 dark:text-neutral-200"
               >
-                <router-link to="/tarianAdat" @click="closeMobileMenu">
-                  Tarian Adat
-                </router-link>
+                <router-link to="/ceritaRakyat" @click="closeMobileMenu"
+                  >Cerita Rakyat</router-link
+                >
               </li>
               <li
-                class="px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-emerald-600 rounded-lg focus:outline-none transition-all duration-300 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:hover:text-emerald-400 cursor-pointer"
+                class="px-2 font-medium py-2 text-sm text-gray-800 hover:text-emerald-600 dark:text-neutral-200"
               >
-                <router-link to="/alatMusik" @click="closeMobileMenu">
-                  Alat Musik
-                </router-link>
+                <router-link to="/tarianAdat" @click="closeMobileMenu"
+                  >Tarian Adat</router-link
+                >
               </li>
               <li
-                class="px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-emerald-600 rounded-lg focus:outline-none transition-all duration-300 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:hover:text-emerald-400 cursor-pointer"
+                class="px-2 font-medium py-2 text-sm text-gray-800 hover:text-emerald-600 dark:text-neutral-200"
               >
-                <router-link to="/rumahAdat" @click="closeMobileMenu">
-                  Rumah Adat
-                </router-link>
+                <router-link to="/alatMusik" @click="closeMobileMenu"
+                  >Alat Musik</router-link
+                >
+              </li>
+              <li
+                class="px-2 font-medium py-2 text-sm text-gray-800 hover:text-emerald-600 dark:text-neutral-200"
+              >
+                <router-link to="/rumahAdat" @click="closeMobileMenu"
+                  >Rumah Adat</router-link
+                >
               </li>
             </ul>
           </div>
+
           <!-- Cart -->
           <router-link to="/cart" @click="closeMobileMenu">
             <a
@@ -490,12 +509,6 @@ const toggleMobileMenu = () => {
   }
 };
 
-// Close mobile menu
-const closeMobileMenu = () => {
-  isMobileMenuOpen.value = false;
-  document.body.style.overflow = "";
-};
-
 // Handle scroll event
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 10;
@@ -519,6 +532,14 @@ onUnmounted(() => {
   window.removeEventListener("keydown", handleEscape);
   document.body.style.overflow = "";
 });
+
+const isAboutOpen = ref(false);
+
+// Jangan lupa reset state saat menu mobile ditutup
+const closeMobileMenu = () => {
+  isMobileMenuOpen.value = false;
+  isAboutOpen.value = false; // Opsional: agar saat dibuka lagi, dropdown tertutup
+};
 </script>
 
 <style scoped>

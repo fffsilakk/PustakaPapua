@@ -15,8 +15,10 @@ import CeritaRakyat from "../views/public/tentang papua/CeritaRakyat.vue";
 import TarianAdatView from "../views/public/tentang papua/TarianAdatView.vue";
 import AlatMusikView from "../views/public/tentang papua/AlatMusikView.vue";
 import RumahAdatView from "../views/public/tentang papua/RumahAdatView.vue";
-import test from "../components/public/culture/ceritaRakyat/test.vue";
+import WisataView from "../views/public/tentang papua/WisataView.vue";
 
+// File test
+import test from "../components/public/culture/ceritaRakyat/test.vue";
 const routes = [
   {
     path: "/",
@@ -105,6 +107,15 @@ const routes = [
         props: true,
         meta: {
           title: "Tentang Papua | Rumah Adat",
+        },
+      },
+      {
+        path: "/wisata",
+        name: "wisata",
+        component: WisataView,
+        props: true,
+        meta: {
+          title: "Tentang Papua | Wisata",
         },
       },
       { path: "/test", name: "test", component: test },

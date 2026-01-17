@@ -39,6 +39,26 @@
 
     <UmkmStatsStrip class="mt-10" />
     <UmkmStoryStrip class="mt-10" />
+    <UmkmHighlightBlock
+      title="Mode belajar UMKM"
+      :fun-facts="[
+        'Produk ini menggunakan bahan baku lokal dari kampung sekitar.',
+        'Pengemasan sederhana sudah cukup untuk menarik minat pembeli.',
+        'Promosi bisa dilakukan lewat media sosial dengan foto yang menarik.',
+      ]"
+      highlights-title="Keunggulan usaha ini"
+      :highlights="[
+        'Memberdayakan pengrajin lokal.',
+        'Memakai bahan yang mudah didapat di Papua.',
+        'Berpotensi jadi oleh-oleh khas daerah.',
+      ]"
+      reflection-title="Pertanyaan untuk diskusi di kelas"
+      :reflection-questions="[
+        'Apa yang membuat produk UMKM ini berbeda dengan produk pabrik?',
+        'Bagaimana cara kamu membantu mempromosikan UMKM di daerahmu?',
+        'Menurutmu, apa tantangan terbesar UMKM di Papua?',
+      ]"
+    />
 
     <!-- MODAL DETAIL PRODUK -->
     <transition name="fade">
@@ -118,6 +138,7 @@ import ProductFilterBar from "../../components/public/umkm/ProductFilterBar.vue"
 import UmkmSearchBar from "../../components/public/umkm/UmkmSearchBar.vue";
 import UmkmStatsStrip from "../../components/public/umkm/UmkmStatsStrip.vue";
 import UmkmStoryStrip from "../../components/public/umkm/UmkmStoryStrip.vue";
+import UmkmHighlightBlock from "../../components/public/umkm/UmkmHighlightBlock.vue";
 import type { UmkmProduct } from "../../data/umkmProducts";
 
 const umkmStore = useUmkmStore();
