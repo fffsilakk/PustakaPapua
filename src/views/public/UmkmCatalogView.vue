@@ -39,86 +39,93 @@
 
     <UmkmStatsStrip class="mt-10" />
     <UmkmStoryStrip class="mt-10" />
-    <UmkmHighlightBlock
-      title="Mode belajar UMKM"
-      :fun-facts="[
-        'Produk ini menggunakan bahan baku lokal dari kampung sekitar.',
-        'Pengemasan sederhana sudah cukup untuk menarik minat pembeli.',
-        'Promosi bisa dilakukan lewat media sosial dengan foto yang menarik.',
-      ]"
-      highlights-title="Keunggulan usaha ini"
-      :highlights="[
-        'Memberdayakan pengrajin lokal.',
-        'Memakai bahan yang mudah didapat di Papua.',
-        'Berpotensi jadi oleh-oleh khas daerah.',
-      ]"
-      reflection-title="Pertanyaan untuk diskusi di kelas"
-      :reflection-questions="[
-        'Apa yang membuat produk UMKM ini berbeda dengan produk pabrik?',
-        'Bagaimana cara kamu membantu mempromosikan UMKM di daerahmu?',
-        'Menurutmu, apa tantangan terbesar UMKM di Papua?',
-      ]"
-    />
+    <UmkmHighlightBlock />
 
     <!-- MODAL DETAIL PRODUK -->
-    <transition name="fade">
+    <transition name="modal-scale">
       <div
         v-if="showDetailModal && activeProduct"
-        class="fixed inset-0 z-40 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md"
         @click.self="closeDetail"
       >
         <div
-          class="w-full max-w-md rounded-2xl border border-slate-700 bg-slate-900/95 shadow-2xl overflow-hidden"
+          v-motion
+          :initial="{ opacity: 0, scale: 0.9 }"
+          :enter="{ opacity: 1, scale: 1 }"
+          class="w-full max-w-[400px] overflow-hidden rounded-[2.5rem] border border-white bg-white shadow-2xl dark:border-slate-800 dark:bg-slate-950"
         >
-          <div class="relative h-44 bg-slate-800">
+          <div class="relative h-64 w-full bg-slate-100 dark:bg-slate-800">
             <img
               v-if="activeProduct.imageUrl"
               :src="activeProduct.imageUrl"
               :alt="activeProduct.name"
-              class="w-full h-full object-cover"
+              class="h-full w-full object-cover transition-transform duration-700 hover:scale-110"
             />
+
+            <div
+              class="absolute bottom-4 left-4 flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-bold text-slate-800 shadow-sm backdrop-blur-md dark:bg-slate-900/90 dark:text-slate-100"
+            >
+              <span class="text-emerald-500">📍</span>
+              {{ activeProduct.origin }}
+            </div>
+
             <button
-              type="button"
-              class="absolute top-3 right-3 text-xs px-2 py-1 rounded-full bg-black/60 text-slate-100 hover:bg-black/80"
               @click="closeDetail"
+              class="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-black/20 text-white backdrop-blur-md transition-all hover:bg-rose-500 hover:scale-110"
             >
               ✕
             </button>
-            <div
-              class="absolute bottom-3 left-3 px-3 py-1 rounded-xl bg-black/60 text-[10px] text-slate-100"
-            >
-              📍 {{ activeProduct.origin }}
-            </div>
           </div>
 
-          <div class="p-4 space-y-2">
-            <h2 class="text-sm font-bold text-slate-50">
-              {{ activeProduct.name }}
-            </h2>
-            <p class="text-[11px] text-emerald-300 uppercase tracking-widest">
-              {{ detailCategoryLabel }}
-            </p>
-            <p class="text-xs text-slate-300 leading-relaxed mt-2">
+          <div class="p-8 space-y-4">
+            <div>
+              <p
+                class="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-400"
+              >
+                {{ detailCategoryLabel }}
+              </p>
+              <h2
+                class="mt-1 text-2xl font-bold text-slate-900 dark:text-white leading-tight"
+              >
+                {{ activeProduct.name }}
+              </h2>
+            </div>
+
+            <p
+              class="text-sm leading-relaxed text-slate-500 dark:text-slate-400"
+            >
               {{ activeProduct.shortDescription }}
             </p>
-            <p class="text-lg font-black text-emerald-300 mt-3">
-              {{ formatPrice(activeProduct.price) }}
-            </p>
 
-            <div class="mt-4 flex gap-2">
+            <div class="flex items-center justify-between pt-2">
+              <div class="space-y-0.5">
+                <p
+                  class="text-[10px] font-bold uppercase tracking-wider text-slate-400"
+                >
+                  Harga Spesial
+                </p>
+                <p
+                  class="text-2xl font-black text-slate-900 dark:text-emerald-400"
+                >
+                  {{ formatPrice(activeProduct.price) }}
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-6 flex gap-3">
               <button
                 type="button"
-                class="flex-1 text-[11px] py-2 rounded-xl border border-slate-600 text-slate-200 hover:bg-slate-800"
+                class="flex-1 rounded-2xl border border-slate-200 py-4 text-[11px] font-bold uppercase tracking-widest text-slate-400 transition-all hover:bg-slate-50 active:scale-95 dark:border-slate-800 dark:hover:bg-slate-900"
                 @click="closeDetail"
               >
-                Tutup
+                Nanti Dulu
               </button>
               <button
                 type="button"
-                class="flex-1 text-[11px] py-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-bold tracking-widest uppercase"
+                class="flex-1 rounded-2xl bg-emerald-600 py-4 text-[11px] font-bold uppercase tracking-widest text-white shadow-lg shadow-emerald-200 transition-all hover:bg-emerald-700 hover:shadow-emerald-300 active:scale-95 dark:shadow-none"
                 @click="handleBuyFromModal"
               >
-                Beli
+                Beli Sekarang
               </button>
             </div>
           </div>
@@ -127,7 +134,19 @@
     </transition>
   </section>
 </template>
+<style scoped>
+/* Animasi Scale yang lebih smooth */
+.modal-scale-enter-active,
+.modal-scale-leave-active {
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
 
+.modal-scale-enter-from,
+.modal-scale-leave-to {
+  opacity: 0;
+  transform: scale(0.9) translateY(20px);
+}
+</style>
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
 import { storeToRefs } from "pinia";

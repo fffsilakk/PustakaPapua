@@ -6,7 +6,7 @@ import HouseAboutSection from "../../../components/public/tentang papua/rumah ad
 </script>
 <template>
   <div
-    class="min-h-screen bg-white dark:bg-neutral-900 transition-colors duration-300"
+    class="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300"
   >
     <HouseHero />
     <SearchHouse />

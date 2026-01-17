@@ -1,40 +1,15 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from "vue";
-
-const sectionRef = ref<HTMLElement | null>(null);
-let observer: IntersectionObserver | null = null;
-
-onMounted(() => {
-  if (typeof window === "undefined" || !("IntersectionObserver" in window))
-    return;
-
-  observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("dance-visible");
-          observer?.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15 }
-  );
-
-  if (sectionRef.value) observer.observe(sectionRef.value);
-});
-
-onUnmounted(() => {
-  observer?.disconnect();
-});
+// AOS sudah terinstall, pastikan AOS.init() ada di App.vue atau main.ts
 </script>
 
 <template>
   <section
-    ref="sectionRef"
-    class="relative overflow-hidden bg-slate-50 py-24 px-4 opacity-0 translate-y-12 transition-all duration-[1200ms] ease-[cubic-bezier(0.2,1,0.3,1)] sm:px-6 lg:px-8 dark:bg-slate-950"
+    class="relative overflow-hidden bg-slate-50 py-24 px-4 sm:px-6 lg:px-8 dark:bg-slate-950"
   >
     <div
       class="absolute inset-0 z-0 pointer-events-none opacity-40 dark:opacity-20"
+      data-aos="zoom-in"
+      data-aos-duration="2000"
     >
       <svg
         class="absolute -top-20 -right-20 w-[600px] h-[600px] text-amber-200/50 dark:text-amber-500/10"
@@ -51,9 +26,9 @@ onUnmounted(() => {
 
     <div class="relative z-10 mx-auto max-w-6xl">
       <div class="grid gap-16 lg:grid-cols-2 lg:items-center">
-        <div class="order-2 lg:order-1 space-y-8">
+        <div class="order-2 lg:order-1 space-y-8" data-aos="fade-right">
           <div
-            class="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-4 py-1.5 dark:border-sky-500/30 dark:bg-sky-500/10"
+            class="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-4 py-2 dark:border-sky-500/30 dark:bg-sky-500/10 shadow-sm"
           >
             <span class="relative flex h-2 w-2">
               <span
@@ -64,19 +39,34 @@ onUnmounted(() => {
               ></span>
             </span>
             <span
-              class="text-[10px] font-bold uppercase tracking-[0.2em] text-sky-800 dark:text-sky-300"
-              >Manifestasi Energi</span
+              class="text-[10px] font-black uppercase tracking-[0.3em] text-sky-800 dark:text-sky-300"
             >
+              Kearifan Lokal
+            </span>
           </div>
 
           <h2
-            class="text-4xl font-black tracking-tight text-slate-900 sm:text-5xl dark:text-white leading-[1.1]"
+            class="text-5xl font-black tracking-tighter text-slate-900 sm:text-6xl dark:text-white leading-tight"
           >
             Tarian: Bahasa
             <span
-              class="text-amber-600 dark:text-amber-500 underline decoration-sky-500/30 underline-offset-8"
-              >Tubuh & Jiwa</span
+              class="relative inline-block text-amber-600 dark:text-amber-500"
             >
+              Tubuh & Jiwa
+              <svg
+                class="absolute -bottom-2 left-0 w-full"
+                viewBox="0 0 338 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 9.5C54.5 3.5 178.5 -5 337 9.5"
+                  stroke="#0EA5E9"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </span>
             Papua.
           </h2>
 
@@ -85,99 +75,114 @@ onUnmounted(() => {
           >
             <p>
               Di Papua, tarian bukan sekadar estetika panggung. Ia adalah
-              **arsip hidup** yang menyimpan narasi sejarah suku, rasa syukur
-              atas hasil bumi, hingga dialog spiritual dengan alam semesta.
-            </p>
-            <p>
-              Setiap entakan kaki di atas tanah adalah bentuk penghormatan
-              kepada leluhur. Dengan merawat tarian ini, generasi muda sedang
-              menjaga api identitas agar tetap menyala di tengah arus
-              modernisasi.
+              <span class="font-bold text-slate-900 dark:text-white"
+                >arsip hidup</span
+              >
+              yang menyimpan narasi sejarah suku dan dialog spiritual dengan
+              alam.
             </p>
           </div>
 
-          <div class="flex gap-10 pt-4">
-            <div class="space-y-1">
-              <p class="text-sm font-bold text-slate-900 dark:text-white">
+          <div
+            class="flex gap-10 pt-4 border-t border-slate-200 dark:border-slate-800"
+          >
+            <div>
+              <p class="text-2xl font-black text-slate-900 dark:text-white">
+                100%
+              </p>
+              <p class="text-[10px] uppercase tracking-widest text-slate-500">
                 Ekspresif
               </p>
-              <p class="text-xs text-slate-500">Gerakan Penuh Energi</p>
             </div>
             <div class="w-px h-10 bg-slate-200 dark:bg-slate-800"></div>
-            <div class="space-y-1">
-              <p class="text-sm font-bold text-slate-900 dark:text-white">
+            <div>
+              <p class="text-2xl font-black text-slate-900 dark:text-white">
                 Simbolis
               </p>
-              <p class="text-xs text-slate-500">Penuh Makna Filosofis</p>
+              <p class="text-[10px] uppercase tracking-widest text-slate-500">
+                Makna Filosofis
+              </p>
             </div>
           </div>
         </div>
 
         <div class="order-1 lg:order-2 grid gap-6">
           <div
-            class="group relative rounded-3xl border border-white bg-white/50 p-6 shadow-xl shadow-slate-200/50 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 dark:border-slate-800 dark:bg-slate-900/50 dark:shadow-none"
+            data-aos="fade-up"
+            data-aos-delay="100"
+            class="group relative rounded-[2.5rem] border border-white bg-white/40 p-8 shadow-2xl shadow-slate-200/50 backdrop-blur-xl transition-all duration-500 hover:-translate-y-3 dark:border-slate-800 dark:bg-slate-900/40 dark:shadow-none"
           >
-            <div class="flex items-center gap-5">
+            <div class="flex items-start gap-6">
               <div
-                class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-amber-100 text-2xl transition-transform group-hover:scale-110 dark:bg-amber-500/20"
+                class="flex h-16 w-16 shrink-0 items-center justify-center rounded-[1.5rem] bg-gradient-to-br from-amber-100 to-amber-200 text-3xl shadow-inner group-hover:rotate-12 transition-transform dark:from-amber-500/20 dark:to-amber-500/10"
               >
                 🌱
               </div>
               <div>
                 <h3
-                  class="text-base font-bold text-slate-900 dark:text-white uppercase tracking-wider"
+                  class="text-lg font-black text-slate-900 dark:text-white uppercase tracking-wider"
                 >
                   Pelestarian Akar
                 </h3>
-                <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
-                  Menjaga warisan agar tetap relevan dan tidak lekang oleh
-                  zaman.
+                <p
+                  class="mt-2 text-sm leading-relaxed text-slate-500 dark:text-slate-400"
+                >
+                  Menjaga warisan agar tetap relevan dan tidak lekang oleh arus
+                  zaman modernisasi.
                 </p>
               </div>
             </div>
           </div>
 
           <div
-            class="group relative rounded-3xl border border-white bg-white/50 p-6 shadow-xl shadow-slate-200/50 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 dark:border-slate-800 dark:bg-slate-900/50 dark:shadow-none lg:ml-8"
+            data-aos="fade-up"
+            data-aos-delay="300"
+            class="group relative rounded-[2.5rem] border border-white bg-white/40 p-8 shadow-2xl shadow-slate-200/50 backdrop-blur-xl transition-all duration-500 hover:-translate-y-3 dark:border-slate-800 dark:bg-slate-900/40 dark:shadow-none lg:ml-12"
           >
-            <div class="flex items-center gap-5">
+            <div class="flex items-start gap-6">
               <div
-                class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-emerald-100 text-2xl transition-transform group-hover:scale-110 dark:bg-emerald-500/20"
+                class="flex h-16 w-16 shrink-0 items-center justify-center rounded-[1.5rem] bg-gradient-to-br from-emerald-100 to-emerald-200 text-3xl shadow-inner group-hover:-rotate-12 transition-transform dark:from-emerald-500/20 dark:to-emerald-500/10"
               >
                 🤝
               </div>
               <div>
                 <h3
-                  class="text-base font-bold text-slate-900 dark:text-white uppercase tracking-wider"
+                  class="text-lg font-black text-slate-900 dark:text-white uppercase tracking-wider"
                 >
                   Kekuatan Komunal
                 </h3>
-                <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                <p
+                  class="mt-2 text-sm leading-relaxed text-slate-500 dark:text-slate-400"
+                >
                   Tarian sebagai perekat sosial yang menyatukan berbagai lapisan
-                  masyarakat.
+                  masyarakat adat.
                 </p>
               </div>
             </div>
           </div>
 
           <div
-            class="group relative rounded-3xl border border-white bg-white/50 p-6 shadow-xl shadow-slate-200/50 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 dark:border-slate-800 dark:bg-slate-900/50 dark:shadow-none"
+            data-aos="fade-up"
+            data-aos-delay="500"
+            class="group relative rounded-[2.5rem] border border-white bg-white/40 p-8 shadow-2xl shadow-slate-200/50 backdrop-blur-xl transition-all duration-500 hover:-translate-y-3 dark:border-slate-800 dark:bg-slate-900/40 dark:shadow-none"
           >
-            <div class="flex items-center gap-5">
+            <div class="flex items-start gap-6">
               <div
-                class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-sky-100 text-2xl transition-transform group-hover:scale-110 dark:bg-sky-500/20"
+                class="flex h-16 w-16 shrink-0 items-center justify-center rounded-[1.5rem] bg-gradient-to-br from-sky-100 to-sky-200 text-3xl shadow-inner group-hover:scale-110 transition-transform dark:from-sky-500/20 dark:to-sky-500/10"
               >
                 🎓
               </div>
               <div>
                 <h3
-                  class="text-base font-bold text-slate-900 dark:text-white uppercase tracking-wider"
+                  class="text-lg font-black text-slate-900 dark:text-white uppercase tracking-wider"
                 >
-                  Edukasi Tanpa Batas
+                  Edukasi Digital
                 </h3>
-                <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
-                  Menggunakan platform digital untuk mendistribusikan ilmu tari
-                  ke seluruh pelosok.
+                <p
+                  class="mt-2 text-sm leading-relaxed text-slate-500 dark:text-slate-400"
+                >
+                  Menggunakan platform ini untuk mendistribusikan ilmu tari ke
+                  seluruh pelosok nusantara.
                 </p>
               </div>
             </div>
@@ -185,7 +190,11 @@ onUnmounted(() => {
         </div>
       </div>
 
-      <div class="mt-20 flex flex-wrap justify-center gap-4">
+      <div
+        class="mt-24 flex flex-wrap justify-center gap-3"
+        data-aos="fade-up"
+        data-aos-offset="0"
+      >
         <div
           v-for="tag in [
             'Pesta Adat',
@@ -194,7 +203,7 @@ onUnmounted(() => {
             'Digital Archive',
           ]"
           :key="tag"
-          class="px-4 py-1.5 rounded-full border border-slate-200 text-[11px] font-bold uppercase tracking-widest text-slate-500 dark:border-slate-800 dark:text-slate-400"
+          class="px-6 py-2 rounded-full border border-slate-200 bg-white text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 transition-all hover:border-amber-500 hover:text-amber-600 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-500"
         >
           {{ tag }}
         </div>
@@ -204,13 +213,22 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-.dance-visible {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
+/* Glassmorphism Refined */
+.backdrop-blur-xl {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
 }
 
-/* Glassmorphism subtle effect for light mode */
-.bg-white\/50 {
-  background-color: rgba(255, 255, 255, 0.6);
+/* Custom Shape for "Tubuh & Jiwa" Underline */
+h2 span svg {
+  filter: drop-shadow(0 2px 4px rgba(14, 165, 233, 0.2));
+}
+
+/* Memastikan AOS tidak merusak layout flex/grid */
+[data-aos] {
+  pointer-events: none;
+}
+[data-aos].aos-animate {
+  pointer-events: auto;
 }
 </style>

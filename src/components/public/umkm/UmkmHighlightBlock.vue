@@ -1,149 +1,176 @@
 <script setup lang="ts">
-const props = defineProps<{
-  title?: string;
-  funFacts?: string[];
-  highlightsTitle?: string;
-  highlights?: string[];
-  reflectionTitle?: string;
-  reflectionQuestions?: string[];
-}>();
+// Data Dummy untuk Statistik Minimalis
+const stats = [
+  { label: "Pengrajin Lokal", value: "150+", icon: "🎨" },
+  { label: "Produk Otentik", value: "500+", icon: "🏺" },
+  { label: "Wilayah Adat", value: "7", icon: "🗺️" },
+];
 </script>
 
 <template>
-  <section
-    v-if="funFacts?.length || highlights?.length || reflectionQuestions?.length"
-    class="mt-6"
-  >
-    <div
-      class="relative overflow-hidden rounded-2xl border border-emerald-100 bg-gradient-to-br from-emerald-50 via-white to-slate-50 px-4 py-5 text-sm shadow-sm sm:px-6 dark:border-emerald-500/30 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900/90"
-    >
-      <!-- dekorasi background -->
-      <div
-        class="pointer-events-none absolute -top-10 -right-10 h-24 w-24 rounded-full bg-emerald-200/40 blur-3xl dark:bg-emerald-500/20"
-      />
-      <div
-        class="pointer-events-none absolute -bottom-10 -left-10 h-24 w-24 rounded-full bg-sky-200/40 blur-3xl dark:bg-sky-500/20"
-      />
+  <main class="min-h-screen bg-white rounded-2xl dark:bg-slate-800">
+    <section class="relative px-4 mt-16 pt-3 pb-12 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-4xl text-center">
+        <div
+          v-motion
+          :initial="{ opacity: 0, y: 20 }"
+          :enter="{ opacity: 1, y: 0 }"
+          class="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400"
+        >
+          Pemberdayaan Ekonomi
+        </div>
+        <h1
+          v-motion
+          :initial="{ opacity: 0, y: 20 }"
+          :enter="{ opacity: 1, y: 0, transition: { delay: 100 } }"
+          class="mt-6 text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-6xl"
+        >
+          Mendukung Karya <br />
+          <span class="text-emerald-600">Putra-Putri Papua</span>
+        </h1>
+        <p
+          v-motion
+          :initial="{ opacity: 0, y: 20 }"
+          :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }"
+          class="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-400"
+        >
+          Kami hadir untuk menjembatani kearifan lokal dengan pasar modern,
+          memastikan setiap ukiran, anyaman, dan kopi dari tanah Papua
+          mendapatkan apresiasi yang layak.
+        </p>
+      </div>
+    </section>
 
-      <div class="relative space-y-4">
-        <!-- Header umum -->
-        <div class="flex flex-wrap items-center justify-between gap-2">
-          <div class="flex items-center gap-2">
+    <section
+      class="px-4 py-12 sm:px-6 lg:px-8 shadow-2xl dark:shadow-2xl rounded-2xl"
+    >
+      <div class="mx-auto max-w-6xl">
+        <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div
+            v-motion
+            :initial="{ opacity: 0, scale: 0.95 }"
+            :enter="{ opacity: 1, scale: 1, transition: { delay: 300 } }"
+            class="relative overflow-hidden rounded-[2.5rem] bg-slate-100 shadow-xl"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=2000&auto=format&fit=crop"
+              alt="Handicraft Papua"
+              class="aspect-[4/5] w-full object-cover"
+            />
             <div
-              class="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500 text-xs text-white shadow-md shadow-emerald-400/40"
-            >
-              🛒
+              class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"
+            ></div>
+            <div class="absolute bottom-8 left-8 text-white">
+              <p class="text-xs font-bold uppercase tracking-widest opacity-80">
+                Produksi Lokal
+              </p>
+              <h3 class="text-xl font-bold">Noken Serat Kayu Asli</h3>
             </div>
-            <div>
-              <h3
-                class="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-800 dark:text-emerald-300"
+          </div>
+
+          <div class="space-y-8">
+            <div class="space-y-4">
+              <h2 class="text-2xl font-bold text-slate-900 dark:text-white">
+                Visi Kami
+              </h2>
+              <p
+                class="text-base leading-relaxed text-slate-600 dark:text-slate-400"
               >
-                {{ title || "Kenalan yuk sama UMKM" }}
-              </h3>
-              <p class="text-[11px] text-slate-500 dark:text-slate-400">
-                Info lengkap produk lokal Papua yang siap kamu beli.
+                UMKM Papua bukan sekadar tentang perdagangan, melainkan tentang
+                menjaga martabat budaya. Setiap produk yang dihasilkan oleh
+                mama-mama di pasar atau pemuda di sanggar seni membawa cerita
+                tentang tanah, hutan, dan leluhur.
+              </p>
+              <p
+                class="text-base leading-relaxed text-slate-600 dark:text-slate-400"
+              >
+                Melalui platform ini, kami berkomitmen untuk meningkatkan
+                literasi digital para pelaku UMKM agar mampu bersaing secara
+                global tanpa menghilangkan nilai-nilai tradisi.
               </p>
             </div>
-          </div>
 
-          <span
-            class="inline-flex items-center rounded-full bg-white/80 px-2.5 py-1 text-[11px] font-medium text-emerald-700 shadow-sm ring-1 ring-emerald-100 dark:bg-slate-900/70 dark:text-emerald-200 dark:ring-emerald-500/40"
-          >
-            Lokal · Papua
-          </span>
+            <div
+              class="grid grid-cols-3 gap-4 border-t border-slate-100 pt-8 dark:border-slate-800"
+            >
+              <div v-for="stat in stats" :key="stat.label" class="text-center">
+                <p class="text-xl mb-1">{{ stat.icon }}</p>
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white">
+                  {{ stat.value }}
+                </h4>
+                <p
+                  class="text-[10px] font-bold uppercase tracking-tighter text-slate-400"
+                >
+                  {{ stat.label }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-slate-50/50 py-16 dark:bg-slate-950/30">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-12 text-center">
+          <h2 class="text-2xl font-bold text-slate-900 dark:text-white">
+            Mengapa Memilih Produk UMKM Papua?
+          </h2>
         </div>
 
-        <!-- Konten grid -->
-        <div
-          class="grid gap-4 sm:grid-cols-[minmax(0,1.3fr)_minmax(0,1.1fr)] sm:items-start"
-        >
-          <!-- kolom kiri: info produk + keunggulan -->
-          <div class="space-y-4">
-            <!-- Kenalan produk -->
-            <div v-if="funFacts?.length">
-              <h4
-                class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-emerald-800 dark:text-emerald-300"
-              >
-                <span
-                  class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-emerald-100 text-[10px] text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-100"
-                >
-                  ℹ️
-                </span>
-                Info produk
-              </h4>
-              <ul
-                class="mt-2 space-y-1.5 text-[13px] text-slate-700 dark:text-slate-200"
-              >
-                <li
-                  v-for="(fact, idx) in funFacts"
-                  :key="'fact-' + idx"
-                  class="flex gap-2"
-                >
-                  <span
-                    class="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-emerald-500"
-                  />
-                  <span>{{ fact }}</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Keunggulan / unggulan produk -->
-            <div v-if="highlights?.length">
-              <h4
-                class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-emerald-800 dark:text-emerald-300"
-              >
-                <span
-                  class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-amber-100 text-[10px] text-amber-700 dark:bg-amber-500/20 dark:text-amber-100"
-                >
-                  ✨
-                </span>
-                {{ highlightsTitle || "Keunggulan produk" }}
-              </h4>
-              <ul
-                class="mt-2 space-y-1.5 text-[13px] text-slate-700 dark:text-slate-200"
-              >
-                <li
-                  v-for="(h, idx) in highlights"
-                  :key="'highlight-' + idx"
-                  class="flex gap-2"
-                >
-                  <span
-                    class="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-amber-500"
-                  />
-                  <span>{{ h }}</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- kolom kanan: pertanyaan pembeli -->
+        <div class="grid gap-6 md:grid-cols-3">
           <div
-            v-if="reflectionQuestions?.length"
-            class="rounded-xl bg-white/80 px-3.5 py-3.5 text-xs shadow-sm ring-1 ring-emerald-100/70 dark:bg-slate-950/70 dark:text-slate-100 dark:ring-emerald-500/40"
+            v-for="(point, i) in [
+              {
+                t: '100% Organik',
+                d: 'Bahan baku diambil langsung dari alam Papua secara berkelanjutan.',
+                i: '🌿',
+              },
+              {
+                t: 'Pemberdayaan',
+                d: 'Setiap pembelian mendukung kesejahteraan pengrajin lokal secara langsung.',
+                i: '🤝',
+              },
+              {
+                t: 'Warisan Dunia',
+                d: 'Memiliki produk Papua berarti memiliki potongan sejarah budaya dunia.',
+                i: '🌎',
+              },
+            ]"
+            :key="i"
+            class="rounded-3xl border border-slate-100 bg-white p-8 transition-all hover:shadow-md dark:border-slate-800 dark:bg-slate-900"
           >
-            <p class="font-semibold text-slate-800 dark:text-slate-50">
-              {{ reflectionTitle || "Sebelum beli, pertimbangkan:" }}
-            </p>
-            <ol
-              class="mt-2 space-y-1.5 text-[12px] text-slate-700 dark:text-slate-200"
+            <div class="mb-4 text-3xl">{{ point.i }}</div>
+            <h3 class="mb-2 font-bold text-slate-900 dark:text-white">
+              {{ point.t }}
+            </h3>
+            <p
+              class="text-sm leading-relaxed text-slate-500 dark:text-slate-400"
             >
-              <li
-                v-for="(q, idx) in reflectionQuestions"
-                :key="'q-' + idx"
-                class="flex gap-2"
-              >
-                <span class="mt-[2px] flex-shrink-0 text-[11px] font-semibold">
-                  {{ idx + 1 }}.
-                </span>
-                <span>{{ q }}</span>
-              </li>
-            </ol>
-            <p class="mt-2 text-[11px] text-slate-500 dark:text-slate-400">
-              Info penting untuk pembeli cerdas.
+              {{ point.d }}
             </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+    <!-- 
+    <section class="px-4 py-20 sm:px-6 lg:px-8">
+      <div
+        class="mx-auto max-w-4xl rounded-[3rem] bg-emerald-600 px-8 py-12 text-center text-white"
+      >
+        <h2 class="text-2xl font-bold sm:text-3xl">
+          Jadilah Bagian dari Perjalanan Kami
+        </h2>
+        <p class="mt-4 text-emerald-50">
+          Mari berkolaborasi untuk memajukan ekonomi kreatif di ufuk timur
+          Indonesia.
+        </p>
+        <button
+          class="mt-8 rounded-2xl bg-white px-8 py-4 text-sm font-bold text-emerald-700 transition-all hover:bg-emerald-50 active:scale-95"
+        >
+          Hubungi Kami Sekarang
+        </button>
+      </div>
+    </section> -->
+  </main>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <section
-    class="relative py-20 overflow-hidden bg-[#FAF9F6] dark:bg-[#0B0F17] transition-colors duration-500"
+    class="relative py-20 overflow-hidden rounded-4xl bg-[#FAF9F6] dark:bg-[#0B0F17] transition-colors duration-500"
   >
     <div
       class="absolute inset-0 opacity-40 dark:opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')] dark:bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"

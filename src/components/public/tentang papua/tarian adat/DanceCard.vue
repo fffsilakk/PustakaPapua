@@ -23,85 +23,107 @@ const handleFavorite = (event: MouseEvent) => {
 <template>
   <article
     @click="handleClick"
-    class="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-amber-400/80 hover:shadow-lg dark:border-slate-700 dark:bg-slate-900/80"
+    class="group relative flex cursor-pointer flex-col overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-2 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:border-slate-800 dark:bg-slate-900/50 dark:hover:border-amber-500/50"
   >
-    <!-- Gambar -->
     <div
-      class="relative h-40 w-full overflow-hidden bg-slate-200 dark:bg-slate-800 sm:h-44"
+      class="relative h-48 w-full overflow-hidden rounded-[1.7rem] bg-slate-100 dark:bg-slate-800 sm:h-52"
     >
       <img
         :src="dance.thumbnail"
         :alt="dance.name"
-        class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
       />
-      <!-- Badge kategori -->
+
       <div
-        class="absolute left-3 top-3 inline-flex items-center rounded-full bg-slate-900/80 px-3 py-1 text-[11px] font-medium text-amber-100 backdrop-blur-sm dark:bg-slate-950/80"
+        class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+      ></div>
+
+      <div
+        class="absolute left-3 top-3 inline-flex items-center rounded-xl bg-white/20 px-3 py-1.5 text-[10px] font-black uppercase tracking-widest text-white backdrop-blur-md border border-white/20"
       >
-        <span class="mr-1.5 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
         {{ dance.category }}
       </div>
 
-      <!-- Tombol favorit -->
       <button
         type="button"
         @click="handleFavorite"
-        class="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-sm text-amber-500 shadow-sm transition hover:bg-amber-500 hover:text-white dark:bg-slate-900/90 dark:text-amber-300 dark:hover:bg-amber-500"
+        class="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-xl bg-white/90 shadow-sm transition-all duration-300 hover:scale-110 dark:bg-slate-900/90"
+        :class="
+          dance.isFavorite
+            ? 'text-rose-500'
+            : 'text-slate-400 hover:text-rose-500'
+        "
       >
-        <span v-if="dance.isFavorite">★</span>
-        <span v-else>☆</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          :fill="dance.isFavorite ? 'currentColor' : 'none'"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          class="h-5 w-5"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+          />
+        </svg>
       </button>
     </div>
 
-    <!-- Konten -->
-    <div class="flex flex-1 flex-col px-4 pb-4 pt-3">
-      <header class="flex items-start justify-between gap-2">
+    <div class="flex flex-1 flex-col px-4 pb-5 pt-4">
+      <div class="mb-2">
+        <p
+          class="text-[10px] font-black uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400"
+        >
+          {{ dance.region }}
+        </p>
         <h3
-          class="text-base font-semibold text-slate-900 line-clamp-2 dark:text-slate-50"
+          class="mt-1 text-lg font-bold leading-tight text-slate-900 line-clamp-1 dark:text-white"
         >
           {{ dance.name }}
         </h3>
-      </header>
+      </div>
 
       <p
-        class="mt-1 text-xs font-medium uppercase tracking-[0.16em] text-amber-700/80 dark:text-amber-300/90"
+        class="mb-4 line-clamp-2 text-xs leading-relaxed text-slate-500 dark:text-slate-400"
       >
-        {{ dance.region }} · tarian adat
-      </p>
-
-      <p class="mt-2 line-clamp-3 text-sm text-slate-600 dark:text-slate-300">
         {{ dance.shortDescription }}
       </p>
 
       <div
-        class="mt-4 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400"
+        class="mt-auto flex items-center justify-between border-t border-slate-50 pt-4 dark:border-slate-800"
       >
-        <div class="flex flex-wrap gap-1.5">
-          <span
+        <div class="flex gap-2">
+          <div
             v-if="dance.attributes.jumlahPenari"
-            class="inline-flex items-center rounded-full bg-amber-50 px-2 py-0.5 text-[11px] font-medium text-amber-700 dark:bg-amber-500/15 dark:text-amber-200"
+            class="flex items-center gap-1 rounded-lg bg-slate-50 px-2 py-1 dark:bg-slate-800"
           >
-            👣 {{ dance.attributes.jumlahPenari }}
-          </span>
-          <span
-            v-if="dance.attributes.musikPengiring"
-            class="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-medium text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-200"
-          >
-            🎧 Musik
-          </span>
+            <span class="text-[10px]">👥</span>
+            <span
+              class="text-[10px] font-bold text-slate-600 dark:text-slate-300"
+              >{{ dance.attributes.jumlahPenari }}</span
+            >
+          </div>
         </div>
 
-        <button
-          type="button"
-          @click.stop="handleClick"
-          class="inline-flex items-center text-[11px] font-semibold text-amber-700 hover:text-amber-600 dark:text-amber-300 dark:hover:text-amber-200"
+        <span
+          class="text-[10px] font-black uppercase tracking-widest text-slate-400 group-hover:text-amber-600 transition-colors"
         >
-          Lihat detail
-          <span class="ml-1 transition-transform group-hover:translate-x-0.5"
+          Detail
+          <span
+            class="inline-block transition-transform duration-300 group-hover:translate-x-1"
             >→</span
           >
-        </button>
+        </span>
       </div>
     </div>
   </article>
 </template>
+
+<style scoped>
+/* Menghilangkan blue highlight pada mobile */
+article {
+  -webkit-tap-highlight-color: transparent;
+}
+</style>

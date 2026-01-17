@@ -26,25 +26,28 @@ const handleCloseDetail = () => {
   <section
     class="bg-slate-50/60 px-4 pb-16 pt-4 sm:px-6 lg:px-8 dark:bg-slate-950/60"
   >
-    <!-- Judul section kecil -->
-    <div class="mx-auto mb-6 flex max-w-6xl items-center justify-between gap-3">
-      <div>
-        <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-50">
-          Daftar tarian adat
+    <div
+      class="mx-auto mb-8 flex max-w-6xl items-end justify-between gap-3 px-1"
+    >
+      <div class="space-y-1">
+        <h2
+          class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white"
+        >
+          Mahakarya Tari Papua
         </h2>
         <p class="text-sm text-slate-500 dark:text-slate-400">
-          Pilih salah satu tarian untuk melihat detail gerakan dan maknanya.
+          Selami makna mendalam di balik setiap gerak dan ritme musik
+          tradisional.
         </p>
       </div>
-      <p class="text-xs text-slate-500 dark:text-slate-400">
-        {{ filteredItems.length }} tarian
-      </p>
+      <div class="hidden sm:block">
+        <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">
+          {{ filteredItems.length }} Tarian Tradisional
+        </p>
+      </div>
     </div>
 
-    <!-- Grid kartu -->
-    <div
-      class="mx-auto grid max-w-6xl gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:gap-6"
-    >
+    <div class="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
       <DanceCard
         v-for="dance in filteredItems"
         :key="dance.id"
@@ -54,142 +57,131 @@ const handleCloseDetail = () => {
       />
     </div>
 
-    <!-- Empty state -->
     <div
       v-if="filteredItems.length === 0"
-      class="mx-auto mt-10 flex max-w-lg flex-col items-center rounded-2xl border border-dashed border-slate-300 bg-white/80 px-6 py-10 text-center dark:border-slate-700 dark:bg-slate-900/80"
+      class="mx-auto mt-12 flex max-w-lg flex-col items-center rounded-[2.5rem] border-2 border-dashed border-slate-200 py-16 text-center dark:border-slate-800"
     >
-      <p class="text-sm font-semibold text-slate-700 dark:text-slate-100">
-        Belum ada tarian yang cocok dengan filter.
+      <span class="text-4xl mb-4">🎭</span>
+      <p class="text-slate-800 dark:text-slate-200 font-bold">
+        Tarian tidak ditemukan
       </p>
-      <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
-        Coba ubah kata kunci atau kategori yang digunakan.
+      <p class="text-sm text-slate-500 mt-1">
+        Coba gunakan kata kunci atau filter lain.
       </p>
     </div>
 
-    <!-- Modal detail sederhana -->
     <Teleport to="body">
-      <transition name="fade">
+      <transition name="modal-bounce">
         <div
           v-if="showDetail && selectedDance"
-          class="fixed inset-0 z-40 flex items-center justify-center bg-slate-900/70 px-4"
+          class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-md"
           @click.self="handleCloseDetail"
         >
           <div
-            class="relative max-h-[90vh] w-full max-w-xl overflow-y-auto rounded-2xl bg-white shadow-2xl dark:bg-slate-950 dark:border dark:border-slate-700"
+            class="relative flex flex-col max-h-[92vh] w-full max-w-2xl overflow-hidden rounded-[2.5rem] bg-white shadow-2xl dark:border dark:border-slate-800 dark:bg-slate-950"
           >
             <button
-              type="button"
-              class="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-500 shadow-sm hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
               @click="handleCloseDetail"
+              class="absolute right-5 top-5 z-30 flex h-10 w-10 items-center justify-center rounded-full bg-black/20 text-white backdrop-blur-md transition-all hover:bg-rose-500 hover:scale-110"
             >
               ✕
             </button>
 
-            <!-- Gambar -->
-            <div
-              class="h-48 w-full overflow-hidden rounded-t-2xl bg-slate-200 dark:bg-slate-800"
-            >
+            <div class="relative h-60 w-full shrink-0 sm:h-72">
               <img
                 :src="selectedDance.thumbnail"
                 :alt="selectedDance.name"
                 class="h-full w-full object-cover"
               />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-white dark:from-slate-950 via-transparent to-transparent"
+              ></div>
+              <div class="absolute bottom-4 left-8">
+                <span
+                  class="rounded-md bg-rose-500 px-2 py-1 text-[9px] font-black uppercase tracking-tighter text-white"
+                >
+                  {{ selectedDance.region }}
+                </span>
+                <h2
+                  class="text-3xl font-black text-slate-900 dark:text-white sm:text-4xl mt-1"
+                >
+                  {{ selectedDance.name }}
+                </h2>
+              </div>
             </div>
 
-            <!-- Konten detail -->
-            <div class="px-5 pb-5 pt-4">
+            <div
+              class="flex-1 overflow-y-auto custom-scrollbar px-8 pb-6 pt-4 sm:px-10"
+            >
               <p
-                class="text-xs font-semibold uppercase tracking-[0.18em] text-amber-700 dark:text-amber-300"
+                class="text-base leading-relaxed text-slate-600 dark:text-slate-400 mb-8"
               >
-                Tarian adat · {{ selectedDance.region }}
-              </p>
-              <h3
-                class="mt-1 text-xl font-semibold text-slate-900 dark:text-slate-50"
-              >
-                {{ selectedDance.name }}
-              </h3>
-
-              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
                 {{ selectedDance.description }}
               </p>
 
-              <dl
-                class="mt-4 grid grid-cols-1 gap-3 text-sm text-slate-700 dark:text-slate-200 sm:grid-cols-2"
-              >
-                <div v-if="selectedDance.attributes.jumlahPenari">
-                  <dt
-                    class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400"
+              <div class="grid gap-4 sm:grid-cols-2 mb-8">
+                <div
+                  v-for="(val, key) in selectedDance.attributes"
+                  :key="key"
+                  class="rounded-2xl border border-slate-100 bg-slate-50/50 p-4 dark:border-slate-800 dark:bg-slate-900/50"
+                >
+                  <h4
+                    class="text-[9px] font-black uppercase tracking-widest text-rose-500 mb-1"
                   >
-                    Jumlah penari
-                  </dt>
-                  <dd class="mt-0.5">
-                    {{ selectedDance.attributes.jumlahPenari }}
-                  </dd>
-                </div>
-                <div v-if="selectedDance.attributes.musikPengiring">
-                  <dt
-                    class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400"
+                    {{ key.replace(/([A-Z])/g, " $1") }}
+                  </h4>
+                  <p
+                    class="text-sm font-bold text-slate-800 dark:text-slate-200"
                   >
-                    Musik pengiring
-                  </dt>
-                  <dd class="mt-0.5">
-                    {{ selectedDance.attributes.musikPengiring }}
-                  </dd>
+                    {{ val }}
+                  </p>
                 </div>
-                <div v-if="selectedDance.attributes.properti">
-                  <dt
-                    class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400"
-                  >
-                    Properti
-                  </dt>
-                  <dd class="mt-0.5">
-                    {{ selectedDance.attributes.properti }}
-                  </dd>
-                </div>
-                <div v-if="selectedDance.attributes.suasana">
-                  <dt
-                    class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400"
-                  >
-                    Suasana
-                  </dt>
-                  <dd class="mt-0.5">
-                    {{ selectedDance.attributes.suasana }}
-                  </dd>
-                </div>
-              </dl>
-              <!-- ... di dalam modal DanceListGrid.vue, setelah <dl> -->
+              </div>
+
               <div
                 v-if="
                   selectedDance.funFacts?.length ||
                   selectedDance.reflectionQuestions?.length
                 "
-                class="mt-6 rounded-2xl border border-amber-100 bg-amber-50/70 px-4 py-4 text-sm dark:border-amber-500/30 dark:bg-amber-500/5"
+                class="rounded-3xl border border-amber-100 bg-amber-50/40 p-6 dark:border-amber-900/30 dark:bg-amber-950/20"
               >
-                <h4
-                  class="text-xs font-semibold uppercase tracking-[0.16em] text-amber-800 dark:text-amber-300"
-                >
-                  Mode belajar · Tahukah kamu?
-                </h4>
+                <div class="flex items-center gap-2 mb-4">
+                  <span class="text-xl">💡</span>
+                  <h4
+                    class="text-xs font-black uppercase tracking-widest text-amber-700 dark:text-amber-400"
+                  >
+                    Mode Belajar
+                  </h4>
+                </div>
 
-                <ul
-                  v-if="selectedDance.funFacts?.length"
-                  class="mt-2 list-disc space-y-1 pl-4 text-slate-700 dark:text-slate-200"
-                >
-                  <li v-for="(fact, idx) in selectedDance.funFacts" :key="idx">
-                    {{ fact }}
-                  </li>
-                </ul>
+                <div v-if="selectedDance.funFacts?.length" class="mb-6">
+                  <p
+                    class="text-xs font-bold text-amber-800 dark:text-amber-300 mb-2 uppercase"
+                  >
+                    Tahukah Kamu?
+                  </p>
+                  <ul class="space-y-2">
+                    <li
+                      v-for="(fact, idx) in selectedDance.funFacts"
+                      :key="idx"
+                      class="flex gap-3 text-sm text-slate-700 dark:text-slate-300"
+                    >
+                      <span class="text-amber-500">•</span> {{ fact }}
+                    </li>
+                  </ul>
+                </div>
 
                 <div
                   v-if="selectedDance.reflectionQuestions?.length"
-                  class="mt-4 rounded-xl bg-white/70 px-3 py-3 text-xs dark:bg-slate-900/70"
+                  class="rounded-2xl bg-white/60 p-4 dark:bg-slate-900/60"
                 >
-                  <p class="font-semibold text-slate-800 dark:text-slate-100">
-                    Pertanyaan refleksi untuk siswa:
+                  <p
+                    class="text-[11px] font-bold text-slate-500 uppercase mb-2"
+                  >
+                    Pertanyaan Refleksi
                   </p>
                   <ol
-                    class="mt-2 list-decimal space-y-1 pl-4 text-slate-700 dark:text-slate-200"
+                    class="list-decimal pl-4 space-y-2 text-sm text-slate-700 dark:text-slate-300"
                   >
                     <li
                       v-for="(q, idx) in selectedDance.reflectionQuestions"
@@ -201,6 +193,17 @@ const handleCloseDetail = () => {
                 </div>
               </div>
             </div>
+
+            <div
+              class="p-6 bg-white dark:bg-slate-950 border-t border-slate-50 dark:border-slate-800 shrink-0"
+            >
+              <button
+                @click="handleCloseDetail"
+                class="w-full rounded-2xl bg-slate-900 py-4 text-[11px] font-black uppercase tracking-[0.2em] text-white transition-all hover:bg-rose-600 active:scale-95 dark:bg-rose-600"
+              >
+                Kembali
+              </button>
+            </div>
           </div>
         </div>
       </transition>
@@ -209,12 +212,34 @@ const handleCloseDetail = () => {
 </template>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.18s ease-out;
+.modal-bounce-enter-active {
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-.fade-enter-from,
-.fade-leave-to {
+.modal-bounce-leave-active {
+  transition: all 0.2s ease-in;
+}
+.modal-bounce-enter-from {
   opacity: 0;
+  transform: scale(0.9) translateY(40px);
+}
+.modal-bounce-leave-to {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+.custom-scrollbar {
+  mask-image: linear-gradient(to bottom, black 95%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 95%, transparent 100%);
 }
 </style>
