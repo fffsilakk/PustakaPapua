@@ -185,11 +185,11 @@
                   Tarian Adat
                 </a>
               </router-link>
-              <router-link to="/musikAdat">
+              <router-link to="/alatMusik">
                 <a
                   class="p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300"
                 >
-                  Musik Adat
+                  Alat Musik
                 </a>
               </router-link>
               <router-link to="/rumahAdat">
@@ -408,8 +408,8 @@
               <li
                 class="px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-emerald-600 rounded-lg focus:outline-none transition-all duration-300 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:hover:text-emerald-400 cursor-pointer"
               >
-                <router-link to="/musikAdat" @click="closeMobileMenu">
-                  Musik Adat
+                <router-link to="/alatMusik" @click="closeMobileMenu">
+                  Alat Musik
                 </router-link>
               </li>
               <li

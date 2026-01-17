@@ -13,7 +13,8 @@ import CartView from "../views/public/CartView.vue";
 // Tentang Papua
 import CeritaRakyat from "../views/public/tentang papua/CeritaRakyat.vue";
 import TarianAdatView from "../views/public/tentang papua/TarianAdatView.vue";
-
+import AlatMusikView from "../views/public/tentang papua/AlatMusikView.vue";
+import RumahAdatView from "../views/public/tentang papua/RumahAdatView.vue";
 import test from "../components/public/culture/ceritaRakyat/test.vue";
 
 const routes = [
@@ -86,6 +87,24 @@ const routes = [
         props: true,
         meta: {
           title: "Tentang Papua | Tarian Adat",
+        },
+      },
+      {
+        path: "/alatMusik",
+        name: "alatMusik",
+        component: AlatMusikView,
+        props: true,
+        meta: {
+          title: "Tentang Papua | Alat Musik",
+        },
+      },
+      {
+        path: "/rumahAdat",
+        name: "rumahAdat",
+        component: RumahAdatView,
+        props: true,
+        meta: {
+          title: "Tentang Papua | Rumah Adat",
         },
       },
       { path: "/test", name: "test", component: test },
