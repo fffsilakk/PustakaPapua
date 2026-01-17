@@ -12,12 +12,12 @@ onMounted(() => {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("destination-about-enter");
+          entry.target.classList.add("section-visible");
           observer?.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.2 }
+    { threshold: 0.15 }
   );
 
   if (sectionRef.value) observer.observe(sectionRef.value);
@@ -31,141 +31,189 @@ onUnmounted(() => {
 <template>
   <section
     ref="sectionRef"
-    class="relative overflow-hidden bg-white px-4 pb-16 pt-12 opacity-0 translate-y-6 transition-all duration-700 ease-out sm:px-6 lg:px-8 dark:bg-slate-950"
+    class="relative overflow-hidden bg-slate-50 px-4 py-20 opacity-0 translate-y-12 transition-all duration-[1000ms] ease-[cubic-bezier(0.23,1,0.32,1)] sm:px-6 lg:px-8 dark:bg-slate-950"
   >
-    <!-- ornamen background -->
-    <div
-      class="pointer-events-none absolute -top-10 left-[-5%] h-32 w-32 rounded-full bg-sky-200/40 blur-3xl dark:bg-sky-500/20"
-    />
-    <div
-      class="pointer-events-none absolute bottom-[-6rem] right-[-5%] h-40 w-40 rounded-full bg-emerald-200/40 blur-3xl dark:bg-emerald-500/20"
-    />
-
-    <div
-      class="relative mx-auto max-w-4xl rounded-3xl border border-slate-100 bg-white/90 px-6 py-8 shadow-sm backdrop-blur-sm sm:px-8 sm:py-9 dark:border-slate-700/70 dark:bg-slate-900/80"
-    >
-      <!-- header -->
-      <div class="flex flex-col items-center gap-3 text-center">
-        <span
-          class="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-800 dark:border-sky-400/40 dark:bg-sky-500/10 dark:text-sky-200"
-        >
-          <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          Mengapa wisata Papua istimewa?
-        </span>
-
-        <h2
-          class="text-xl font-semibold text-slate-900 sm:text-2xl dark:text-slate-50"
-        >
-          Alam yang indah, budaya yang hangat.
-        </h2>
-      </div>
-
-      <!-- konten -->
+    <div class="absolute inset-0 z-0">
       <div
-        class="mt-6 grid gap-6 text-sm text-slate-600 sm:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] sm:items-start dark:text-slate-300"
-      >
-        <!-- teks utama -->
-        <div class="space-y-3">
-          <p class="leading-relaxed">
-            Papua menawarkan kombinasi unik antara keindahan alam yang masih
-            sangat terjaga dan kekayaan budaya yang hidup di tengah masyarakat.
-            Di satu sisi ada laut biru dan pulau-pulau kecil, di sisi lain ada
-            lembah hijau dan pegunungan yang megah.
-          </p>
-          <p class="leading-relaxed">
-            Mengunjungi Papua bukan hanya soal melihat pemandangan, tetapi juga
-            belajar menghargai cara masyarakat menjaga alam dan tradisi. Setiap
-            destinasi menyimpan cerita tentang kearifan lokal dan kebersamaan.
-          </p>
-        </div>
+        class="absolute -top-24 -left-10 h-[400px] w-[400px] rounded-full bg-emerald-100/50 blur-[100px] dark:bg-emerald-900/20"
+      />
+      <div
+        class="absolute top-1/2 -right-20 h-[300px] w-[300px] rounded-full bg-sky-100/50 blur-[100px] dark:bg-sky-900/20"
+      />
+    </div>
 
-        <!-- poin-poin -->
-        <div
-          class="grid gap-3 rounded-2xl bg-slate-50 p-4 text-left shadow-sm sm:p-5 dark:bg-slate-900/70 dark:border dark:border-slate-700"
-        >
-          <div class="flex items-start gap-3">
+    <div class="relative z-10 mx-auto max-w-6xl">
+      <div class="grid gap-12 lg:grid-cols-12 lg:items-center">
+        <div class="lg:col-span-7">
+          <div class="space-y-6">
             <div
-              class="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-sky-100 text-lg dark:bg-sky-500/20"
+              class="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50/50 px-4 py-1.5 backdrop-blur-md dark:border-emerald-500/30 dark:bg-emerald-500/10"
             >
-              🌊
-            </div>
-            <div>
-              <h3
-                class="text-xs font-semibold uppercase tracking-[0.16em] text-sky-700 dark:text-sky-300"
+              <span class="relative flex h-2 w-2">
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+                ></span>
+                <span
+                  class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"
+                ></span>
+              </span>
+              <span
+                class="text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-300"
               >
-                Keindahan alam yang beragam
-              </h3>
-              <p class="mt-1 text-xs text-slate-600 dark:text-slate-300">
-                Dari terumbu karang, danau, hingga pegunungan bersalju di satu
-                pulau yang sama.
+                Explore the Unexplored
+              </span>
+            </div>
+
+            <h2
+              class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl dark:text-white"
+            >
+              Mengapa Wisata Papua
+              <span class="text-emerald-600 dark:text-emerald-400"
+                >Begitu Istimewa?</span
+              >
+            </h2>
+
+            <div
+              class="max-w-2xl space-y-4 text-lg leading-relaxed text-slate-600 dark:text-slate-400"
+            >
+              <p>
+                Papua adalah mahakarya alam yang belum terjamah sepenuhnya.
+                Kombinasi langka antara
+                <span class="font-semibold text-slate-800 dark:text-slate-200"
+                  >biodiversitas tertinggi di dunia</span
+                >
+                dan kearifan lokal yang telah terjaga selama ribuan tahun.
+              </p>
+              <p>
+                Bukan sekadar perjalanan fisik, mengunjungi Papua adalah
+                perjalanan spiritual untuk belajar bagaimana manusia dan alam
+                dapat hidup dalam harmoni yang sempurna.
               </p>
             </div>
-          </div>
 
-          <div class="flex items-start gap-3">
-            <div
-              class="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-lg dark:bg-emerald-500/20"
-            >
-              🧭
-            </div>
-            <div>
-              <h3
-                class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-700 dark:text-emerald-300"
-              >
-                Ruang belajar dan petualangan
-              </h3>
-              <p class="mt-1 text-xs text-slate-600 dark:text-slate-300">
-                Destinasi di Papua mengajak pengunjung untuk berjalan,
-                mendengar, dan berdialog dengan alam dan masyarakat.
-              </p>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-3">
-            <div
-              class="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-amber-100 text-lg dark:bg-amber-500/20"
-            >
-              🤝
-            </div>
-            <div>
-              <h3
-                class="text-xs font-semibold uppercase tracking-[0.16em] text-amber-700 dark:text-amber-300"
-              >
-                Wisata yang mendukung komunitas
-              </h3>
-              <p class="mt-1 text-xs text-slate-600 dark:text-slate-300">
-                Banyak paket wisata dikelola bersama masyarakat lokal sehingga
-                manfaatnya langsung dirasakan di kampung-kampung.
-              </p>
+            <div class="flex flex-wrap gap-8 pt-4">
+              <div>
+                <p class="text-3xl font-bold text-slate-900 dark:text-white">
+                  250+
+                </p>
+                <p class="text-xs uppercase tracking-widest text-slate-500">
+                  Suku Bangsa
+                </p>
+              </div>
+              <div class="h-12 w-px bg-slate-200 dark:bg-slate-800" />
+              <div>
+                <p class="text-3xl font-bold text-slate-900 dark:text-white">
+                  75%
+                </p>
+                <p class="text-xs uppercase tracking-widest text-slate-500">
+                  Hutan Lindung
+                </p>
+              </div>
             </div>
           </div>
         </div>
+
+        <div class="lg:col-span-5 space-y-4">
+          <div
+            class="group relative overflow-hidden rounded-3xl border border-white bg-white/60 p-6 shadow-xl shadow-slate-200/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-emerald-200/40 dark:border-slate-800 dark:bg-slate-900/60 dark:shadow-none dark:hover:border-emerald-500/50"
+          >
+            <div class="flex items-start gap-4">
+              <div
+                class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-sky-100 text-2xl transition-transform group-hover:scale-110 dark:bg-sky-500/20"
+              >
+                🌊
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-slate-900 dark:text-white">
+                  Keindahan Alam Beragam
+                </h3>
+                <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                  Dari terumbu karang tropis hingga puncak gunung bersalju
+                  abadi.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="group relative overflow-hidden rounded-3xl border border-white bg-white/60 p-6 shadow-xl shadow-slate-200/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-emerald-200/40 dark:border-slate-800 dark:bg-slate-900/60 dark:shadow-none dark:hover:border-emerald-500/50"
+          >
+            <div class="flex items-start gap-4">
+              <div
+                class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-emerald-100 text-2xl transition-transform group-hover:scale-110 dark:bg-emerald-500/20"
+              >
+                🧭
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-slate-900 dark:text-white">
+                  Petualangan Autentik
+                </h3>
+                <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                  Setiap jengkal tanah menyimpan cerita kearifan lokal dan
+                  dialog dengan alam.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="group relative overflow-hidden rounded-3xl border border-white bg-white/60 p-6 shadow-xl shadow-slate-200/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-emerald-200/40 dark:border-slate-800 dark:bg-slate-900/60 dark:shadow-none dark:hover:border-emerald-500/50"
+          >
+            <div class="flex items-start gap-4">
+              <div
+                class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-amber-100 text-2xl transition-transform group-hover:scale-110 dark:bg-amber-500/20"
+              >
+                🤝
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-slate-900 dark:text-white">
+                  Pemberdayaan Lokal
+                </h3>
+                <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                  Dukungan langsung bagi kesejahteraan masyarakat di
+                  kampung-kampung adat.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- bar bawah -->
       <div
-        class="mt-6 flex flex-wrap items-center justify-center gap-3 text-[11px] text-slate-500 dark:text-slate-400"
+        class="mt-16 flex flex-wrap items-center justify-between gap-6 border-t border-slate-200 pt-8 dark:border-slate-800"
       >
-        <span class="inline-flex items-center gap-1.5">
-          <span class="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-          Pendekatan wisata berkelanjutan membantu menjaga alam Papua tetap
-          lestari.
-        </span>
-        <span
-          class="hidden h-3 w-px bg-slate-300 sm:inline-block dark:bg-slate-600"
-        />
-        <span class="inline-flex items-center gap-1.5">
-          <span class="h-1.5 w-1.5 rounded-full bg-sky-400" />
-          Menghargai adat setempat adalah bagian penting dari perjalanan.
-        </span>
+        <p
+          class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400"
+        >
+          <span class="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+          Berpartisipasi dalam menjaga kelestarian bumi Papua.
+        </p>
+        <div class="flex items-center gap-4">
+          <div
+            class="h-1 w-24 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden"
+          >
+            <div
+              class="h-full w-2/3 bg-emerald-500 rounded-full animate-pulse"
+            ></div>
+          </div>
+          <span
+            class="text-xs font-bold uppercase tracking-widest text-slate-400"
+            >Sustainability Level: High</span
+          >
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <style scoped>
-.destination-about-enter {
+.section-visible {
   opacity: 1 !important;
   transform: translateY(0) !important;
+}
+
+/* Glassmorphism subtle effect */
+.dark .bg-white\/60 {
+  background-color: rgba(15, 23, 42, 0.7);
 }
 </style>

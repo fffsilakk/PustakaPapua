@@ -35,8 +35,10 @@ export const destinations: Destination[] = [
     name: "Raja Ampat",
     region: "kepulauan",
     category: "bahari",
-    thumbnail: "/images/wisata/raja-ampat-thumb.jpg",
-    heroImage: "/images/wisata/raja-ampat-hero.jpg",
+    thumbnail:
+      "https://images.unsplash.com/photo-1703769605314-502c031fe751?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    heroImage:
+      "https://images.unsplash.com/photo-1703769605314-502c031fe751?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     shortDescription:
       "Gugusan pulau dengan laut biru jernih dan keanekaragaman hayati laut yang mendunia.",
     description:
@@ -52,8 +54,10 @@ export const destinations: Destination[] = [
     name: "Danau Sentani",
     region: "danau",
     category: "alam",
-    thumbnail: "/images/wisata/danau-sentani-thumb.jpg",
-    heroImage: "/images/wisata/danau-sentani-hero.jpg",
+    thumbnail:
+      "https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/11/2025/05/04/lake-sentani-c2848048-add0-47d1-a96e-5a7bea5ff9b-resize-750-3072052363.jpeg",
+    heroImage:
+      "https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/11/2025/05/04/lake-sentani-c2848048-add0-47d1-a96e-5a7bea5ff9b-resize-750-3072052363.jpeg",
     shortDescription:
       "Danau luas dengan pulau-pulau kecil dan kampung adat di sekitarnya.",
     description:
@@ -70,8 +74,10 @@ export const destinations: Destination[] = [
     name: "Lembah Baliem",
     region: "pegunungan",
     category: "budaya",
-    thumbnail: "/images/wisata/lembah-baliem-thumb.jpg",
-    heroImage: "/images/wisata/lembah-baliem-hero.jpg",
+    thumbnail:
+      "https://wisato.id/wp-content/uploads/2020/05/Lembah-Baliem-Puncak-Jaya.jpg",
+    heroImage:
+      "https://wisato.id/wp-content/uploads/2020/05/Lembah-Baliem-Puncak-Jaya.jpg",
     shortDescription:
       "Lembah hijau di pegunungan yang menjadi rumah bagi suku Dani, Lani, dan Yali.",
     description:
@@ -88,8 +94,10 @@ export const destinations: Destination[] = [
     name: "Teluk Cenderawasih",
     region: "pesisir",
     category: "bahari",
-    thumbnail: "/images/wisata/teluk-cenderawasih-thumb.jpg",
-    heroImage: "/images/wisata/teluk-cenderawasih-hero.jpg",
+    thumbnail:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT60fzlcmQDftAPtYUCBuitJa6MHPK5rrzzZw&s",
+    heroImage:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT60fzlcmQDftAPtYUCBuitJa6MHPK5rrzzZw&s",
     shortDescription:
       "Taman laut luas yang dikenal sebagai habitat hiu paus dan terumbu karang yang indah.",
     description:
@@ -102,21 +110,83 @@ export const destinations: Destination[] = [
     isFavorite: false,
   },
   {
-    id: "taman-nasional-lorentz",
-    name: "Taman Nasional Lorentz",
+    id: "gua-binsari",
+    name: "Gua Binsari (Gua Jepang)",
     region: "taman_nasional",
-    category: "petualangan",
-    thumbnail: "/images/wisata/lorentz-thumb.jpg",
-    heroImage: "/images/wisata/lorentz-hero.jpg",
+    category: "lainnya",
+    thumbnail:
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/18/bb/e3/binsari-japanese-cave.jpg?w=1400&h=-1&s=1",
+    heroImage:
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/18/bb/e3/binsari-japanese-cave.jpg?w=1400&h=-1&s=1",
     shortDescription:
-      "Taman nasional pegunungan yang menjadi Situs Warisan Dunia UNESCO.",
+      "Gua bersejarah saksi bisu Perang Dunia II dengan lubang cahaya alami yang ikonik.",
     description:
-      "Taman Nasional Lorentz mencakup pegunungan tinggi, hutan hujan, hingga pesisir. Kawasan ini memiliki keanekaragaman hayati yang luar biasa dan merupakan salah satu kawasan lindung terbesar di Asia Tenggara. Beberapa jalur trekking menantang tersedia bagi pencinta petualangan.",
-    location: "Beberapa kabupaten di Papua, termasuk Mimika dan Jayawijaya",
+      "Gua Binsari, atau lebih dikenal sebagai Gua Jepang, merupakan kompleks gua alami yang pernah menjadi pusat logistik dan perlindungan bagi ribuan tentara Jepang pada masa Perang Dunia II (1943-1944). Kini, gua ini menjadi museum terbuka yang menyimpan berbagai peninggalan perang seperti amunisi, peralatan makan, hingga puing kendaraan perang. Cahaya matahari yang masuk melalui atap gua yang runtuh memberikan suasana yang dramatis dan sakral bagi para pengunjung.",
+    location: "Desa Ambroben, Distrik Biak Kota, Kabupaten Biak Numfor",
     bestTimeToVisit:
-      "Musim kemarau dengan persiapan fisik dan perizinan yang matang.",
+      "Pukul 11:00 - 13:00 WIT (untuk melihat fenomena sinar matahari menembus lubang gua).",
     activities:
-      "Trekking, pengamatan alam, fotografi lanskap pegunungan dan hutan.",
+      "Wisata sejarah, fotografi, eksplorasi gua, edukasi sejarah Perang Dunia II.",
+    isFavorite: false,
+  },
+  {
+    id: "pantai-anggopi",
+    name: "Pantai Anggopi",
+    region: "pesisir",
+    category: "bahari",
+    thumbnail:
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/76/41/d5/caption.jpg?w=1100&h=600&s=1",
+    heroImage:
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/76/41/d5/caption.jpg?w=1100&h=600&s=1",
+    shortDescription:
+      "Pantai unik dengan kolam pemandian air tawar alami tepat di pinggir laut.",
+    description:
+      "Pantai Anggopi terkenal dengan fenomena uniknya di mana terdapat kolam mata air tawar yang sangat jernih berwarna kebiruan yang muncul tepat di bibir pantai. Pengunjung dapat memilih untuk berenang di air laut yang hangat atau membilas diri di kolam air tawar yang sejuk. Pohon-pohon rindang di sekitar pantai menciptakan suasana yang teduh, sangat cocok untuk rekreasi keluarga.",
+    location: "Kampung Anggopi, Distrik Oridek, Kabupaten Biak Numfor",
+    bestTimeToVisit:
+      "Akhir pekan atau hari libur (pagi hari saat air laut pasang memberikan pemandangan terbaik).",
+    activities:
+      "Berenang di kolam air tawar, snorkeling, piknik keluarga, menikmati kelapa muda.",
+    isFavorite: false,
+  },
+  {
+    id: "kali-biru-biak",
+    name: "Kali Biru (Warsa)",
+    region: "pesisir",
+    category: "alam",
+    thumbnail:
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4_L1ShmlWnLf7UwaQ-MG8vhxXVXyiy4d2ojd4fkT8gfJI4WMou6v9nr_EwezdC6XVBgnF-d2lmvH2w0YjLbm-OEKsrRfEQj1tzmYtcGKTBiQbENH9NoKUOIhxZ5Ho64mX5-RoiBHpTeSw/s1600/1.+telaga+biru+samares+biak.JPG",
+    heroImage:
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4_L1ShmlWnLf7UwaQ-MG8vhxXVXyiy4d2ojd4fkT8gfJI4WMou6v9nr_EwezdC6XVBgnF-d2lmvH2w0YjLbm-OEKsrRfEQj1tzmYtcGKTBiQbENH9NoKUOIhxZ5Ho64mX5-RoiBHpTeSw/s1600/1.+telaga+biru+samares+biak.JPG",
+    shortDescription:
+      "Sungai jernih berwarna biru toska yang tersembunyi di tengah hutan asri Biak.",
+    description:
+      "Kali Biru Warsa adalah destinasi wisata alam yang menawarkan kesegaran air sungai dengan gradasi warna biru yang mempesona. Terletak jauh dari keramaian kota, sungai ini dikelilingi oleh pepohonan rimbun yang memberikan suasana sangat tenang. Keunikan utama tempat ini adalah kejernihan airnya yang memungkinkan Anda melihat dasar sungai dengan jelas, serta suhu air yang sejuk dan menyegarkan.",
+    location: "Distrik Warsa, Kabupaten Biak Numfor",
+    bestTimeToVisit:
+      "Pukul 10:00 - 14:00 WIT saat matahari tepat di atas kepala agar warna biru air terlihat maksimal.",
+    activities:
+      "Berenang, fotografi alam, relaksasi di tepi sungai, eksplorasi hutan sekitar.",
+    isFavorite: false,
+  },
+  {
+    id: "kali-biru-raja-ampat",
+    name: "Kali Biru (Warkesi)",
+    region: "kepulauan",
+    category: "alam",
+    thumbnail:
+      "https://travelrebels.com/wp-content/uploads/2025/02/tips-bezoeken-kali-biru.jpg",
+    heroImage:
+      "https://travelrebels.com/wp-content/uploads/2025/02/tips-bezoeken-kali-biru.jpg",
+    shortDescription:
+      "Sungai kristal berwarna biru pekat yang tersembunyi di jantung hutan tropis Waigeo.",
+    description:
+      "Kali Biru Raja Ampat adalah sungai alami yang memiliki air berwarna biru safir yang sangat jernih dan tenang. Terletak di dalam hutan dekat pemukiman Warkesi, sungai ini menawarkan pengalaman berenang di air pegunungan yang sangat dingin (mencapai 10-15 derajat Celcius). Sambil menikmati kesegaran air, pengunjung seringkali dapat mendengar suara kicauan Burung Cenderawasih yang hidup bebas di pepohonan tinggi di sekitar sungai.",
+    location: "Hutan Warkesi, Pulau Waigeo, Kabupaten Raja Ampat",
+    bestTimeToVisit:
+      "Pagi hari pukul 08:00 - 10:00 WIT (setelah melakukan pengamatan Burung Cenderawasih).",
+    activities:
+      "Berenang di air dingin, bird watching (Cenderawasih), jungle trekking, fotografi alam.",
     isFavorite: false,
   },
 ];

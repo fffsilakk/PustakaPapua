@@ -12,12 +12,12 @@ onMounted(() => {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("instrument-about-enter");
+          entry.target.classList.add("instrument-visible");
           observer?.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.2 }
+    { threshold: 0.15 }
   );
 
   if (sectionRef.value) observer.observe(sectionRef.value);
@@ -31,139 +31,217 @@ onUnmounted(() => {
 <template>
   <section
     ref="sectionRef"
-    class="relative overflow-hidden bg-white px-4 pb-16 pt-12 opacity-0 translate-y-6 transition-all duration-700 ease-out sm:px-6 lg:px-8 dark:bg-slate-950"
+    class="relative overflow-hidden bg-slate-50 py-24 px-4 opacity-0 translate-y-12 transition-all duration-[1100ms] ease-[cubic-bezier(0.25,1,0.5,1)] sm:px-6 lg:px-8 dark:bg-slate-950"
   >
-    <!-- ornamen background -->
-    <div
-      class="pointer-events-none absolute -top-10 left-[-5%] h-32 w-32 rounded-full bg-amber-200/40 blur-3xl dark:bg-amber-500/20"
-    />
-    <div
-      class="pointer-events-none absolute bottom-[-6rem] right-[-5%] h-40 w-40 rounded-full bg-emerald-200/40 blur-3xl dark:bg-emerald-500/20"
-    />
-
-    <div
-      class="relative mx-auto max-w-4xl rounded-3xl border border-slate-100 bg-white/90 px-6 py-8 shadow-sm backdrop-blur-sm sm:px-8 sm:py-9 dark:border-slate-700/70 dark:bg-slate-900/80"
-    >
-      <!-- header -->
-      <div class="flex flex-col items-center gap-3 text-center">
-        <span
-          class="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-800 dark:border-amber-400/40 dark:bg-amber-500/10 dark:text-amber-200"
-        >
-          <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          Makna alat musik Papua
-        </span>
-
-        <h2
-          class="text-xl font-semibold text-slate-900 sm:text-2xl dark:text-slate-50"
-        >
-          Bunyi yang menyatukan gerak, doa, dan cerita.
-        </h2>
-      </div>
-
-      <!-- konten -->
+    <div class="absolute inset-0 z-0 opacity-30 dark:opacity-10">
       <div
-        class="mt-6 grid gap-6 text-sm text-slate-600 sm:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] sm:items-start dark:text-slate-300"
+        class="absolute top-1/2 left-0 h-1 w-full flex items-center justify-around gap-2 px-10"
       >
-        <!-- teks -->
-        <div class="space-y-3">
-          <p class="leading-relaxed">
-            Alat musik tradisional Papua seperti tifa, kecapi, fu, dan pikon
-            bukan hanya pengiring tarian. Irama dan nada yang dihasilkan
-            menyampaikan pesan sukacita, duka, bahkan panggilan untuk berkumpul.
-          </p>
-          <p class="leading-relaxed">
-            Di banyak kampung, bunyi alat musik menjadi tanda dimulainya ibadah,
-            pesta adat, atau upacara penting. Dengan mempelajarinya, generasi
-            muda dapat memahami cara leluhur berkomunikasi lewat bunyi.
-          </p>
-        </div>
-
-        <!-- poin-poin -->
         <div
-          class="grid gap-3 rounded-2xl bg-slate-50 p-4 text-left shadow-sm sm:p-5 dark:bg-slate-900/70 dark:border dark:border-slate-700"
-        >
-          <div class="flex items-start gap-3">
+          v-for="i in 12"
+          :key="i"
+          class="w-1 bg-emerald-500 rounded-full animate-wave"
+          :style="{
+            height: Math.random() * 100 + 40 + 'px',
+            animationDelay: i * 0.1 + 's',
+          }"
+        ></div>
+      </div>
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-6xl">
+      <div
+        class="rounded-[3rem] bg-white/40 border border-white/60 p-8 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08)] backdrop-blur-2xl md:p-16 dark:bg-slate-900/60 dark:border-slate-800 dark:shadow-none"
+      >
+        <div class="grid gap-16 lg:grid-cols-2 lg:items-center">
+          <div class="space-y-8">
             <div
-              class="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-amber-100 text-lg dark:bg-amber-500/20"
+              class="inline-flex items-center gap-3 rounded-full bg-slate-100 px-4 py-2 dark:bg-slate-800/50"
             >
-              🥁
-            </div>
-            <div>
-              <h3
-                class="text-xs font-semibold uppercase tracking-[0.16em] text-amber-700 dark:text-amber-300"
+              <span
+                class="flex h-2 w-2 rounded-full bg-rose-500 animate-pulse"
+              ></span>
+              <span
+                class="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-600 dark:text-slate-300"
+                >Resonansi Budaya</span
               >
-                Mengiringi tarian dan nyanyian
-              </h3>
-              <p class="mt-1 text-xs text-slate-600 dark:text-slate-300">
-                Ritme tifa dan alat lain membantu penari menjaga langkah dan
-                penyanyi menjaga nada.
+            </div>
+
+            <h2
+              class="text-4xl font-black tracking-tight text-slate-900 sm:text-5xl dark:text-white leading-[1.1]"
+            >
+              Suara yang
+              <span
+                class="bg-gradient-to-r from-emerald-600 to-sky-600 bg-clip-text text-transparent"
+                >Menyatu</span
+              >
+              dengan Jiwa.
+            </h2>
+
+            <div
+              class="space-y-5 text-lg leading-relaxed text-slate-600 dark:text-slate-400"
+            >
+              <p>
+                Instrumen tradisional Papua seperti
+                <span class="text-slate-900 font-bold dark:text-white"
+                  >Tifa</span
+                >
+                dan
+                <span class="text-slate-900 font-bold dark:text-white"
+                  >Pikon</span
+                >
+                bukan sekadar alat penghasil bunyi. Mereka adalah perpanjangan
+                suara leluhur yang menyampaikan pesan sukacita, duka, hingga
+                panggilan keramat untuk berkumpul.
+              </p>
+              <p>
+                Setiap getaran kulit tifa membawa ritme yang mengatur nafas
+                tarian dan langkah kaki masyarakat. Mempelajari instrumen ini
+                berarti menyelami cara masyarakat Papua berkomunikasi dengan
+                alam dan sesama melalui bahasa nada yang jujur.
+              </p>
+            </div>
+
+            <div class="flex items-center gap-6 pt-4">
+              <div class="flex -space-x-3">
+                <div
+                  v-for="i in 3"
+                  :key="i"
+                  class="h-10 w-10 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center text-sm dark:border-slate-900"
+                >
+                  {{ ["🥁", "🎻", "📣"][i - 1] }}
+                </div>
+              </div>
+              <p class="text-xs font-medium text-slate-500 italic">
+                Berbagai alat musik ritmik, petik, dan tiup.
               </p>
             </div>
           </div>
 
-          <div class="flex items-start gap-3">
+          <div class="grid gap-4">
             <div
-              class="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-lg dark:bg-emerald-500/20"
+              class="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-white to-slate-50 p-6 shadow-sm transition-all duration-300 hover:-translate-x-2 hover:shadow-xl dark:from-slate-800 dark:to-slate-800/50"
             >
-              📣
+              <div class="flex gap-5">
+                <div
+                  class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-amber-500 text-2xl shadow-lg shadow-amber-500/20 transition-transform group-hover:rotate-12"
+                >
+                  🥁
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                    Harmoni Gerak
+                  </h3>
+                  <p
+                    class="mt-1 text-sm leading-relaxed text-slate-500 dark:text-slate-400"
+                  >
+                    Menjaga ritme tarian agar tetap selaras dengan denyut
+                    jantung penarinya.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div>
-              <h3
-                class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-700 dark:text-emerald-300"
-              >
-                Tanda dan panggilan
-              </h3>
-              <p class="mt-1 text-xs text-slate-600 dark:text-slate-300">
-                Bunyi tertentu dipakai sebagai penanda waktu, panggilan
-                berkumpul, atau dimulainya upacara.
-              </p>
-            </div>
-          </div>
 
-          <div class="flex items-start gap-3">
             <div
-              class="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-sky-100 text-lg dark:bg-sky-500/20"
+              class="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-white to-slate-50 p-6 shadow-sm transition-all duration-300 hover:-translate-x-2 hover:shadow-xl dark:from-slate-800 dark:to-slate-800/50"
             >
-              🎓
+              <div class="flex gap-5">
+                <div
+                  class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-emerald-500 text-2xl shadow-lg shadow-emerald-500/20 transition-transform group-hover:rotate-12"
+                >
+                  📣
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                    Bahasa Isyarat Nada
+                  </h3>
+                  <p
+                    class="mt-1 text-sm leading-relaxed text-slate-500 dark:text-slate-400"
+                  >
+                    Digunakan sebagai media komunikasi jarak jauh dan tanda
+                    upacara sakral.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div>
-              <h3
-                class="text-xs font-semibold uppercase tracking-[0.16em] text-sky-700 dark:text-sky-300"
-              >
-                Media belajar lintas generasi
-              </h3>
-              <p class="mt-1 text-xs text-slate-600 dark:text-slate-300">
-                Anak muda dapat belajar langsung dari tetua, lalu
-                mendokumentasikannya dalam bentuk digital.
-              </p>
+
+            <div
+              class="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-white to-slate-50 p-6 shadow-sm transition-all duration-300 hover:-translate-x-2 hover:shadow-xl dark:from-slate-800 dark:to-slate-800/50"
+            >
+              <div class="flex gap-5">
+                <div
+                  class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-sky-500 text-2xl shadow-lg shadow-sky-500/20 transition-transform group-hover:rotate-12"
+                >
+                  📱
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                    Warisan Digital
+                  </h3>
+                  <p
+                    class="mt-1 text-sm leading-relaxed text-slate-500 dark:text-slate-400"
+                  >
+                    Menghubungkan tetua kampung dengan teknologi untuk
+                    pelestarian abadi.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- bar bawah -->
-      <div
-        class="mt-6 flex flex-wrap items-center justify-center gap-3 text-[11px] text-slate-500 dark:text-slate-400"
-      >
-        <span class="inline-flex items-center gap-1.5">
-          <span class="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-          Banyak alat musik bisa dibuat dari bahan sederhana di sekitar kampung.
-        </span>
-        <span
-          class="hidden h-3 w-px bg-slate-300 sm:inline-block dark:bg-slate-600"
-        />
-        <span class="inline-flex items-center gap-1.5">
-          <span class="h-1.5 w-1.5 rounded-full bg-amber-400" />
-          Dokumentasi digital membantu menjaga bunyi khas Papua tetap hidup.
-        </span>
+        <div
+          class="mt-16 flex flex-wrap justify-center gap-8 border-t border-slate-100 pt-10 dark:border-slate-800/50"
+        >
+          <div
+            class="flex items-center gap-3 text-sm font-semibold text-slate-600 dark:text-slate-400"
+          >
+            <div class="h-2 w-2 rounded-full bg-emerald-500"></div>
+            Eco-friendly materials
+          </div>
+          <div
+            class="flex items-center gap-3 text-sm font-semibold text-slate-600 dark:text-slate-400"
+          >
+            <div class="h-2 w-2 rounded-full bg-sky-500"></div>
+            Spiritual connection
+          </div>
+          <div
+            class="flex items-center gap-3 text-sm font-semibold text-slate-600 dark:text-slate-400"
+          >
+            <div class="h-2 w-2 rounded-full bg-rose-500"></div>
+            Community unity
+          </div>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <style scoped>
-.instrument-about-enter {
+.instrument-visible {
   opacity: 1 !important;
   transform: translateY(0) !important;
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: scaleY(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scaleY(1.5);
+    opacity: 1;
+  }
+}
+
+.animate-wave {
+  animation: wave 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Custom transitions */
+.group {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 </style>

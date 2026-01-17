@@ -78,11 +78,11 @@ const handleFavorite = (event: MouseEvent) => {
         class="mt-4 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400"
       >
         <div class="flex flex-wrap gap-1.5">
-          <span
+          <!-- <span
             class="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-medium text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-200"
           >
             🧱 {{ house.materials }}
-          </span>
+          </span> -->
         </div>
 
         <button

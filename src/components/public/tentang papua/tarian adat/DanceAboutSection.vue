@@ -12,12 +12,12 @@ onMounted(() => {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("about-dance-enter");
+          entry.target.classList.add("dance-visible");
           observer?.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.2 }
+    { threshold: 0.15 }
   );
 
   if (sectionRef.value) observer.observe(sectionRef.value);
@@ -31,139 +31,186 @@ onUnmounted(() => {
 <template>
   <section
     ref="sectionRef"
-    class="relative overflow-hidden bg-white px-4 pb-16 pt-12 opacity-0 translate-y-6 transition-all duration-700 ease-out sm:px-6 lg:px-8 dark:bg-slate-900"
+    class="relative overflow-hidden bg-slate-50 py-24 px-4 opacity-0 translate-y-12 transition-all duration-[1200ms] ease-[cubic-bezier(0.2,1,0.3,1)] sm:px-6 lg:px-8 dark:bg-slate-950"
   >
-    <!-- Ornamen background -->
     <div
-      class="pointer-events-none absolute -top-10 left-[-5%] h-32 w-32 rounded-full bg-amber-200/40 blur-3xl dark:bg-amber-500/20"
-    />
-    <div
-      class="pointer-events-none absolute bottom-[-6rem] right-[-5%] h-40 w-40 rounded-full bg-sky-200/40 blur-3xl dark:bg-sky-500/20"
-    />
-
-    <div
-      class="relative mx-auto max-w-4xl rounded-3xl border border-slate-100 bg-white/90 px-6 py-8 shadow-sm backdrop-blur-sm sm:px-8 sm:py-9 dark:border-slate-700/70 dark:bg-slate-900/80"
+      class="absolute inset-0 z-0 pointer-events-none opacity-40 dark:opacity-20"
     >
-      <!-- title + pill -->
-      <div class="flex flex-col items-center gap-3 text-center">
-        <span
-          class="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-800 dark:border-amber-400/40 dark:bg-amber-500/10 dark:text-amber-200"
-        >
-          <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          Makna di balik tarian adat
-        </span>
-
-        <h2
-          class="text-xl font-semibold text-slate-900 sm:text-2xl dark:text-slate-50"
-        >
-          Mengapa tarian adat Papua penting?
-        </h2>
-      </div>
-
-      <!-- konten dua kolom -->
-      <div
-        class="mt-6 grid gap-6 text-sm text-slate-600 sm:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] sm:items-start dark:text-slate-300"
+      <svg
+        class="absolute -top-20 -right-20 w-[600px] h-[600px] text-amber-200/50 dark:text-amber-500/10"
+        viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <!-- teks utama -->
-        <div class="space-y-3">
-          <p class="leading-relaxed">
-            Tarian adat di Papua bukan sekadar hiburan. Setiap gerakan menyimpan
-            pesan tentang sejarah suku, rasa syukur, doa, hingga cara masyarakat
-            menjaga hubungan dengan alam dan Sang Pencipta.
-          </p>
-          <p class="leading-relaxed">
-            Dengan mempelajari tarian ini, generasi muda tidak hanya menghafal
-            pola langkah, tapi juga merawat jati diri dan kebanggaan sebagai
-            anak Papua, di mana pun mereka berada.
-          </p>
-        </div>
-
-        <!-- kartu poin -->
-        <div
-          class="grid gap-3 rounded-2xl bg-slate-50 p-4 text-left shadow-sm sm:p-5 dark:bg-slate-900/70 dark:border dark:border-slate-700"
-        >
-          <div class="flex items-start gap-3">
-            <div
-              class="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-amber-100 text-lg dark:bg-amber-500/20"
-            >
-              🌱
-            </div>
-            <div>
-              <h3
-                class="text-xs font-semibold uppercase tracking-[0.16em] text-amber-700 dark:text-amber-300"
-              >
-                Pelestarian budaya
-              </h3>
-              <p class="mt-1 text-xs text-slate-600 dark:text-slate-300">
-                Setiap tarian yang dipelajari adalah satu langkah kecil untuk
-                menjaga warisan leluhur agar tidak hilang.
-              </p>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-3">
-            <div
-              class="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-lg dark:bg-emerald-500/20"
-            >
-              🤝
-            </div>
-            <div>
-              <h3
-                class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-700 dark:text-emerald-300"
-              >
-                Menguatkan komunitas
-              </h3>
-              <p class="mt-1 text-xs text-slate-600 dark:text-slate-300">
-                Latihan dan pementasan tarian adat menjadi ruang bertemu dan
-                bertumbuh bersama di dalam komunitas.
-              </p>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-3">
-            <div
-              class="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-sky-100 text-lg dark:bg-sky-500/20"
-            >
-              🎓
-            </div>
-            <div>
-              <h3
-                class="text-xs font-semibold uppercase tracking-[0.16em] text-sky-700 dark:text-sky-300"
-              >
-                Belajar di mana saja
-              </h3>
-              <p class="mt-1 text-xs text-slate-600 dark:text-slate-300">
-                Dengan platform digital, materi tarian bisa dijangkau anak-anak
-                di kampung maupun di kota.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- bar kecil di bawah -->
-      <div
-        class="mt-6 flex flex-wrap items-center justify-center gap-3 text-[11px] text-slate-500 dark:text-slate-400"
-      >
-        <span class="inline-flex items-center gap-1.5">
-          <span class="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-          Dipakai di sekolah, gereja, dan acara kampung.
-        </span>
-        <span
-          class="hidden h-3 w-px bg-slate-300 sm:inline-block dark:bg-slate-600"
+        <path
+          fill="currentColor"
+          d="M44.7,-76.4C58.1,-69.2,69.2,-58.1,76.4,-44.7C83.7,-31.4,87.1,-15.7,85.8,-0.7C84.6,14.3,78.6,28.6,70.1,41.4C61.6,54.1,50.6,65.3,37.3,72.4C24.1,79.5,8.6,82.5,-6.6,80.8C-21.8,79.1,-36.8,72.7,-49.6,63.1C-62.4,53.5,-73.1,40.7,-78.9,26.1C-84.7,11.5,-85.7,-4.9,-81.9,-20C-78.1,-35.1,-69.5,-48.9,-57.6,-56.3C-45.7,-63.7,-30.5,-64.7,-16.4,-70.5C-2.4,-76.3,10.6,-86.8,24.7,-88.6C38.8,-90.3,53.9,-83.4,44.7,-76.4Z"
+          transform="translate(100 100)"
         />
-        <span class="inline-flex items-center gap-1.5">
-          <span class="h-1.5 w-1.5 rounded-full bg-amber-400" />
-          Setiap tarian bisa disimpan untuk belajar offline.
-        </span>
+      </svg>
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-6xl">
+      <div class="grid gap-16 lg:grid-cols-2 lg:items-center">
+        <div class="order-2 lg:order-1 space-y-8">
+          <div
+            class="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-4 py-1.5 dark:border-sky-500/30 dark:bg-sky-500/10"
+          >
+            <span class="relative flex h-2 w-2">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+              ></span>
+              <span
+                class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"
+              ></span>
+            </span>
+            <span
+              class="text-[10px] font-bold uppercase tracking-[0.2em] text-sky-800 dark:text-sky-300"
+              >Manifestasi Energi</span
+            >
+          </div>
+
+          <h2
+            class="text-4xl font-black tracking-tight text-slate-900 sm:text-5xl dark:text-white leading-[1.1]"
+          >
+            Tarian: Bahasa
+            <span
+              class="text-amber-600 dark:text-amber-500 underline decoration-sky-500/30 underline-offset-8"
+              >Tubuh & Jiwa</span
+            >
+            Papua.
+          </h2>
+
+          <div
+            class="space-y-6 text-lg leading-relaxed text-slate-600 dark:text-slate-400"
+          >
+            <p>
+              Di Papua, tarian bukan sekadar estetika panggung. Ia adalah
+              **arsip hidup** yang menyimpan narasi sejarah suku, rasa syukur
+              atas hasil bumi, hingga dialog spiritual dengan alam semesta.
+            </p>
+            <p>
+              Setiap entakan kaki di atas tanah adalah bentuk penghormatan
+              kepada leluhur. Dengan merawat tarian ini, generasi muda sedang
+              menjaga api identitas agar tetap menyala di tengah arus
+              modernisasi.
+            </p>
+          </div>
+
+          <div class="flex gap-10 pt-4">
+            <div class="space-y-1">
+              <p class="text-sm font-bold text-slate-900 dark:text-white">
+                Ekspresif
+              </p>
+              <p class="text-xs text-slate-500">Gerakan Penuh Energi</p>
+            </div>
+            <div class="w-px h-10 bg-slate-200 dark:bg-slate-800"></div>
+            <div class="space-y-1">
+              <p class="text-sm font-bold text-slate-900 dark:text-white">
+                Simbolis
+              </p>
+              <p class="text-xs text-slate-500">Penuh Makna Filosofis</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="order-1 lg:order-2 grid gap-6">
+          <div
+            class="group relative rounded-3xl border border-white bg-white/50 p-6 shadow-xl shadow-slate-200/50 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 dark:border-slate-800 dark:bg-slate-900/50 dark:shadow-none"
+          >
+            <div class="flex items-center gap-5">
+              <div
+                class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-amber-100 text-2xl transition-transform group-hover:scale-110 dark:bg-amber-500/20"
+              >
+                🌱
+              </div>
+              <div>
+                <h3
+                  class="text-base font-bold text-slate-900 dark:text-white uppercase tracking-wider"
+                >
+                  Pelestarian Akar
+                </h3>
+                <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                  Menjaga warisan agar tetap relevan dan tidak lekang oleh
+                  zaman.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="group relative rounded-3xl border border-white bg-white/50 p-6 shadow-xl shadow-slate-200/50 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 dark:border-slate-800 dark:bg-slate-900/50 dark:shadow-none lg:ml-8"
+          >
+            <div class="flex items-center gap-5">
+              <div
+                class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-emerald-100 text-2xl transition-transform group-hover:scale-110 dark:bg-emerald-500/20"
+              >
+                🤝
+              </div>
+              <div>
+                <h3
+                  class="text-base font-bold text-slate-900 dark:text-white uppercase tracking-wider"
+                >
+                  Kekuatan Komunal
+                </h3>
+                <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                  Tarian sebagai perekat sosial yang menyatukan berbagai lapisan
+                  masyarakat.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="group relative rounded-3xl border border-white bg-white/50 p-6 shadow-xl shadow-slate-200/50 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 dark:border-slate-800 dark:bg-slate-900/50 dark:shadow-none"
+          >
+            <div class="flex items-center gap-5">
+              <div
+                class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-sky-100 text-2xl transition-transform group-hover:scale-110 dark:bg-sky-500/20"
+              >
+                🎓
+              </div>
+              <div>
+                <h3
+                  class="text-base font-bold text-slate-900 dark:text-white uppercase tracking-wider"
+                >
+                  Edukasi Tanpa Batas
+                </h3>
+                <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                  Menggunakan platform digital untuk mendistribusikan ilmu tari
+                  ke seluruh pelosok.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-20 flex flex-wrap justify-center gap-4">
+        <div
+          v-for="tag in [
+            'Pesta Adat',
+            'Upacara Sakral',
+            'Edukasi Sekolah',
+            'Digital Archive',
+          ]"
+          :key="tag"
+          class="px-4 py-1.5 rounded-full border border-slate-200 text-[11px] font-bold uppercase tracking-widest text-slate-500 dark:border-slate-800 dark:text-slate-400"
+        >
+          {{ tag }}
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <style scoped>
-.about-dance-enter {
+.dance-visible {
   opacity: 1 !important;
   transform: translateY(0) !important;
+}
+
+/* Glassmorphism subtle effect for light mode */
+.bg-white\/50 {
+  background-color: rgba(255, 255, 255, 0.6);
 }
 </style>

@@ -2,6 +2,7 @@
 import StoryHero from "../../../components/public/tentang papua/cerita rakyat/StoryHero.vue";
 import StoryHighlight from "../../../components/public/tentang papua/cerita rakyat/StoryHighlight.vue";
 import StoryListWithSearch from "../../../components/public/tentang papua/cerita rakyat/StoryListWithSearch.vue";
+import StoryAbout from "../../../components/public/tentang papua/cerita rakyat/StoryAbout.vue";
 </script>
 
 <template>
@@ -20,5 +21,6 @@ import StoryListWithSearch from "../../../components/public/tentang papua/cerita
       imageUrl="https://media.istockphoto.com/id/2148303998/id/foto/pemandangan-pulau-seram-provinsi-maluku.jpg?s=2048x2048&w=is&k=20&c=FZrPA-vGLRZ-3NPXPJfVMV5HntMuif-6CwnVeR1LrJ8="
       icon="🌳"
     />
+    <StoryAbout />
   </div>
 </template>

@@ -16,7 +16,7 @@
       ></div>
     </div>
 
-    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 pb-16 md:pb-24">
+    <div class="relative z-10 w-full max-w-6xl mx-auto px-6 pb-16 md:pb-24">
       <div class="max-w-3xl space-y-6">
         <div
           class="flex items-center gap-3 animate-fade-in-up"
@@ -35,7 +35,7 @@
         </div>
 
         <h1
-          class="text-5xl md:text-8xl font-black text-slate-300 leading-[0.95] tracking-tighter animate-fade-in-up"
+          class="text-5xl md:text-8xl font-black text-blue-600 leading-[0.95] tracking-tighter animate-fade-in-up"
           style="animation-delay: 400ms"
         >
           {{ title }}
