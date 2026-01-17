@@ -19,7 +19,8 @@ export const upacaraList: Upacara[] = [
     tribe: "Berbagai suku Pegunungan Papua",
     region: "Pegunungan Papua",
     category: "syukuran",
-    thumbnail: "/images/upacara/bakar-batu.jpg",
+    thumbnail:
+      "https://kab-yalimo.kpu.go.id/public/kab-yalimo/images/1764483024_03968e81f2b55c38b8fc.jpg",
     shortDescription:
       "Tradisi memasak bersama dengan batu panas sebagai bentuk syukur, perdamaian, dan kebersamaan.",
     description:
@@ -34,7 +35,8 @@ export const upacaraList: Upacara[] = [
     tribe: "Suku Asmat",
     region: "Pesisir selatan Papua",
     category: "kematian",
-    thumbnail: "/images/upacara/mbis-asmat.jpg",
+    thumbnail:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZTNkA8yGQTqcSFFZZ9mpcVm46kltizYBaTw&s",
     shortDescription:
       "Upacara pemahatan patung leluhur untuk menghormati dan mengenang orang yang telah meninggal.",
     description:

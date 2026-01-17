@@ -28,7 +28,8 @@ export const senjataList: Senjata[] = [
     type: "busur-panah",
     tribe: "Berbagai suku di Papua",
     region: "Pegunungan dan pedalaman Papua",
-    thumbnail: "/images/senjata/busur-panah-papua.jpg",
+    thumbnail:
+      "https://st2.depositphotos.com/4507459/6929/i/950/depositphotos_69297411-stock-photo-man-with-bow-and-arrow.jpg",
     shortDescription:
       "Senjata utama untuk berburu dan berperang, terdiri dari busur kayu dan panah dengan ujung runcing.",
     description:
@@ -42,7 +43,8 @@ export const senjataList: Senjata[] = [
     type: "tombak",
     tribe: "Berbagai suku pesisir dan pedalaman",
     region: "Berbagai wilayah Papua",
-    thumbnail: "/images/senjata/tombak-papua.jpg",
+    thumbnail:
+      "https://cnc-magazine.oramiland.com/parenting/images/denian_tombakpapua_VugYeYv.width-800.format-webp.webp",
     shortDescription:
       "Tombak dengan batang kayu panjang dan ujung runcing, dipakai untuk berburu dan upacara adat.",
     description:
@@ -56,7 +58,8 @@ export const senjataList: Senjata[] = [
     type: "belati",
     tribe: "Beberapa suku di Papua",
     region: "Papua",
-    thumbnail: "/images/senjata/belati-kasuari.jpg",
+    thumbnail:
+      "https://asset.kompas.com/crops/G0FuY5me-g3-U_xj8IQTBqnEALs=/0x76:1000x576/375x240/data/photo/2018/04/25/1481996292.jpg",
     shortDescription:
       "Pisau kecil yang dibuat dari tulang burung kasuari, sering dipakai dekat dengan tubuh.",
     description:
