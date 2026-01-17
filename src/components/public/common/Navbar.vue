@@ -104,18 +104,52 @@
             ></span>
           </a>
         </router-link>
-        <!-- <div class="m-1 hs-dropdown [--trigger:hover] relative inline-flex">
+
+        <!-- Tentang -->
+        <router-link to="/umkm">
+          <a
+            class="group relative px-4 py-2 flex items-center text-sm font-medium text-gray-800 hover:bg-gray-100 hover:text-emerald-600 rounded-lg focus:outline-none focus:bg-gray-100 transition-all duration-300 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:hover:text-emerald-400"
+          >
+            <span>UMKM</span>
+            <span
+              class="absolute bottom-1 left-2 right-2 h-0.5 scale-x-0 rounded-full bg-emerald-500 transition-transform duration-300 group-hover:scale-x-100"
+            ></span>
+          </a>
+        </router-link>
+
+        <!-- Dropdown -->
+        <div
+          class="hs-dropdown [--strategy:static] md:[--strategy:fixed] [--adaptive:none] md:[--adaptive:adaptive] [--is-collapse:true] md:[--is-collapse:false]"
+        >
           <button
-            id="hs-dropdown-hover-event"
+            id="hs-header-base-dropdown"
             type="button"
-            class="hs-dropdown-toggle py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
+            class="hs-dropdown-toggle w-full p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-hidden focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
             aria-haspopup="menu"
             aria-expanded="false"
             aria-label="Dropdown"
           >
-            Culture
             <svg
-              class="hs-dropdown-open:rotate-180 size-4"
+              class="shrink-0 size-4 me-3 md:me-2 block md:hidden"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="m3 10 2.5-2.5L3 5" />
+              <path d="m3 19 2.5-2.5L3 14" />
+              <path d="M10 6h11" />
+              <path d="M10 12h11" />
+              <path d="M10 18h11" />
+            </svg>
+            <span class="font-medium">Tentang Papua</span>
+            <svg
+              class="hs-dropdown-open:-rotate-180 md:hs-dropdown-open:rotate-0 duration-300 shrink-0 size-4 ms-auto md:ms-1"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
@@ -131,71 +165,58 @@
           </button>
 
           <div
-            class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg mt-2 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
+            class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 relative w-full md:w-52 hidden z-10 top-full ps-7 md:ps-0 md:bg-white md:rounded-lg md:shadow-md before:absolute before:-top-4 before:start-0 before:w-full before:h-5 md:after:hidden after:absolute after:top-1 after:start-4.5 after:w-0.5 after:h-[calc(100%-4px)] after:bg-gray-100 dark:md:bg-neutral-800 dark:after:bg-neutral-700"
             role="menu"
             aria-orientation="vertical"
-            aria-labelledby="hs-dropdown-hover-event"
+            aria-labelledby="hs-header-base-dropdown"
           >
-            <div class="p-1 space-y-0.5">
-              <a
-                class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
-                href="#"
-              >
-                Bahasa Daerah
-              </a>
-              <a
-                class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
-                href="#"
-              >
-                Tarian Tradisional
-              </a>
-              <a
-                class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
-                href="#"
-              >
-                Alat Musik Tradisional
-              </a>
-              <a
-                class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
-                href="#"
-              >
-                Pakaian Adat
-              </a>
-              <a
-                class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
-                href="#"
-              >
-                Rumah Adat
-              </a>
-              <a
-                class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
-                href="#"
-              >
-                Cerita Rakyat
-              </a>
+            <div class="py-1 md:px-1 space-y-0.5">
+              <router-link to="/ceritaRakyat">
+                <a
+                  class="p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300"
+                >
+                  Cerita Rakyat
+                </a>
+              </router-link>
+              <router-link to="/tarianAdat">
+                <a
+                  class="p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300"
+                >
+                  Tarian Adat
+                </a>
+              </router-link>
+              <router-link to="/musikAdat">
+                <a
+                  class="p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300"
+                >
+                  Musik Adat
+                </a>
+              </router-link>
+              <router-link to="/rumahAdat">
+                <a
+                  class="p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300"
+                >
+                  Rumah Adat
+                </a>
+              </router-link>
             </div>
           </div>
-        </div> -->
+        </div>
+        <!-- End Dropdown -->
 
-        <!-- Tentang -->
-        <router-link to="/umkm">
-          <a
-            class="group relative px-4 py-2 flex items-center text-sm font-medium text-gray-800 hover:bg-gray-100 hover:text-emerald-600 rounded-lg focus:outline-none focus:bg-gray-100 transition-all duration-300 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:hover:text-emerald-400"
-          >
-            <span>UMKM</span>
-            <span
-              class="absolute bottom-1 left-2 right-2 h-0.5 scale-x-0 rounded-full bg-emerald-500 transition-transform duration-300 group-hover:scale-x-100"
-            ></span>
-          </a>
-        </router-link>
         <router-link to="/cart">
           <a
             class="group relative px-4 py-2 flex items-center text-sm font-medium text-gray-800 hover:bg-gray-100 hover:text-emerald-600 rounded-lg focus:outline-none focus:bg-gray-100 transition-all duration-300 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:hover:text-emerald-400"
           >
-            <span>Cart</span>
-            <span
+            <AkCart
+              class="size-5 transition-transform duration-300 group-hover:scale-110"
+              width="24"
+              height="24"
+            />
+            <!-- <span>Cart</span> -->
+            <!-- <span
               class="absolute bottom-1 left-2 right-2 h-0.5 scale-x-0 rounded-full bg-emerald-500 transition-transform duration-300 group-hover:scale-x-100"
-            ></span>
+            ></span> -->
           </a>
         </router-link>
 
@@ -319,8 +340,10 @@
             <a
               class="p-3 flex items-center gap-3 text-sm text-gray-800 hover:bg-gray-100 hover:text-emerald-600 rounded-lg focus:outline-none transition-all duration-300 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:hover:text-emerald-400"
             >
-              <TaOutlineArrowRoundaboutRight
-                class="size-5"
+              <img
+                src="/icon/budaya.png"
+                alt="Budaya Icon"
+                class="size-5 dark:bg-white dark:rounded-md"
                 width="24"
                 height="24"
               />
@@ -332,25 +355,78 @@
             <a
               class="p-3 flex items-center gap-3 text-sm text-gray-800 hover:bg-gray-100 hover:text-emerald-600 rounded-lg focus:outline-none transition-all duration-300 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:hover:text-emerald-400"
             >
-              <TaOutlineArrowRoundaboutRight
-                class="size-5"
+              <img
+                src="/icon/umkm.png"
+                alt="UMKM Icon"
+                class="size-5 dark:bg-white dark:rounded-md"
                 width="24"
                 height="24"
               />
               <span class="font-medium">UMKM</span>
             </a>
           </router-link>
+          <!-- Dropdown -->
+          <div class="flex flex-col cursor-pointer text-sm">
+            <button
+              type="button"
+              class="peer group w-full text-left px-4 pr-2 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-emerald-600 rounded-lg focus:outline-none transition-all duration-300 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:hover:text-emerald-400"
+            >
+              <span class="font-medium">Tentang Papua</span>
+              <svg
+                class="w-5 h-5 inline float-right transition-transform duration-200 -rotate-90 group-focus:rotate-0"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="#6B7280"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m19 9-7 7-7-7"
+                />
+              </svg>
+            </button>
+
+            <ul
+              class="hidden overflow-hidden peer-focus:block w-full border border-gray-500 border-y rounded shadow-md mt-1 py-2"
+            >
+              <li
+                class="px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-emerald-600 rounded-lg focus:outline-none transition-all duration-300 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:hover:text-emerald-400 cursor-pointer"
+              >
+                <router-link to="/ceritaRakyat" @click="closeMobileMenu">
+                  Cerita Rakyat
+                </router-link>
+              </li>
+              <li
+                class="px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-emerald-600 rounded-lg focus:outline-none transition-all duration-300 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:hover:text-emerald-400 cursor-pointer"
+              >
+                <router-link to="/tarianAdat" @click="closeMobileMenu">
+                  Tarian Adat
+                </router-link>
+              </li>
+              <li
+                class="px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-emerald-600 rounded-lg focus:outline-none transition-all duration-300 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:hover:text-emerald-400 cursor-pointer"
+              >
+                <router-link to="/musikAdat" @click="closeMobileMenu">
+                  Musik Adat
+                </router-link>
+              </li>
+              <li
+                class="px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-emerald-600 rounded-lg focus:outline-none transition-all duration-300 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:hover:text-emerald-400 cursor-pointer"
+              >
+                <router-link to="/rumahAdat" @click="closeMobileMenu">
+                  Rumah Adat
+                </router-link>
+              </li>
+            </ul>
+          </div>
           <!-- Cart -->
           <router-link to="/cart" @click="closeMobileMenu">
             <a
               class="p-3 flex items-center gap-3 text-sm text-gray-800 hover:bg-gray-100 hover:text-emerald-600 rounded-lg focus:outline-none transition-all duration-300 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:hover:text-emerald-400"
             >
-              <TaOutlineArrowRoundaboutRight
-                class="size-5"
-                width="24"
-                height="24"
-              />
-              <span class="font-medium">Cart</span>
+              <AkCart class="size-5" width="24" height="24" />
             </a>
           </router-link>
 
@@ -394,9 +470,9 @@ import SearchButton from "../../../services/SearchButton.vue";
 import ConnectionStatus from "../common/ConnectionStatus.vue";
 import {
   IcHomeAlt,
-  TaOutlineArrowRoundaboutRight,
   QuHamburgerSidebar,
   ChGithub,
+  AkCart,
 } from "@kalimahapps/vue-icons";
 
 // State management

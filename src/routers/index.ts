@@ -9,6 +9,11 @@ import CultureListView from "../views/public/CultureListView.vue";
 import CultureDetailView from "../views/public/CultureDetailView.vue";
 import UmkmCatalogView from "../views/public/UmkmCatalogView.vue";
 import CartView from "../views/public/CartView.vue";
+
+// Tentang Papua
+import CeritaRakyat from "../views/public/tentang papua/CeritaRakyat.vue";
+import TarianAdatView from "../views/public/tentang papua/TarianAdatView.vue";
+
 import test from "../components/public/culture/ceritaRakyat/test.vue";
 
 const routes = [
@@ -33,7 +38,7 @@ const routes = [
       },
       { path: "/umkm", name: "UmkmCatalog", component: UmkmCatalogView },
       {
-        path: "/budaya/biwar-sang-penakluk-naga",
+        path: "/ceritaRakyat/biwar-sang-penakluk-naga",
         name: "biwar-sang-penakluk-naga",
         component: () =>
           import("../components/public/culture/ceritaRakyat/PenaklukNaga.vue"),
@@ -43,7 +48,7 @@ const routes = [
         props: true,
       },
       {
-        path: "/budaya/empat-raja",
+        path: "/ceritaRakyat/empat-raja",
         name: "empat-raja",
         component: () =>
           import("../components/public/culture/ceritaRakyat/EmpatRaja.vue"),
@@ -65,6 +70,24 @@ const routes = [
         props: true,
       },
       { path: "/cart", name: "Cart", component: CartView },
+      {
+        path: "/ceritaRakyat",
+        name: "ceritaRakyat",
+        component: CeritaRakyat,
+        props: true,
+        meta: {
+          title: "Tentang Papua | Cerita Rakyat",
+        },
+      },
+      {
+        path: "/tarianAdat",
+        name: "tarianAdat",
+        component: TarianAdatView,
+        props: true,
+        meta: {
+          title: "Tentang Papua | Tarian Adat",
+        },
+      },
       { path: "/test", name: "test", component: test },
     ],
   },
