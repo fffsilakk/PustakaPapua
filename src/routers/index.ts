@@ -17,6 +17,7 @@ import AlatMusikView from "../views/public/tentang papua/AlatMusikView.vue";
 import RumahAdatView from "../views/public/tentang papua/RumahAdatView.vue";
 import WisataView from "../views/public/tentang papua/WisataView.vue";
 import UpacaraView from "../views/public/tentang papua/UpacaraView.vue";
+import SenjataView from "../views/public/tentang papua/SenjataView.vue";
 // File test
 import test from "../components/public/culture/ceritaRakyat/test.vue";
 const routes = [
@@ -125,6 +126,15 @@ const routes = [
         props: true,
         meta: {
           title: "Tentang Papua | Upacara Adat",
+        },
+      },
+      {
+        path: "/senjataTradisional",
+        name: "senjataTradisional",
+        component: SenjataView,
+        props: true,
+        meta: {
+          title: "Tentang Papua | Senjata Tradisional",
         },
       },
       { path: "/test", name: "test", component: test },
