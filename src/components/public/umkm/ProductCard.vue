@@ -62,7 +62,7 @@
             <button
               type="button"
               class="flex-1 cursor-pointer text-center text-[10px] font-black uppercase tracking-widest py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-200 dark:shadow-none transition-all active:scale-95"
-              @click="$emit('add-to-cart')"
+              @click="handleBuy"
             >
               Beli
             </button>
@@ -76,7 +76,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import type { UmkmProduct } from "../../../data/umkmProducts";
-
+import Swal from "sweetalert2"; // Import SweetAlert2
 const props = defineProps<{
   product: UmkmProduct;
 }>();
@@ -85,6 +85,45 @@ const emit = defineEmits<{
   "add-to-cart": [];
   "show-detail": [UmkmProduct];
 }>();
+
+// Fungsi Klik Beli dengan SweetAlert2
+const handleBuy = () => {
+  emit("add-to-cart");
+
+  // Notifikasi Toast yang kecil dan elegan di pojok kanan atas
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+
+  Toast.fire({
+    icon: "success",
+    title: `<span style="font-family: sans-serif; font-size: 14px;">${props.product.name} masuk keranjang!</span>`,
+    background: document.documentElement.classList.contains("dark")
+      ? "#0f172a"
+      : "#ffffff",
+    color: document.documentElement.classList.contains("dark")
+      ? "#f8fafc"
+      : "#0f172a",
+    iconColor: "#10b981",
+  });
+};
+
+// const props = defineProps<{
+//   product: UmkmProduct;
+// }>();
+
+// const emit = defineEmits<{
+//   "add-to-cart": [];
+//   "show-detail": [UmkmProduct];
+// }>();
 
 const categoryLabel = computed(() => {
   const labels: Record<string, string> = {
