@@ -84,7 +84,7 @@ export const useUmkmStore = defineStore("umkm", {
     cartTotal(): number {
       return this.cartDetailed.reduce(
         (sum, item) => sum + item.price * item.quantity,
-        0
+        0,
       );
     },
     getById: (state) => {

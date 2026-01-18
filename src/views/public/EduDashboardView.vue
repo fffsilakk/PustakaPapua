@@ -1,59 +1,38 @@
-<!-- <template>
-  <section class="max-w-6xl mx-auto px-4 py-8">
-    <header class="mb-6">
-      <h1 class="text-2xl font-semibold mb-1">Modul Belajar</h1>
-      <p class="text-sm text-slate-300">
-        Pilih materi yang relevan dengan kebutuhan komunitas di Papua. Konten
-        bisa disimpan untuk dipelajari tanpa internet.
-      </p>
-    </header>
-    <ModuleFilterBar v-model="selectedCategory" />
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-      <ModuleCard
-        v-for="mod in filteredModules"
-        :key="mod.id"
-        :module="mod"
-        :loading="loadingId === mod.id"
-        @offline-click="handleOfflineClick(mod.id)"
-      />
-    </div>
-  </section>
-</template>
-
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed, watch } from "vue";
 import { storeToRefs } from "pinia";
 import { useEduStore } from "../../stores/eduStore";
-import ModuleCard from "../../components/public/edu/ModuleCard.vue";
-import ModuleFilterBar from "../../components/public/edu/ModuleFilterBar.vue";
-
-const eduStore = useEduStore();
-const { filteredModules, selectedCategory } = storeToRefs(eduStore);
-
-const loadingId = ref<string | null>(null);
-
-const handleOfflineClick = async (id: string) => {
-  loadingId.value = id;
-  await new Promise((resolve) => setTimeout(resolve, 1200));
-  eduStore.markOffline(id);
-  loadingId.value = null;
-};
-</script> -->
-
-<script setup lang="ts">
-import { ref, computed } from "vue";
-import { storeToRefs } from "pinia";
-import { useEduStore } from "../../stores/eduStore";
-
 import EduHeader from "../../components/public/edu/EduHero.vue";
 import EduFilterSection from "../../components/public/edu/EduFilterSection.vue";
 import EduModuleGrid from "../../components/public/edu/EduModuleGrid.vue";
+import EduSearch from "../../components/public/edu/EduSearch.vue";
 
 const eduStore = useEduStore();
-const { filteredModules, selectedCategory } = storeToRefs(eduStore);
+
+const { filteredModules, selectedCategory, searchQuery } =
+  storeToRefs(eduStore);
 
 const loadingId = ref<string | null>(null);
+
+const PAGE_SIZE = 6;
+const visibleCount = ref(PAGE_SIZE);
+
+const visibleModules = computed(() =>
+  filteredModules.value.slice(0, visibleCount.value),
+);
+
+const loadMore = () => {
+  visibleCount.value = Math.min(
+    visibleCount.value + PAGE_SIZE,
+    filteredModules.value.length,
+  );
+};
+
+// 3. Reset visibleCount saat filter atau search berubah
+// Pastikan variabel di dalam watch sudah ada (filteredModules, selectedCategory, searchQuery)
+watch([filteredModules, selectedCategory, searchQuery], () => {
+  visibleCount.value = PAGE_SIZE;
+});
 
 const handleOfflineClick = async (id: string) => {
   if (loadingId.value) return;
@@ -81,6 +60,8 @@ const categoryText = computed(() => {
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
     <EduHeader />
 
+    <EduSearch v-model="searchQuery" />
+
     <EduFilterSection
       v-model:category="selectedCategory"
       :count="filteredModules.length"
@@ -88,9 +69,29 @@ const categoryText = computed(() => {
     />
 
     <EduModuleGrid
-      :modules="filteredModules"
+      :modules="visibleModules"
       :loading-id="loadingId"
       @offline-click="handleOfflineClick"
     />
+
+    <div
+      v-if="visibleCount < filteredModules.length"
+      class="flex justify-center mt-10"
+    >
+      <button
+        type="button"
+        class="px-6 py-2 rounded-full text-sm font-semibold border border-orange-500 text-orange-600 hover:bg-orange-500 hover:text-white transition-all duration-300 cursor-pointer"
+        @click="loadMore"
+      >
+        Lihat selengkapnya
+      </button>
+    </div>
+
+    <p
+      v-else-if="filteredModules.length > 0"
+      class="mt-10 text-center text-xs text-slate-400"
+    >
+      Semua modul edukasi telah ditampilkan.
+    </p>
   </main>
 </template>

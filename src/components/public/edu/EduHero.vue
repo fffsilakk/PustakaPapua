@@ -1,146 +1,140 @@
 <template>
   <main
-    class="relative flex min-h-screen flex-col items-center justify-center overflow-hidden transition-colors duration-500 text-center px-4"
+    class="relative flex min-h-[95vh] flex-col -mt-5 items-center justify-center overflow-hidden bg-slate-50 dark:bg-zinc-950 px-4"
   >
-    <div
-      class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 overflow-hidden"
-    >
+    <div class="absolute inset-0 z-0">
       <div
-        class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-emerald-500/10 blur-[120px] dark:bg-emerald-600/5"
+        class="absolute top-[20%] left-[10%] w-72 h-72 bg-emerald-500/20 rounded-full blur-[100px] animate-pulse"
       ></div>
       <div
-        class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-blue-500/10 blur-[120px] dark:bg-blue-600/5"
+        class="absolute bottom-[20%] right-[10%] w-96 h-96 bg-orange-500/10 rounded-full blur-[120px]"
+      ></div>
+
+      <div
+        class="absolute inset-0 dark:opacity-[0.05]"
+        style="
+          background-image:
+            linear-gradient(#e2e8f0 1px, transparent 1px),
+            linear-gradient(90deg, #e2e8f0 1px, transparent 1px);
+          background-size: 50px 50px;
+          opacity: 0.2;
+        "
       ></div>
     </div>
 
-    <div class="flex flex-col items-center w-full max-w-4xl py-12 md:py-20">
-      <div
-        class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[12px] font-medium border shadow-sm transition-all bg-white/80 border-emerald-100 text-emerald-700 backdrop-blur-md dark:bg-slate-900/50 dark:border-slate-800 dark:text-emerald-400"
-        data-aos="fade-down"
-      >
-        <span class="relative flex h-2 w-2">
+    <div
+      class="relative z-10 flex flex-col lg:flex-row items-center justify-center w-full max-w-7xl py-16 md:py-24 gap-12 lg:gap-20"
+    >
+      <div class="lg:w-1/2 text-center lg:text-left">
+        <div
+          class="group flex items-center justify-center lg:justify-start gap-3 rounded-full px-4 py-2 text-xs font-bold tracking-widest border bg-white/60 border-emerald-200 text-emerald-800 shadow-xl backdrop-blur-md dark:bg-zinc-900/60 dark:border-emerald-900/30 dark:text-emerald-400 mb-8 transition-all hover:border-emerald-400"
+          data-aos="fade-right"
+          data-aos-duration="800"
+        >
+          <div class="relative flex h-3 w-3">
+            <span
+              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+            ></span>
+            <span
+              class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"
+            ></span>
+          </div>
+          mari torang belajar mengenal papua
+        </div>
+
+        <h1
+          class="text-5xl md:text-7xl lg:text-[4.8rem] font-black text-zinc-900 dark:text-white leading-[1.05] tracking-tighter mb-6"
+          data-aos="fade-right"
+          data-aos-delay="200"
+          data-aos-duration="1000"
+        >
+          Belajar di <br />
           <span
-            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
-          ></span>
+            class="relative inline-block bg-gradient-to-r from-emerald-600 via-teal-500 to-orange-500 bg-clip-text text-transparent transform translate-y-0 opacity-100"
+            data-aos="zoom-in-up"
+            data-aos-delay="500"
+            data-aos-duration="1000"
+            data-aos-easing="ease-out-back"
+          >
+            Pustaka Papua
+            <span
+              class="absolute -bottom-2 left-0 w-full h-2 bg-emerald-500/20 rounded-full blur-sm -z-10"
+            ></span>
+          </span>
+        </h1>
+
+        <p
+          class="mt-6 text-lg md:text-xl max-w-2xl text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed mx-auto lg:mx-0"
+          data-aos="fade-right"
+          data-aos-delay="400"
+          data-aos-duration="1000"
+        >
+          Akses modul edukasi, sejarah, dll.. khusus konteks lokal Papua.
+          Dirancang agar mudah untuk dapat kamu pelajari
           <span
-            class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"
-          ></span>
-        </span>
-        Asisten Belajar Cerdas Smart Pustaka
+            class="text-zinc-900 dark:text-zinc-100 font-bold underline decoration-emerald-500 decoration-2 underline-offset-4"
+            >kapan saja, tanpa koneksi internet.</span
+          >
+        </p>
       </div>
 
-      <h1
-        class="mt-8 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight"
-        data-aos="fade-up"
-        data-aos-delay="100"
-      >
-        <span class="text-slate-900 dark:text-white"
-          >Apa yang ingin kamu pelajari
-        </span>
-        <span
-          class="bg-gradient-to-r from-emerald-600 to-teal-500 bg-clip-text text-transparent dark:from-emerald-400 dark:to-cyan-400"
-        >
-          hari ini?
-        </span>
-      </h1>
-
-      <p
-        class="mt-6 text-base md:text-lg max-w-2xl leading-relaxed text-slate-600 dark:text-slate-400"
-        data-aos="fade-up"
-        data-aos-delay="200"
-      >
-        Tulis topik atau kelas impianmu. Kami rangkai modul belajar khusus
-        dengan konteks lokal yang bisa kamu akses
-        <span class="font-bold text-slate-800 dark:text-slate-200"
-          >tanpa internet (offline).</span
-        >
-      </p>
-
       <div
-        class="mt-10 w-full max-w-2xl rounded-3xl p-1.5 transition-all duration-300 bg-gradient-to-b from-slate-200 to-slate-100 shadow-2xl shadow-slate-200/50 dark:from-slate-700/50 dark:to-slate-800/50 dark:shadow-none"
-        data-aos="zoom-in"
-        data-aos-delay="300"
+        class="lg:w-1/2 mt-12 lg:mt-0 flex justify-center relative"
+        data-aos="fade-left"
+        data-aos-delay="600"
+        data-aos-duration="1000"
       >
-        <div class="rounded-[22px] bg-white p-4 dark:bg-slate-900">
-          <textarea
-            class="w-full resize-none bg-transparent p-2 text-base md:text-lg outline-none text-slate-800 placeholder:text-slate-400 dark:text-slate-100 dark:placeholder:text-slate-500"
-            rows="3"
-            placeholder="Tulis di sini, misal: Cara bertani hidroponik di lahan terbatas..."
-          ></textarea>
-
+        <div
+          class="relative w-full max-w-md h-auto rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white dark:border-zinc-800 transform rotate-3 hover:rotate-0 transition-transform duration-500 ease-out"
+        >
+          <img
+            src="https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,f_auto,q_auto:best,w_640/v1634025439/01h4zfrjgvvwgctfxb2d7982n1.jpg"
+            alt="Anak-anak Papua belajar"
+            class="w-full h-full object-cover"
+          />
           <div
-            class="mt-4 flex items-center justify-between border-t border-slate-50 pt-3 dark:border-slate-800"
-          >
-            <button
-              class="group flex items-center gap-2 px-3 py-1.5 rounded-xl transition text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800"
-              title="Tambah detail instruksi"
-            >
-              <div
-                class="flex items-center justify-center rounded-lg size-7 bg-slate-100 dark:bg-slate-800 group-hover:scale-110 transition"
-              >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <line x1="12" y1="5" x2="12" y2="19"></line>
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                </svg>
-              </div>
-              <span class="text-xs font-semibold hidden sm:inline"
-                >Tambah Detail</span
-              >
-            </button>
+            class="absolute inset-0 bg-gradient-to-t from-zinc-950/40 to-transparent"
+          ></div>
 
-            <button
-              class="flex items-center gap-2 px-5 py-2 rounded-xl font-bold transition-all active:scale-95 bg-emerald-600 text-white shadow-lg shadow-emerald-200 hover:bg-emerald-700 hover:shadow-emerald-300/50 dark:bg-emerald-500 dark:text-slate-950 dark:shadow-none dark:hover:bg-emerald-400"
-            >
-              <span>Rangkai Modul</span>
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="3"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="m5 12 7-7 7 7" />
-                <path d="M12 19V5" />
-              </svg>
-            </button>
+          <div class="absolute bottom-6 left-6 text-white text-left">
+            <p class="text-sm font-light">Belajar adalah Pelita</p>
+            <p class="text-xl md:text-2xl font-black">Masa Depan Papua</p>
           </div>
         </div>
-      </div>
 
-      <div
-        class="mt-12 w-full max-w-3xl"
-        data-aos="fade-up"
-        data-aos-delay="400"
-      >
-        <p
-          class="mb-4 text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500"
+        <div
+          class="absolute -bottom-8 -right-8 p-4 bg-white/80 dark:bg-zinc-900/70 backdrop-blur-md rounded-2xl shadow-lg border border-zinc-200 dark:border-zinc-800 hidden md:block"
+          data-aos="zoom-in"
+          data-aos-delay="1000"
         >
-          Mungkin ide ini menarik:
-        </p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <button
-            v-for="(suggestion, index) in suggestions"
-            :key="index"
-            class="group text-left p-4 rounded-2xl border transition-all duration-300 bg-white border-slate-200 hover:border-emerald-400 hover:shadow-md dark:bg-slate-900/40 dark:border-slate-800 dark:hover:border-emerald-500/50"
-          >
-            <p
-              class="text-sm text-slate-700 dark:text-slate-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center"
             >
-              {{ suggestion }}
-            </p>
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-emerald-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-zinc-500 dark:text-zinc-400">
+                ENERGI BARU
+              </p>
+              <p class="text-sm font-bold text-zinc-800 dark:text-white">
+                Literasi Digital
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -152,18 +146,15 @@ import { onMounted } from "vue";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const suggestions = [
-  "Bagaimana membuat modul numerasi SD pesisir?",
-  "Contoh materi coding dasar tanpa laptop mahal.",
-  "Bahasa Inggris praktis untuk pedagang pasar.",
-  "Ide belajar kelompok remaja secara offline.",
-];
-
 onMounted(() => {
   AOS.init({
     duration: 1000,
     once: true,
-    easing: "ease-out-back",
+    easing: "ease-out-back", // Atau 'ease-out-expo' untuk lebih dramatis
   });
 });
 </script>
+
+<style scoped>
+/* Transisi AOS default, bisa di-customize lagi jika perlu */
+</style>

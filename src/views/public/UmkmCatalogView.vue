@@ -169,13 +169,13 @@ const PAGE_SIZE = 6;
 const visibleCount = ref(PAGE_SIZE);
 
 const visibleProducts = computed(() =>
-  filteredProducts.value.slice(0, visibleCount.value)
+  filteredProducts.value.slice(0, visibleCount.value),
 );
 
 const loadMore = () => {
   visibleCount.value = Math.min(
     visibleCount.value + PAGE_SIZE,
-    filteredProducts.value.length
+    filteredProducts.value.length,
   );
 };
 
