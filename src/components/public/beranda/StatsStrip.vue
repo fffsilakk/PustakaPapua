@@ -24,7 +24,7 @@
         <span
           class="text-[11px] font-bold uppercase tracking-[0.25em] text-slate-400 dark:text-slate-500"
         >
-          Fondasi Smart Pustaka
+          Fondasi Pustaka Papua
         </span>
         <span
           class="h-px w-10 bg-gradient-to-l from-transparent to-slate-300 dark:to-slate-700"

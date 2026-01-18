@@ -25,7 +25,7 @@
         >
           Tiga Pilar
           <span class="text-emerald-600 dark:text-emerald-400"
-            >Smart Pustaka</span
+            >Pustaka Pustaka</span
           >
         </h2>
         <p

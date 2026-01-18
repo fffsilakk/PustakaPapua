@@ -128,28 +128,28 @@ const galleryItems: GalleryItem[] = [
   {
     id: "5",
     imageUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWnp4V2vGPXR_nYrN1qLwvkGxyH-4Mm0Dn0w&s",
+      "https://statik.tempo.co/data/2017/10/27/id_658097/658097_720.jpg",
     caption: "Rumah Adat Honai",
     origin: "Pegunungan Tengah, Papua",
   },
-  //   {
-  //     id: "6",
-  //     imageUrl:
-  //       "https://images.unsplash.com/photo-1612803859089-68801f92e0e4?q=80&w=600",
-  //     caption: "Aksara Lontara Papua",
-  //     origin: "Papua Barat (Interpretasi Modern)",
-  //   },
-  //   {
-  //     id: "7",
-  //     imageUrl:
-  //       "https://images.unsplash.com/photo-1598476839634-9d5f72e6b0e8?q=80&w=600",
-  //     caption: "Upacara Adat Bakar Batu",
-  //     origin: "Wamena, Pegunungan Tengah",
-  //   },
+  {
+    id: "6",
+    imageUrl:
+      "https://media.istockphoto.com/id/1315982287/id/foto/rumah-pohon-korowai-di-pembukaan-hutan-papua-barat-indonesia.jpg?s=2048x2048&w=is&k=20&c=g-hEjEouBcVnGdyMJvhlxnjNZvOor9Itcepkm0BUP9k=",
+    caption: "Rumah Adat Suku Korowai",
+    origin: "Korowai, Papua",
+  },
+  {
+    id: "7",
+    imageUrl:
+      "https://kompaspedia.kompas.id/wp-content/uploads/2022/12/tradisi-Bakar-Batu-1.jpg",
+    caption: "Upacara Adat Bakar Batu",
+    origin: "Wamena, Pegunungan Tengah",
+  },
   {
     id: "8",
     imageUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3upEDaAwU4OHbyJwHLl6blP7qaKKH4sZOhw&s",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Membuat_noken.jpg/500px-Membuat_noken.jpg",
     caption: "Anyaman Noken Tradisional",
     origin: "Berbagai Suku Papua",
   },

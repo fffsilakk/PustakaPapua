@@ -6,6 +6,7 @@ import CultureHeader from "../../components/public/culture/CultureHeader.vue";
 import CultureCategoryTabs from "../../components/public/culture/CultureCategoryTabs.vue";
 import CultureListGrid from "../../components/public/culture/CultureListGrid.vue";
 import CultureRegionStrip from "../../components/public/culture/CultureRegionStrip.vue";
+import cultureVideo from "../../components/public/culture/cultureVideo.vue";
 import CulturePhotoGallery from "../../components/public/culture/CulturePhotoGallery.vue";
 import CultureWhySection from "../../components/public/culture/CultureWhySection.vue";
 
@@ -35,6 +36,7 @@ const handleOffline = (id: string) => {
       @offline-click="handleOffline"
     />
     <CultureRegionStrip />
+    <cultureVideo />
     <CulturePhotoGallery />
     <CultureWhySection />
   </main>

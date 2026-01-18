@@ -56,10 +56,10 @@
           Mulai Belajar
         </RouterLink>
         <RouterLink
-          to="/budaya"
+          to="/umkm"
           class="inline-flex items-center justify-center border-2 border-slate-200 text-slate-700 bg-white hover:bg-slate-50 font-bold rounded-xl px-8 h-12 w-full sm:w-auto transition-all dark:border-slate-800 dark:text-slate-300 dark:bg-transparent"
         >
-          Eksplor Budaya
+          Eksplor UMKM
         </RouterLink>
       </div>
     </div>

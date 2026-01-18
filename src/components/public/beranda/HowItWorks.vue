@@ -11,7 +11,7 @@
       <h2
         class="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-transparent dark:from-slate-100 dark:to-slate-50"
       >
-        Smart Pustaka Timur
+        Pustaka Papua
       </h2>
       <p
         class="mt-3 text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-2xl md:max-w-3xl mx-auto md:mx-0"
