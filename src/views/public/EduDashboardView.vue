@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, watch } from "vue";
+import { ref, computed, watch, onMounted } from "vue"; // Tambahkan onMounted
 import { storeToRefs } from "pinia";
 import { useEduStore } from "../../stores/eduStore";
 import EduHeader from "../../components/public/edu/EduHero.vue";
@@ -14,24 +14,36 @@ const { filteredModules, selectedCategory, searchQuery } =
 
 const loadingId = ref<string | null>(null);
 
-const PAGE_SIZE = 6;
-const visibleCount = ref(PAGE_SIZE);
+// ==== LOGIKA ADAPTIF (Mobile 4, Desktop 6) ====
+const getPageSize = () => {
+  if (typeof window !== "undefined") {
+    return window.innerWidth < 768 ? 4 : 6;
+  }
+  return 6;
+};
+
+const visibleCount = ref(getPageSize());
 
 const visibleModules = computed(() =>
   filteredModules.value.slice(0, visibleCount.value),
 );
 
 const loadMore = () => {
+  const size = getPageSize();
   visibleCount.value = Math.min(
-    visibleCount.value + PAGE_SIZE,
+    visibleCount.value + size,
     filteredModules.value.length,
   );
 };
 
-// 3. Reset visibleCount saat filter atau search berubah
-// Pastikan variabel di dalam watch sudah ada (filteredModules, selectedCategory, searchQuery)
-watch([filteredModules, selectedCategory, searchQuery], () => {
-  visibleCount.value = PAGE_SIZE;
+// Pastikan inisialisasi ukuran saat mounted
+onMounted(() => {
+  visibleCount.value = getPageSize();
+});
+
+// Reset visibleCount saat filter atau search berubah
+watch([selectedCategory, searchQuery], () => {
+  visibleCount.value = getPageSize();
 });
 
 const handleOfflineClick = async (id: string) => {
@@ -51,7 +63,7 @@ const categoryText = computed(() => {
     case "bahasa":
       return "Bahasa Inggris";
     case "budaya":
-      return "Seni & Budaya"; // Tadi di sini penyebab errornya (kosong)
+      return "Seni & Budaya";
     default:
       return "Semua Kategori";
   }
@@ -73,6 +85,8 @@ const categoryText = computed(() => {
     <EduModuleGrid
       :modules="visibleModules"
       :loading-id="loadingId"
+      :visible-count="visibleCount"
+      :total-products="filteredModules.length"
       @offline-click="handleOfflineClick"
     />
 

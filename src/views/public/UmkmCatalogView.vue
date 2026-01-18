@@ -4,8 +4,7 @@
     <ProductFilterBar v-model="selectedCategory" />
     <UmkmSearchBar v-model="searchQuery" />
 
-    <!-- Grid produk: hanya tampilkan visibleProducts -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       <ProductCard
         v-for="product in visibleProducts"
         :key="product.id"
@@ -13,24 +12,22 @@
         @add-to-cart="umkmStore.addToCart(product.id)"
         @show-detail="openDetail"
       />
-      <!-- <CardComingSoon /> -->
+      <CardComingSoon v-if="visibleCount >= filteredProducts.length" />
     </div>
 
-    <!-- Tombol Lihat selengkapnya -->
     <div
       v-if="visibleCount < filteredProducts.length"
       class="flex justify-center mt-6"
     >
       <button
         type="button"
-        class="px-4 cursor-pointer py-2 rounded-full text-xs font-semibold border border-emerald-400 hover:border-emerald-400 text-emerald-600 hover:text-emerald-400 transition-all"
+        class="px-6 py-2 cursor-pointer rounded-full text-xs font-semibold border border-emerald-400 text-emerald-600 hover:bg-emerald-50 transition-all"
         @click="loadMore"
       >
         Lihat selengkapnya
       </button>
     </div>
 
-    <!-- Info jika semua sudah tampil -->
     <p
       v-else-if="filteredProducts.length > 0"
       class="mt-6 text-center text-[11px] text-slate-500"
@@ -42,7 +39,6 @@
     <UmkmStoryStrip class="mt-10" />
     <UmkmHighlightBlock />
 
-    <!-- MODAL DETAIL PRODUK -->
     <transition name="modal-scale">
       <div
         v-if="showDetailModal && activeProduct"
@@ -62,17 +58,15 @@
               :alt="activeProduct.name"
               class="h-full w-full object-cover transition-transform duration-700 hover:scale-110"
             />
-
             <div
-              class="absolute bottom-4 left-4 flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-bold text-slate-800 shadow-sm backdrop-blur-md dark:bg-slate-900/90 dark:text-slate-100"
+              class="absolute bottom-4 left-4 flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-bold text-slate-800 backdrop-blur-md"
             >
               <span class="text-emerald-500">📍</span>
               {{ activeProduct.origin }}
             </div>
-
             <button
               @click="closeDetail"
-              class="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-black/20 text-white backdrop-blur-md transition-all hover:bg-rose-500 hover:scale-110"
+              class="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-black/20 text-white hover:bg-rose-500 transition-all"
             >
               ✕
             </button>
@@ -81,50 +75,37 @@
           <div class="p-8 space-y-4">
             <div>
               <p
-                class="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-400"
+                class="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-600"
               >
                 {{ detailCategoryLabel }}
               </p>
               <h2
-                class="mt-1 text-2xl font-bold text-slate-900 dark:text-white leading-tight"
+                class="mt-1 text-2xl font-bold text-slate-900 dark:text-white"
               >
                 {{ activeProduct.name }}
               </h2>
             </div>
-
-            <p
-              class="text-sm leading-relaxed text-slate-500 dark:text-slate-400"
-            >
+            <p class="text-sm text-slate-500 dark:text-slate-400">
               {{ activeProduct.shortDescription }}
             </p>
-
-            <div class="flex items-center justify-between pt-2">
-              <div class="space-y-0.5">
-                <p
-                  class="text-[10px] font-bold uppercase tracking-wider text-slate-400"
-                >
-                  Harga Spesial
-                </p>
-                <p
-                  class="text-2xl font-black text-slate-900 dark:text-emerald-400"
-                >
-                  {{ formatPrice(activeProduct.price) }}
-                </p>
-              </div>
+            <div class="pt-2">
+              <p class="text-[10px] font-bold uppercase text-slate-400">
+                Harga Spesial
+              </p>
+              <p class="text-2xl font-black text-emerald-600">
+                {{ formatPrice(activeProduct.price) }}
+              </p>
             </div>
-
             <div class="mt-6 flex gap-3">
               <button
-                type="button"
-                class="flex-1 rounded-2xl border border-slate-200 py-4 text-[11px] font-bold uppercase tracking-widest text-slate-400 transition-all hover:bg-slate-50 active:scale-95 dark:border-slate-800 dark:hover:bg-slate-900"
                 @click="closeDetail"
+                class="flex-1 rounded-2xl border border-slate-200 py-4 text-[11px] font-bold uppercase text-slate-400 hover:bg-slate-50 transition-all"
               >
                 Nanti Dulu
               </button>
               <button
-                type="button"
-                class="flex-1 rounded-2xl bg-emerald-600 py-4 text-[11px] font-bold uppercase tracking-widest text-white shadow-lg shadow-emerald-200 transition-all hover:bg-emerald-700 hover:shadow-emerald-300 active:scale-95 dark:shadow-none"
                 @click="handleBuyFromModal"
+                class="flex-1 rounded-2xl bg-emerald-600 py-4 text-[11px] font-bold uppercase text-white shadow-lg hover:bg-emerald-700 transition-all"
               >
                 Beli Sekarang
               </button>
@@ -135,21 +116,9 @@
     </transition>
   </section>
 </template>
-<style scoped>
-/* Animasi Scale yang lebih smooth */
-.modal-scale-enter-active,
-.modal-scale-leave-active {
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
 
-.modal-scale-enter-from,
-.modal-scale-leave-to {
-  opacity: 0;
-  transform: scale(0.9) translateY(20px);
-}
-</style>
 <script setup lang="ts">
-import { computed, ref, watch } from "vue";
+import { computed, ref, watch, onMounted } from "vue";
 import { storeToRefs } from "pinia";
 import { useUmkmStore } from "../../stores/umkmStore";
 import UmkmHeader from "../../components/public/umkm/UmkmHeader.vue";
@@ -159,31 +128,46 @@ import UmkmSearchBar from "../../components/public/umkm/UmkmSearchBar.vue";
 import UmkmStatsStrip from "../../components/public/umkm/UmkmStatsStrip.vue";
 import UmkmStoryStrip from "../../components/public/umkm/UmkmStoryStrip.vue";
 import UmkmHighlightBlock from "../../components/public/umkm/UmkmHighlightBlock.vue";
-// import CardComingSoon from "../../services/CardComingSoon.vue";
+import CardComingSoon from "../../services/CardComingSoon.vue";
 import type { UmkmProduct } from "../../data/umkmProducts";
 
 const umkmStore = useUmkmStore();
 const { filteredProducts, selectedCategory, searchQuery } =
   storeToRefs(umkmStore);
 
-// ==== LOGIKA LIHAT SELENGKAPNYA (6 per batch) ====
-const PAGE_SIZE = 6;
-const visibleCount = ref(PAGE_SIZE);
+// ==== LOGIKA ADAPTIF (Mobile 4, Desktop 6) ====
 
+// Fungsi pembantu untuk cek ukuran layar
+const getPageSize = () => {
+  if (typeof window !== "undefined") {
+    return window.innerWidth < 768 ? 4 : 6;
+  }
+  return 6; // Default
+};
+
+const visibleCount = ref(getPageSize());
+
+// Produk yang dipotong berdasarkan jumlah yang boleh tampil
 const visibleProducts = computed(() =>
   filteredProducts.value.slice(0, visibleCount.value),
 );
 
 const loadMore = () => {
+  const size = getPageSize();
   visibleCount.value = Math.min(
-    visibleCount.value + PAGE_SIZE,
+    visibleCount.value + size,
     filteredProducts.value.length,
   );
 };
 
-// reset ke 6 setiap filter / search berubah
-watch([filteredProducts, selectedCategory, searchQuery], () => {
-  visibleCount.value = PAGE_SIZE;
+// Reset jumlah tampil ke awal jika filter atau pencarian berubah
+watch([selectedCategory, searchQuery], () => {
+  visibleCount.value = getPageSize();
+});
+
+// Pastikan ukuran layar dicek saat komponen dimuat
+onMounted(() => {
+  visibleCount.value = getPageSize();
 });
 
 // ==== STATE MODAL DETAIL ====
@@ -221,16 +205,18 @@ const formatPrice = (value: number) =>
 const handleBuyFromModal = () => {
   if (!activeProduct.value) return;
   umkmStore.addToCart(activeProduct.value.id);
+  closeDetail(); // Tutup modal setelah tambah ke keranjang
 };
 </script>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.2s ease;
+.modal-scale-enter-active,
+.modal-scale-leave-active {
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-.fade-enter-from,
-.fade-leave-to {
+.modal-scale-enter-from,
+.modal-scale-leave-to {
   opacity: 0;
+  transform: scale(0.9) translateY(20px);
 }
 </style>

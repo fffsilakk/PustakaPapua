@@ -31,7 +31,8 @@
         :loading="loadingId === mod.id"
         @offline-click="$emit('offline-click', mod.id)"
       />
-      <!-- <article
+      <article
+        v-if="visibleCount >= totalProducts"
         class="group relative overflow-hidden rounded-2xl border p-5 flex flex-col gap-4 min-h-[220px] transition-all duration-500 /* Light Mode */ bg-slate-50/50 border-dashed border-slate-300 /* Dark Mode */ dark:bg-slate-900/20 dark:border-slate-800 dark:backdrop-blur-sm"
       >
         <div class="absolute inset-0 pointer-events-none overflow-hidden">
@@ -116,7 +117,7 @@
             </p>
           </div>
         </div>
-      </article> -->
+      </article>
     </div>
   </section>
 </template>
@@ -126,10 +127,11 @@ import ModuleCard from "./ModuleCard.vue";
 import type { EduModule } from "../../../data/eduModules";
 
 const props = defineProps<{
-  modules: EduModule[];
+  modules: EduModule[]; // Ini adalah visibleProducts dari parent
   loadingId: string | null;
+  visibleCount: number; // Tambahkan ini
+  totalProducts: number; // Tambahkan ini (jumlah total filteredProducts)
 }>();
-
 defineEmits<{
   (e: "offline-click", id: string): void;
 }>();
