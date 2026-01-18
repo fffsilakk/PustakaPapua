@@ -92,7 +92,7 @@
         {{ item.shortDescription }}
       </p>
 
-      <div
+      <!-- <div
         class="mt-auto pt-5 border-t border-slate-100 dark:border-slate-800/50 flex items-center justify-between"
       >
         <RouterLink
@@ -141,13 +141,13 @@
             {{ item.isOfflineAvailable ? "Tersimpan" : "Simpan" }}
           </span>
         </button>
-      </div>
+      </div> -->
     </div>
   </article>
 </template>
 <script setup lang="ts">
 import { computed } from "vue";
-import { RouterLink } from "vue-router";
+// import { RouterLink } from "vue-router";
 import type { CultureItem } from "../../../data/cultures";
 import { useOfflineStore } from "../../../stores/offlineStore";
 
@@ -160,8 +160,8 @@ const isOnline = computed(() => offlineStore.isOnline);
 
 const categoryLabel = computed(() => {
   const labels: Record<string, string> = {
-    tarian: "Tarian",
-    musik: "Musik",
+    tarian: "Tarian Adat",
+    musik: "Alat Musik",
     bahasa: "Bahasa Daerah",
     cerita: "Cerita Rakyat",
   };
