@@ -43,9 +43,8 @@
           <p
             class="mt-4 max-w-2xl text-sm text-slate-600 sm:text-base dark:text-slate-300"
           >
-            Kisah seorang pemuda berani asal Papua yang pantang menyerah
-            menghadapi rintangan demi melindungi ibunya dan kampung halaman dari
-            naga penunggu sungai.
+            Berawal dari penemuan enam butir telur yang berkembang menjadi empat
+            pulau tersohor di tanah Papua, Raja Ampat.
           </p>
 
           <!-- Meta kecil -->
@@ -66,15 +65,11 @@
             <div class="flex gap-1">
               <span
                 class="rounded-full bg-slate-100 px-2 py-0.5 dark:bg-slate-800"
-                >#Mimika</span
+                >#Raja Ampat</span
               >
               <span
                 class="rounded-full bg-slate-100 px-2 py-0.5 dark:bg-slate-800"
-                >#Biwar</span
-              >
-              <span
-                class="rounded-full bg-slate-100 px-2 py-0.5 dark:bg-slate-800"
-                >#Penakluk Naga</span
+                >#Cerita Rakyat</span
               >
             </div>
           </div>
@@ -94,7 +89,7 @@
               class="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/60 to-transparent"
             ></div>
             <div class="absolute inset-x-0 bottom-0 p-3 text-xs text-slate-100">
-              <p class="font-bold text-emerald-600">Biwar Sang Penakluk Naga</p>
+              <!-- <p class="font-bold text-emerald-600">Biwar Sang Penakluk Naga</p> -->
             </div>
           </div>
         </div>
@@ -113,35 +108,224 @@
             <article
               class="prose prose-slate max-w-none prose-headings:scroll-mt-24 dark:prose-invert text-justify rounded-2xl border border-slate-200 bg-white/90 p-4 text-slate-600 shadow-sm dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-300 sm:text-sm"
             >
-              <h2>Pesona Papua dan Mimika</h2>
+              <h2>Pesona Raja Empat</h2>
               <p class="py-3">
-                selain terkenal akan pesona alamnya, Papua juga memiliki
-                cerita-cerita daerah yang mewarnai sastra Nusantara. Bahkan,
-                Raja Ampat yang memesona dengan keindahan lautannya pun memiliki
-                legenda di balik terbentuknya. Cerita rakyat lainnya berasal
-                dari Mimika, kabupaten yang terkenal dengan keragaman kuliner
-                sagu sebagai pilihan makanan pokok bertekstur legit dan tinggi
-                serat..
+                Empat Raja merupakan cerita dari Provinsi Papua Barat dengan
+                latar gugusan pulau yang kini menjadi salah satu surga
+                petualangan dunia. Dikenal sebagai Raja Ampat, situs ini terdiri
+                dari empat pulau yang dikelilingi oleh wilayah perairan dan
+                daratan seluas 4,6 juta hektar. Dengan ragam biodiversitas yang
+                mencakup 540 jenis karang dan 1.511 spesies ikan, tak ayal, Raja
+                Ampat disebut sebagai surga kekayaan biota laut.
               </p>
-
-              <h2 class="py-3">Moral Cerita Biwar Sang Penakluk Naga</h2>
-              <p>
-                Pesan moral yang dapat diambil dari cerita rakyat Papua: Biwar
-                Sang Penakluk Naga ini melibatkan nilai-nilai seperti
-                keberanian, keadilan, dan ketekunan. Biwar adalah contoh nyata
-                dari sikap seseorang yang berani dan tekun dalam mengatasi
-                rintangan. Dia tidak takut untuk menghadapi naga jahat, yang
-                tampak mustahil untuk ditaklukkan. Dengan keberanian dan
-                ketekunan seperti yang dimiliki Biwar, kita tentu dapat
-                mengatasi segala rintangan yang ada di hidup kita.
+              <p class="py-3">
+                Tak sekadar muncul begitu saja, Raja Ampat pun memiliki legenda
+                asal-usulnya sendiri, yaitu empat bersaudara yang menjadi raja
+                atas masing-masing pulau. Dikisahkan, kakak-beradik ini berasal
+                dari enam butir telur yang ditemukan di hutan. Lima telur
+                kemudian menetas menjadi anak manusia, lalu sisanya mengeras
+                menjadi batu.
               </p>
               <p class="py-3">
                 <i
-                  >" Biwar adalah contoh nyata dari sikap seseorang yang berani
-                  dan tekun dalam mengatasi rintangan. "</i
+                  >" Raja Ampat pun memiliki cerita asal-usulnya sendiri, yaitu
+                  empat bersaudara yang menjadi raja atas masing-masing pulau.
+                  "</i
+                >
+              </p>
+              <p>
+                Kisah Empat Raja terdiri dari sejumlah tokoh yang berandil besar
+                dalam alur cerita. Pertama adalah kedua orangtua dari empat anak
+                tersebut yang bersikap adil dan bijaksana. Selanjutnya, tentu
+                saja empat anak lelaki bernama War, Betani, Dohar, dan Mohamad
+                yang menjadi tokoh utama dari cerita ini. Tak kalah penting,
+                sang anak perempuan yang bernama Pintolee juga disoroti kendati
+                keputusan untuk menikahi lelaki pilihannya sehingga harus
+                meninggalkan keluarganya. Terlepas dari konflik tersebut, bisa
+                dibilang, seluruh karakter merupakan protagonis.
+              </p>
+              <p class="py-3">
+                Berikut cerita lengkap tentang bagaimana enam butir telur itu
+                ditemukan, hingga kelahiran para raja yang membangun pulau-pulau
+                nan masyhur di Papua.
+              </p>
+              <h2 class="py-3">Penemuan Enam Butir Telur</h2>
+              <p>
+                Dahulu, ada cerita tentang sepasang suami istri di tanah Papua
+                yang menanti-nantikan kehadiran anak. Meski tak kunjung diberi,
+                keduanya tetap berdoa pada Tuhan setiap siang dan malam.
+              </p>
+              <p class="py-3">
+                Suatu hari, suami istri tersebut pergi ke hutan untuk mencari
+                kayu dan menjadikannya kayu bakar. Keduanya harus bergegas
+                mencari sebelum musim hujan datang karena kayu-kayu di hutan
+                akan menjadi basah dan tidak bisa dibakar. Namun sayang,
+                persediaan kayu yang mereka dapatkan di hari itu masih sangat
+                sedikit untuk menghadapi musim hujan.
+              </p>
+              <p>
+                Diterpa kelelahan, suami dan istri ini kemudian beristirahat
+                sejenak di tepi sungai yang bernama Sungai Waikeo. Ketika tengah
+                beristirahat, mata sang suami tertuju pada sebuah lubang besar
+                di sisi lain tepi sungai. Sang suami pun mendekati lubang
+                tersebut dan terkejut ketika menemukan enam butir telur besar.
+              </p>
+              <p class="py-3">
+                <i
+                  >" Sang suami pun mendekati lubang tersebut dan terkejut
+                  ketika menemukan enam butir telur besar. "</i
                 >
               </p>
 
+              <p>
+                Sang suami memanggil istrinya yang tidak kalah terkejut.
+                Keduanya lantas sepakat membawa pulang telur-telur tersebut.
+                Mereka berpikir bahwa telur-telur ini mungkin bisa dijadikan
+                persediaan makanan untuk dimasak di kemudian hari. Setibanya di
+                rumah, telur-telur tersebut pun disimpan dengan baik.
+              </p>
+              <h2 class="pt-3">
+                Enam Orang Anak Manusia Lahir dari Lima Butir Telur
+              </h2>
+              <p class="py-3">
+                Keesokan harinya, kejutan lain menyambut suami istri tersebut.
+                Ketika hendak menyiapkan hidangan, telur-telur tersebut justru
+                menetas. Bukannya menetas menjadi unggas atau hewan lain,
+                melainkan menjadi anak manusia. Dari enam butir telur, empat
+                menetas menjadi anak laki-laki, satu orang anak perempuan, dan
+                yang satu lagi mengeras menjadi sebuah batu. Lima orang anak
+                muncul dalam balutan kain putih yang bersinar. Tatkala, inilah
+                pertanda bahwa mereka diturunkan dari kayangan. Suami istri ini
+                amat senang mendapati anak-anak tersebut dan merasa doanya telah
+                dikabulkan Tuhan. Mereka pun berjanji kepada Tuhan untuk merawat
+                dan membesarkan anak-anak mereka dengan baik. Keempat anak
+                laki-laki diberi nama War, Betani, Dohar, dan Mohamad.
+                Sementara, sang anak perempuan diberi nama Pintolee.
+              </p>
+
+              <p class="pb-3">
+                <i
+                  >" Dari enam butir telur, empat menetas menjadi anak
+                  laki-laki, satu orang anak perempuan, dan yang satu lagi
+                  mengeras menjadi sebuah batu. "</i
+                >
+              </p>
+              <p>
+                Waktu berlalu, kelima anak tersebut semakin beranjak besar. War,
+                Betani, Dohar, Mohamad, dan Pintolee dikenal sebagai anak-anak
+                yang rajin bekerja dan berbakti. Semakin dewasa, kelimanya
+                semakin giat membantu kedua orang tuanya agar tidak perlu
+                bekerja dengan susah payah. Lahan pertanian yang mereka kerjakan
+                menjadi makmur dan berkembang sampai ke empat pulau besar di
+                sekitar Teluk Kabui. Oleh karena itu, bukan hanya kedua orang
+                tuanya, masyarakat desa dan sekitarnya turut mengagumi kebaikan
+                anak-anak ini.
+              </p>
+
+              <h2 class="py-3">Perginya Sang Saudara Perempuan</h2>
+              <p>
+                Tanggung jawab apapun yang diberikan orang tua pada anak-anak
+                selalu dijalankan dengan baik. Kepatuhan pada orang tua dan
+                berguna bagi lingkungan membuat ayah dan ibu kelima anak-anak
+                tersebut sangat bangga. Rasa sayang yang begitu besar pada
+                kelima anaknya membuat sang ayah ingin meninggalkan warisan
+                sebelum ajal menjemputnya. Kemudian, sang ayah mulai menyiapkan
+                sebuah rencana besar untuk War, Betani, Dohar, Mohamad, dan
+                Pintolee.
+              </p>
+              <p class="py-3">
+                Di tengah kebahagiaan mereka, terjadi sesuatu yang membuat satu
+                keluarga kecewa. Pintolee jatuh hati dengan seorang pemuda yang
+                tidak disenangi oleh keluarganya. Meski pemuda pilihannya tidak
+                direstui, Pintolee tetap bersikeras untuk melanjutkan
+                hubungannya. Memilih untuk memegang teguh pilihan hidupnya,
+                Pintolee dengan berat hati harus melepas hadiah yang sudah
+                disiapkan ayahnya. Pintolee akhirnya pergi meninggalkan
+                saudara-saudara dan kedua orangtuanya. Pintolee berlayar menaiki
+                cangkang kerang besar yang terdampar hingga membawanya dan
+                pemuda pilihannya di Pulau Numfor.
+              </p>
+              <h2>Hadiah dari Sang Ayah</h2>
+
+              <p class="py-3">
+                Meski kabar mengenai Pintolee sudah tersiar ke segala penjuru
+                pulau, masyarakat desa dan sekitar tetap menaruh rasa simpati
+                pada sang ayah dan ibu. Tentu saja, hal ini karena War, Betani,
+                Dohar, dan Mohamad setia menjaga nama baik keluarga dengan
+                mematuhi nasihat kedua orang tua mereka.
+              </p>
+              <p>
+                Tahun silih berganti, sang ayah semakin beranjak renta. Tibalah
+                hari yang sudah dinantikan sang ayah untuk keempat putranya.
+                Sang ayah memanggil keempat anak laki-lakinya untuk membagikan
+                warisan. Ternyata, masing-masing anak dihadiahkan satu pulau.
+                War diberi Pulau Waigeo, Betani diberi Pulau Salawati, Dohar
+                diberi Pulau Lilinta, dan Mohamad mendapatkan Pulau Waiga. Sang
+                ayah berpesan agar mereka selalu menjaga pulau-pulau tersebut
+                dan segala isinya dengan baik.
+              </p>
+
+              <p class="py-3">
+                <i
+                  >" War diberi Pulau Waigeo, Betani diberi Pulau Salawati,
+                  Dohar diberi Pulau Lilinta, dan Mohamad mendapatkan Pulau
+                  Waiga. "</i
+                >
+              </p>
+              <h2>Empat Orang Raja Memimpin Empat Pulau</h2>
+              <p class="py-3">
+                Keempat anak-anak tersebut kemudian pergi dan menetap di
+                masing-masing pulau yang telah dipercayakan oleh sang ayah.
+                Semakin hari War, Betani, Dohar, dan Mohamad semakin dikenal
+                sebagai sosok yang tekun dan bijaksana. Hingga sang ayah
+                akhirnya meninggal dunia, keempatnya mampu menaati janji mereka.
+                Bukan hanya nasihat orang tua, warisannya pun mereka jaga.
+                Masing-masing anak tersebut berkuasa, bahkan menjadi raja atas
+                pulaunya masing-masing. Pulau-pulau tersebut tumbuh subur dan
+                makmur. Penduduk di sekitarnya juga hidup bahagia dan sejahtera.
+                Dari sinilah kemudian lahir nama Raja Ampat. Empat orang raja
+                yang berkuasa atas gugusan pulau yang subur dan sejahtera.
+              </p>
+
+              <p>
+                <i
+                  >" Empat orang raja yang berkuasa atas gugusan pulau yang
+                  subur dan sejahtera. "</i
+                >
+              </p>
+
+              <h2 class="py-3">Telur Istimewa</h2>
+              <p>
+                Sementara itu, sebutir telur yang menjadi batu, sampai hari ini
+                masih dirawat dan dijaga oleh penduduk setempat. Batu itu juga
+                diperlakukan oleh masyarakat sekitar layaknya seorang raja.
+                Penduduk memberikan ruangan tempat bersemayam, lengkap dengan
+                dewa penjaga berwujud dua batu tegak atau menhir yang diberi
+                nama Man Moro dan Man Metem di sisi kanan dan kiri pintu masuk.
+                Batu yang hingga kini masih di simpan di Situs Kali Raja itu
+                diberi nama Batu Telur Raja. Untuk menjaga kesuciannya, batu
+                bernama Kapatnai ini hanya dapat dilihat setahun sekali pada
+                saat upacara penggantian kelambu dan pemandian yang hanya boleh
+                dilakukan oleh keturunan raja.
+              </p>
+
+              <p class="py-3">
+                <i
+                  >"Batu yang hingga kini masih di simpan di Situs Kali Raja itu
+                  diberi nama Batu Telur Raja. "</i
+                >
+              </p>
+              <h2>Pesan Moral Cerita Empat Raja</h2>
+              <p class="pt-3">
+                Dari cerita Empat Raja, kita bisa belajar untuk menjadi anak
+                yang berbakti, tekun, dan hormat pada orang tua. Tidak hanya
+                itu, kita juga dapat melihat pentingnya kesetiaan menjaga
+                kepercayaan orang lain, sebagaimana ditunjukkan oleh keempat
+                anak di cerita ini. Buah ketaatan dan kesabaran tidaklah instan.
+                Tetapi jika dijalankan dengan tekun, bukan hanya kita yang
+                merasakan manfaatnya melainkan orang lain, lingkungan sekitar,
+                bahkan masyarakat luas.
+              </p>
               <section
                 id="referensi"
                 class="mt-14 border-t border-slate-200 pt-6 dark:border-slate-800"
@@ -149,13 +333,12 @@
                 <p class="text-xs text-slate-500 dark:text-slate-400">
                   Referensi cerita:
                   <a
-                    href="https://indonesiakaya.com/pustaka-indonesia/cerita-rakyat-papua-biwar-sang-penakluk-naga/"
+                    href="https://indonesiakaya.com/pustaka-indonesia/cerita-rakyat-papua-empat-raja/"
                     target="_blank"
                     rel="noreferrer"
                     class="text-emerald-600 hover:underline dark:text-emerald-300"
                   >
-                    Indonesiakaya.com – Cerita Rakyat Papua: Biwar Sang Penakluk
-                    Naga
+                    Indonesiakaya.com – Cerita Rakyat Papua: Empat Raja
                   </a>
                 </p>
               </section>

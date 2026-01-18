@@ -119,7 +119,7 @@
 
         <!-- Dropdown -->
         <div
-          class="hs-dropdown [--strategy:static] md:[--strategy:fixed] [--adaptive:none] md:[--adaptive:adaptive] [--is-collapse:true] md:[--is-collapse:false]"
+          class="hs-dropdown [--strategy:static] md:[--strategy:fixed] [--adaptive:none] md:[--adaptive:adaptive] [--is-collapse:true] md:[--is-collapse:false] [--trigger:hover]"
         >
           <button
             id="hs-header-base-dropdown"
@@ -127,7 +127,6 @@
             class="hs-dropdown-toggle w-full p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-hidden focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
             aria-haspopup="menu"
             aria-expanded="false"
-            aria-label="Dropdown"
           >
             <svg
               class="shrink-0 size-4 me-3 md:me-2 block md:hidden"
@@ -165,66 +164,126 @@
           </button>
 
           <div
-            class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 relative w-full md:w-52 hidden z-10 top-full ps-7 md:ps-0 md:bg-white md:rounded-lg md:shadow-md before:absolute before:-top-4 before:start-0 before:w-full before:h-5 md:after:hidden after:absolute after:top-1 after:start-4.5 after:w-0.5 after:h-[calc(100%-4px)] after:bg-gray-100 dark:md:bg-neutral-800 dark:after:bg-neutral-700"
+            class="hs-dropdown-menu transition-[opacity,margin] duration-[300ms] hs-dropdown-open:opacity-100 opacity-0 relative w-full md:w-[450px] hidden z-10 top-full ps-7 md:ps-0 md:bg-white md:rounded-xl md:shadow-lg before:absolute before:-top-4 before:start-0 before:w-full before:h-5 dark:md:bg-neutral-800"
             role="menu"
-            aria-orientation="vertical"
-            aria-labelledby="hs-header-base-dropdown"
           >
-            <div class="py-1 md:px-1 space-y-0.5">
+            <div
+              class="py-2 md:px-2 grid grid-cols-1 md:grid-cols-2 gap-x-2 gap-y-1"
+            >
               <router-link to="/wisata">
                 <a
-                  class="p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300"
+                  class="group relative p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-50 dark:text-neutral-300 dark:hover:bg-neutral-700 transition-all duration-300"
                 >
-                  Tempat Wisata
+                  <span
+                    class="relative z-10 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300"
+                    >Tempat Wisata</span
+                  >
+                  <span
+                    class="absolute bottom-1.5 left-3 right-8 h-0.5 scale-x-0 rounded-full bg-emerald-500 transition-transform duration-300 origin-left group-hover:scale-x-100"
+                  ></span>
                 </a>
               </router-link>
+
               <router-link to="/ceritaRakyat">
                 <a
-                  class="p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300"
+                  class="group relative p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-50 dark:text-neutral-300 dark:hover:bg-neutral-700 transition-all duration-300"
                 >
-                  Cerita Rakyat
+                  <span
+                    class="relative z-10 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300"
+                    >Cerita Rakyat</span
+                  >
+                  <span
+                    class="absolute bottom-1.5 left-3 right-8 h-0.5 scale-x-0 rounded-full bg-emerald-500 transition-transform duration-300 origin-left group-hover:scale-x-100"
+                  ></span>
                 </a>
               </router-link>
+
               <router-link to="/tarianAdat">
                 <a
-                  class="p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300"
+                  class="group relative p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-50 dark:text-neutral-300 dark:hover:bg-neutral-700 transition-all duration-300"
                 >
-                  Tarian Adat
+                  <span
+                    class="relative z-10 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300"
+                    >Tarian Adat</span
+                  >
+                  <span
+                    class="absolute bottom-1.5 left-3 right-8 h-0.5 scale-x-0 rounded-full bg-emerald-500 transition-transform duration-300 origin-left group-hover:scale-x-100"
+                  ></span>
                 </a>
               </router-link>
+
               <router-link to="/alatMusik">
                 <a
-                  class="p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300"
+                  class="group relative p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-50 dark:text-neutral-300 dark:hover:bg-neutral-700 transition-all duration-300"
                 >
-                  Alat Musik
+                  <span
+                    class="relative z-10 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300"
+                    >Alat Musik</span
+                  >
+                  <span
+                    class="absolute bottom-1.5 left-3 right-8 h-0.5 scale-x-0 rounded-full bg-emerald-500 transition-transform duration-300 origin-left group-hover:scale-x-100"
+                  ></span>
                 </a>
               </router-link>
+
               <router-link to="/rumahAdat">
                 <a
-                  class="p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300"
+                  class="group relative p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-50 dark:text-neutral-300 dark:hover:bg-neutral-700 transition-all duration-300"
                 >
-                  Rumah Adat
+                  <span
+                    class="relative z-10 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300"
+                    >Rumah Adat</span
+                  >
+                  <span
+                    class="absolute bottom-1.5 left-3 right-8 h-0.5 scale-x-0 rounded-full bg-emerald-500 transition-transform duration-300 origin-left group-hover:scale-x-100"
+                  ></span>
                 </a>
               </router-link>
+
               <router-link to="/upacara">
                 <a
-                  class="p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300"
+                  class="group relative p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-50 dark:text-neutral-300 dark:hover:bg-neutral-700 transition-all duration-300"
                 >
-                  Upacara Adat
+                  <span
+                    class="relative z-10 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300"
+                    >Upacara Adat</span
+                  >
+                  <span
+                    class="absolute bottom-1.5 left-3 right-8 h-0.5 scale-x-0 rounded-full bg-emerald-500 transition-transform duration-300 origin-left group-hover:scale-x-100"
+                  ></span>
                 </a>
               </router-link>
+
               <router-link to="/senjataTradisional">
                 <a
-                  class="p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300"
+                  class="group relative p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-50 dark:text-neutral-300 dark:hover:bg-neutral-700 transition-all duration-300"
                 >
-                  Senjata Tradisional
+                  <span
+                    class="relative z-10 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300"
+                    >Senjata Tradisional</span
+                  >
+                  <span
+                    class="absolute bottom-1.5 left-3 right-8 h-0.5 scale-x-0 rounded-full bg-emerald-500 transition-transform duration-300 origin-left group-hover:scale-x-100"
+                  ></span>
+                </a>
+              </router-link>
+
+              <router-link to="/bahasaDaerah">
+                <a
+                  class="group relative p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-50 dark:text-neutral-300 dark:hover:bg-neutral-700 transition-all duration-300"
+                >
+                  <span
+                    class="relative z-10 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300"
+                    >Bahasa Daerah</span
+                  >
+                  <span
+                    class="absolute bottom-1.5 left-3 right-8 h-0.5 scale-x-0 rounded-full bg-emerald-500 transition-transform duration-300 origin-left group-hover:scale-x-100"
+                  ></span>
                 </a>
               </router-link>
             </div>
           </div>
         </div>
-        <!-- End Dropdown -->
-
         <router-link to="/cart">
           <a
             class="group relative px-4 py-2 flex items-center text-sm font-medium text-gray-800 hover:bg-gray-100 hover:text-emerald-600 rounded-lg focus:outline-none focus:bg-gray-100 transition-all duration-300 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:hover:text-emerald-400"
@@ -234,10 +293,6 @@
               width="24"
               height="24"
             />
-            <!-- <span>Cart</span> -->
-            <!-- <span
-              class="absolute bottom-1 left-2 right-2 h-0.5 scale-x-0 rounded-full bg-emerald-500 transition-transform duration-300 group-hover:scale-x-100"
-            ></span> -->
           </a>
         </router-link>
 
@@ -463,6 +518,13 @@
               >
                 <router-link to="/senjataTradisional" @click="closeMobileMenu"
                   >Senjata Tradisional</router-link
+                >
+              </li>
+              <li
+                class="px-2 font-medium py-2 text-sm text-gray-800 hover:text-emerald-600 dark:text-neutral-200"
+              >
+                <router-link to="/bahasaDaerah" @click="closeMobileMenu"
+                  >Bahasa Daerah</router-link
                 >
               </li>
             </ul>

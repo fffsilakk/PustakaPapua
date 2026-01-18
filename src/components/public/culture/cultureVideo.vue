@@ -89,7 +89,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="py-20 px-6 bg-slate-50 dark:bg-zinc-950">
+  <section class="py-20 px-6 bg-slate-50 rounded-4xl dark:bg-slate-800">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16" data-aos="fade-down">
         <span

@@ -29,5 +29,16 @@ export const stories: StoryItem[] = [
     coverUrl:
       "https://indonesiakaya.com/wp-content/uploads/2023/09/IK_Papua_Header.jpeg",
   },
+  {
+    id: "legenda-cobo-pui", // ID diperbaiki
+    title: "Legenda Cabo Pui dan Batu Ajaib",
+    category: "cerita-rakyat",
+    region: "Mimika",
+    shortDescription:
+      "Legenda Cabo Pui, pemuda Papua yang rela mengorbankan segalanya demi menyelamatkan kampungnya dari kelaparan.",
+
+    coverUrl:
+      "https://indonesiakaya.com/wp-content/uploads/2025/07/download.jpeg",
+  },
   // tambahkan cerita lain di sini
 ];

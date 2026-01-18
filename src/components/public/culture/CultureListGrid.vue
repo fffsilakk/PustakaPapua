@@ -55,7 +55,7 @@
               class="inline-flex items-center gap-4 px-8 py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300"
             >
               <span
-                class="text-sm font-semibold tracking-wider cursor-pointer uppercase text-slate-600 dark:text-slate-300"
+                class="text-sm font-semibold tracking-wider cursor-pointer uppercase hover:text-emerald-600 text-emerald-500"
                 >Eksplorasi Kategori</span
               >
               <svg
