@@ -13,7 +13,7 @@
       <div class="flex-1 flex items-center justify-end gap-x-2 pt-1 mr-2">
         <dark-mode class="shrink-0 size-2.5" />
         <a
-          href="https://github.com/fffsilakk/SmartPustaka"
+          href="https://github.com/fffsilakk/PustakaPapua"
           target="_blank"
           title="Github"
           rel="noopener"

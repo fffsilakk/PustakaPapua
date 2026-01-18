@@ -3,27 +3,33 @@
     <button
       @click="isModalOpen = true"
       type="button"
-      class="group flex items-center gap-3 px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 transition-all hover:border-emerald-500/50 hover:bg-white dark:border-slate-800 dark:bg-slate-900/50 dark:hover:border-emerald-500/30 dark:hover:bg-slate-900 shadow-sm"
+      class="group flex items-center gap-3 px-3 py-1.5 rounded-2xl border border-slate-200 bg-slate-50/50 transition-all hover:border-emerald-500/50 hover:bg-white hover:shadow-md active:scale-95 dark:border-slate-800 dark:bg-zinc-900/50 dark:hover:border-emerald-500/30 dark:hover:bg-zinc-900"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-4 w-4 text-slate-400 group-hover:text-emerald-500 transition-colors"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
+      <div
+        class="p-1 rounded-lg bg-white dark:bg-zinc-800 shadow-sm group-hover:text-emerald-500 transition-colors text-slate-400"
       >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-        />
-      </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2.5"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          />
+        </svg>
+      </div>
 
-      <span class="text-sm text-slate-500 dark:text-slate-400">Cari ...</span>
+      <span class="text-sm font-medium text-slate-500 dark:text-zinc-400"
+        >Cari materi...</span
+      >
 
       <kbd
-        class="hidden sm:inline-flex items-center gap-1 px-1.5 py-0.5 rounded border border-slate-200 bg-white font-mono text-[10px] font-medium text-slate-400 dark:border-slate-700 dark:bg-slate-800"
+        class="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-lg border border-slate-200 bg-white font-mono text-[10px] font-bold text-slate-400 dark:border-zinc-700 dark:bg-zinc-800 shadow-sm"
       >
         <span class="text-xs">⌘</span>K
       </kbd>
@@ -32,135 +38,171 @@
     <Teleport to="body">
       <div
         v-if="isModalOpen"
-        class="fixed inset-0 z-[100] flex items-start justify-center p-4 sm:p-6 lg:p-20"
+        class="fixed inset-0 z-[100] flex items-start justify-center p-4 sm:p-6 lg:p-20 overflow-hidden"
       >
         <div
           @click="isModalOpen = false"
-          class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm transition-opacity"
+          class="fixed inset-0 bg-slate-950/60 backdrop-blur-md transition-opacity animate-in fade-in duration-300"
         ></div>
 
         <div
-          class="relative w-full max-w-2xl transform overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-slate-200 transition-all dark:bg-slate-900 dark:ring-slate-800"
+          class="relative w-full max-w-2xl transform overflow-hidden rounded-[2.5rem] bg-white shadow-2xl ring-1 ring-slate-200 dark:bg-zinc-950 dark:ring-zinc-800 animate-in zoom-in-95 slide-in-from-top-4 duration-300"
         >
-          <!-- Input -->
-          <div class="relative p-4">
-            <svg
-              class="pointer-events-none absolute left-8 top-8 h-5 w-5 text-emerald-500"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
+          <div
+            class="relative p-5 border-b border-slate-100 dark:border-zinc-800"
+          >
+            <div class="absolute left-9 top-1/2 -translate-y-1/2">
+              <span
+                v-if="!searchQuery"
+                class="flex h-5 w-5 animate-pulse rounded-full bg-emerald-500/20"
+              ></span>
+              <svg
+                v-else
+                class="h-5 w-5 text-emerald-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </div>
+
             <input
               v-model="searchQuery"
               type="text"
-              class="h-12 w-full rounded-xl border-0 bg-slate-100 pl-12 pr-4 text-slate-900 placeholder:text-slate-500 focus:ring-2 focus:ring-emerald-500 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-400 sm:text-sm shadow-inner"
-              placeholder="Cari UMKM, materi belajar, budaya, dan lainnya..."
+              class="h-14 w-full rounded-2xl border-none bg-slate-50 pl-14 pr-4 text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-emerald-500 dark:bg-zinc-900 dark:text-white sm:text-base shadow-inner"
+              placeholder="Apa yang ingin Kaka pelajari hari ini?"
               @keydown.esc="isModalOpen = false"
               ref="searchInput"
             />
           </div>
 
-          <!-- Hasil -->
-          <div class="max-h-96 overflow-y-auto p-4 pt-0">
-            <!-- Placeholder awal -->
-            <div
-              v-if="searchQuery.length === 0"
-              class="py-8 text-center space-y-2"
-            >
-              <p class="text-sm text-slate-500 dark:text-slate-400">
-                Cari berdasarkan kata kunci seperti:
+          <div class="max-h-[60vh] overflow-y-auto p-4 custom-scrollbar">
+            <div v-if="searchQuery.length === 0" class="py-10 text-center">
+              <div
+                class="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50 dark:bg-emerald-500/10 text-3xl"
+              >
+                <FlSearchShield />
+              </div>
+              <p class="text-sm font-bold text-slate-700 dark:text-zinc-300">
+                Mau cari apa di Pustaka Papua?
               </p>
-              <div class="flex flex-wrap justify-center gap-2 text-[11px]">
-                <span
-                  class="px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300"
+              <div class="mt-4 flex flex-wrap justify-center gap-2">
+                <button
+                  v-for="hint in [
+                    'UMKM Noken',
+                    'Bahasa Inggris',
+                    'Tifa',
+                    'Kopi',
+                  ]"
+                  @click="searchQuery = hint"
+                  class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-zinc-800 text-[11px] font-bold text-slate-600 dark:text-zinc-400 hover:bg-emerald-500 hover:text-white transition-all"
                 >
-                  UMKM noken
-                </span>
-                <span
-                  class="px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300"
-                >
-                  Belajar matematika
-                </span>
-                <span
-                  class="px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300"
-                >
-                  Cerita rakyat
-                </span>
+                  # {{ hint }}
+                </button>
               </div>
             </div>
 
-            <!-- Tidak ada hasil -->
             <div
               v-else-if="filteredSections.length === 0"
-              class="py-8 text-center"
+              class="py-12 text-center"
             >
-              <p class="text-sm text-slate-500 dark:text-slate-400">
-                Tidak ada hasil untuk "<span class="font-semibold">{{
-                  searchQuery
-                }}</span
-                >".
+              <span class="text-4xl">🌵</span>
+              <p class="mt-4 text-sm text-slate-500 dark:text-zinc-400">
+                Wah, kata kunci "<span
+                  class="text-slate-900 dark:text-white font-bold"
+                  >{{ searchQuery }}</span
+                >" belum ditemukan.
               </p>
             </div>
 
-            <!-- Hasil per kategori -->
-            <div v-else class="space-y-4">
-              <div
-                v-for="section in filteredSections"
-                :key="section.id"
-                class="space-y-2"
-              >
-                <p
-                  class="px-2 text-[10px] font-bold uppercase tracking-widest text-slate-400"
+            <div v-else class="space-y-6 pb-4">
+              <div v-for="section in filteredSections" :key="section.id">
+                <h3
+                  class="px-3 mb-2 text-[10px] font-black uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-500"
                 >
                   {{ section.label }}
-                </p>
+                </h3>
 
-                <div
-                  v-for="item in section.items"
-                  :key="item.id"
-                  class="group flex items-center gap-4 p-3 rounded-xl hover:bg-emerald-500/10 cursor-pointer border border-transparent hover:border-emerald-500/20 transition-all"
-                  @click="onSelect(item)"
-                >
-                  <div
-                    class="h-10 w-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xl"
+                <div class="grid grid-cols-1 gap-1">
+                  <button
+                    v-for="item in section.items"
+                    :key="item.id"
+                    @click="onSelect(item)"
+                    class="group flex items-center gap-4 p-3 rounded-2xl transition-all text-left hover:bg-emerald-50 dark:hover:bg-emerald-500/10 border border-transparent hover:border-emerald-100 dark:hover:border-emerald-500/20"
                   >
-                    {{ item.icon }}
-                  </div>
-                  <div>
-                    <h4
-                      class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-emerald-500"
+                    <div
+                      class="h-12 w-12 shrink-0 rounded-xl bg-slate-50 dark:bg-zinc-900 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform"
                     >
-                      {{ item.title }}
-                    </h4>
-                    <p class="text-xs text-slate-500 dark:text-slate-400">
-                      {{ item.description }}
-                    </p>
-                  </div>
+                      {{ item.icon }}
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <h4
+                        class="text-sm font-bold text-slate-900 dark:text-white line-clamp-1 group-hover:text-emerald-600 dark:group-hover:text-emerald-400"
+                      >
+                        {{ item.title }}
+                      </h4>
+                      <p
+                        class="text-xs text-slate-500 dark:text-zinc-400 line-clamp-1"
+                      >
+                        {{ item.description }}
+                      </p>
+                    </div>
+                    <div
+                      class="opacity-0 group-hover:opacity-100 transition-opacity pr-2 text-emerald-500"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Footer -->
           <div
-            class="flex items-center justify-between border-t border-slate-100 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900/80"
+            class="flex items-center justify-between border-t border-slate-100 bg-slate-50/50 px-6 py-4 dark:border-zinc-800/50 dark:bg-zinc-900/50"
           >
-            <p class="text-[10px] text-slate-400">
-              Tekan <span class="font-bold">ESC</span> untuk menutup
-            </p>
-            <div class="flex items-center gap-2">
-              <span class="text-[10px] text-slate-400">Powered by</span>
-              <span class="text-[10px] font-bold text-emerald-500 italic">
-                Pustaka Timur
-              </span>
+            <div class="flex items-center gap-4">
+              <div
+                class="flex items-center gap-1.5 text-[10px] font-bold text-zinc-400"
+              >
+                <kbd
+                  class="px-1.5 py-0.5 rounded bg-white dark:bg-zinc-800 border dark:border-zinc-700 shadow-sm"
+                  >ESC</kbd
+                >
+                Tutup
+              </div>
+              <div
+                class="flex items-center gap-1.5 text-[10px] font-bold text-zinc-400"
+              >
+                <kbd
+                  class="px-1.5 py-0.5 rounded bg-white dark:bg-zinc-800 border dark:border-zinc-700 shadow-sm"
+                  >↵</kbd
+                >
+                Pilih
+              </div>
             </div>
+            <p
+              class="text-[10px] font-black italic text-emerald-600 uppercase tracking-widest"
+            >
+              Pustaka Timur
+            </p>
           </div>
         </div>
       </div>
@@ -168,9 +210,23 @@
   </div>
 </template>
 
+<style scoped>
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #10b981;
+  border-radius: 10px;
+}
+</style>
+
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, nextTick, watch, computed } from "vue";
 import { useRouter } from "vue-router";
+import { FlSearchShield } from "@kalimahapps/vue-icons";
 
 const router = useRouter();
 
