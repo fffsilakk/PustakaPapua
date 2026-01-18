@@ -54,7 +54,7 @@
           class="mx-auto max-w-md text-lg text-slate-600 dark:text-slate-400 leading-relaxed"
         >
           Mungkin karena halamannya yang salah, atau halamannya memang belum
-          sempat saya rakit di waktu luang kemarin.
+          sempat saya buat .
         </p>
       </div>
 

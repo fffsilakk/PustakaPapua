@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 import PublicLayout from "../layouts/PublicLayout.vue";
 
+// Import Service
+import NotFound from "../services/NotFound.vue";
+
 // Import komponen view Public
 import LandingView from "../views/public/LandingView.vue";
 import EduDashboardView from "../views/public/EduDashboardView.vue";
@@ -33,6 +36,14 @@ const routes = [
         component: LandingView,
         meta: {
           title: "Beranda | Pustaka Papua",
+        },
+      },
+      {
+        path: "/:pathMatch(.*)*",
+        name: "not-found",
+        component: NotFound,
+        meta: {
+          title: "404 - Tidak Ditemukan",
         },
       },
       {
