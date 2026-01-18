@@ -4,7 +4,6 @@ import PublicLayout from "../layouts/PublicLayout.vue";
 // Import komponen view Public
 import LandingView from "../views/public/LandingView.vue";
 import EduDashboardView from "../views/public/EduDashboardView.vue";
-import EduModuleDetailView from "../views/public/EduModuleDetailView.vue";
 import CultureListView from "../views/public/CultureListView.vue";
 import CultureDetailView from "../views/public/CultureDetailView.vue";
 import UmkmCatalogView from "../views/public/UmkmCatalogView.vue";
@@ -18,6 +17,9 @@ import RumahAdatView from "../views/public/tentang papua/RumahAdatView.vue";
 import WisataView from "../views/public/tentang papua/WisataView.vue";
 import UpacaraView from "../views/public/tentang papua/UpacaraView.vue";
 import SenjataView from "../views/public/tentang papua/SenjataView.vue";
+
+// Module Belajar
+
 // File test
 import test from "../components/public/culture/ceritaRakyat/test.vue";
 const routes = [
@@ -40,12 +42,6 @@ const routes = [
         meta: {
           title: "Belajar | Pustaka Papua",
         },
-      },
-      {
-        path: "/belajar/:id",
-        name: "EduModuleDetail",
-        component: EduModuleDetailView,
-        props: true,
       },
       {
         path: "/budaya",
@@ -93,9 +89,7 @@ const routes = [
         path: "/budaya/legenda-cobo-pui",
         name: "legenda-cobo-pui",
         component: () =>
-          import(
-            "../components/public/culture/ceritaRakyat/LegendaCaboPui.vue"
-          ),
+          import("../components/public/culture/ceritaRakyat/LegendaCaboPui.vue"),
         meta: {
           title: "Cerita Rakyat | legenda-cobo-pui",
         },
@@ -173,6 +167,38 @@ const routes = [
         },
       },
       { path: "/test", name: "test", component: test },
+
+      // Module Belajar
+      {
+        path: "belajar/HtmlDasar",
+        name: "HtmlDasar",
+        component: () =>
+          import("../components/public/edu/contents/HtmlDasarContent.vue"),
+        meta: {
+          title: "Belajar | HTML Dasar",
+        },
+        props: true,
+      },
+      {
+        path: "belajar/english-guide-basic",
+        name: "english-guide-basic",
+        component: () =>
+          import("../components/public/edu/contents/EnglishGuideBasic.vue"),
+        meta: {
+          title: "Belajar | Bahasa Inggris Dasar",
+        },
+        props: true,
+      },
+      {
+        path: "belajar/kopi-wamena-modern",
+        name: "kopi-wamena-modern",
+        component: () =>
+          import("../components/public/edu/contents/KopiWamenaBasicLearnView.vue"),
+        meta: {
+          title: "Belajar | kopi Wamena Modern",
+        },
+        props: true,
+      },
     ],
   },
 ];

@@ -50,8 +50,10 @@ const categoryText = computed(() => {
       return "Agrikultur";
     case "bahasa":
       return "Bahasa Inggris";
+    case "budaya":
+      return "Seni & Budaya"; // Tadi di sini penyebab errornya (kosong)
     default:
-      return "Semua";
+      return "Semua Kategori";
   }
 });
 </script>

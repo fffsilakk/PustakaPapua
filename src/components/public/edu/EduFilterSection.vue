@@ -1,35 +1,32 @@
 <template>
   <section
-    class="mb-5 sm:mb-6 border-b border-slate-200/70 pb-3 sm:pb-4 dark:border-slate-800/70"
+    class="mb-6 border-b border-slate-200/70 pb-4 dark:border-zinc-800/70"
   >
     <div
-      class="flex flex-col gap-3 sm:gap-4 sm:flex-row sm:items-center sm:justify-between"
+      class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
       data-aos="fade-up"
-      data-aos-duration="600"
     >
-      <!-- Kategori filter -->
       <div class="flex-1 min-w-0">
         <ModuleFilterBar v-model="innerCategory" />
       </div>
 
-      <!-- Info jumlah modul -->
       <div
-        class="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white/80 px-3 py-2 text-[11px] sm:text-xs text-slate-700 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-300"
+        class="inline-flex items-center gap-3 rounded-2xl border border-slate-200 bg-white/80 px-4 py-2 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/80"
       >
         <div
-          class="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 text-base dark:bg-emerald-500/20 dark:text-emerald-300"
+          class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-400"
         >
           📚
         </div>
-        <div class="leading-tight">
-          <p class="font-semibold text-slate-900 dark:text-slate-50">
-            {{ count }} modul
+        <div class="leading-tight text-xs">
+          <p class="font-bold text-slate-900 dark:text-white">
+            {{ count }} Modul
           </p>
-          <p class="text-[10px] text-slate-900 dark:text-slate-400">
+          <p class="text-[10px] text-slate-500 dark:text-zinc-400">
             Kategori:
-            <span class="text-emerald-700 font-medium dark:text-emerald-300">
-              {{ categoryText }}
-            </span>
+            <span class="text-emerald-600 dark:text-emerald-400 font-medium">{{
+              categoryText
+            }}</span>
           </p>
         </div>
       </div>
@@ -40,8 +37,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import ModuleFilterBar from "./ModuleFilterBar.vue";
-
-type FilterValue = "all" | "coding" | "agrikultur" | "bahasa";
+import type { FilterValue } from "../../../data/eduModules";
 
 const props = defineProps<{
   category: FilterValue;

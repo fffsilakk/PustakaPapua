@@ -1,4 +1,5 @@
-export type EduCategory = "coding" | "agrikultur" | "bahasa";
+export type EduCategory = "coding" | "agrikultur" | "bahasa" | "budaya";
+export type FilterValue = "all" | EduCategory; // Ini akan otomatis mencakup budaya
 
 export interface EduModule {
   id: string;
@@ -8,12 +9,14 @@ export interface EduModule {
   durationMinutes: number;
   isOfflineAvailable: boolean;
   shortDescription: string;
-  content: string[];
 }
 
 export const eduModules: EduModule[] = [
+  // =====================
+  // MODUL YANG SUDAH ADA
+  // =====================
   {
-    id: "html-dasar-papua",
+    id: "HtmlDasar",
     title: "Belajar HTML Dasar untuk Anak Papua",
     category: "coding",
     level: "pemula",
@@ -21,11 +24,6 @@ export const eduModules: EduModule[] = [
     isOfflineAvailable: false,
     shortDescription:
       "Pengenalan struktur dasar web: tag, paragraf, gambar, dan link.",
-    content: [
-      "Apa itu HTML dan bagaimana perannya dalam membangun halaman web.",
-      "Mengenal tag dasar seperti <html>, <head>, <body>, <h1>-<h6>, <p>, dan <img>.",
-      "Latihan membuat halaman sederhana berisi judul, paragraf, dan gambar pemandangan Papua.",
-    ],
   },
   {
     id: "kopi-wamena-modern",
@@ -36,11 +34,6 @@ export const eduModules: EduModule[] = [
     isOfflineAvailable: false,
     shortDescription:
       "Langkah sederhana menanam kopi dengan cara yang lebih produktif.",
-    content: [
-      "Memilih bibit kopi unggul yang sesuai dengan iklim Wamena.",
-      "Teknik penanaman dan perawatan tanaman kopi untuk hasil maksimal.",
-      "Pengenalan metode panen dan pasca panen yang efisien.",
-    ],
   },
   {
     id: "english-guide-basic",
@@ -50,10 +43,70 @@ export const eduModules: EduModule[] = [
     durationMinutes: 50,
     isOfflineAvailable: false,
     shortDescription: "Kalimat praktis untuk menyambut dan menemani wisatawan.",
-    content: [
-      "Salam dan perkenalan diri dalam bahasa Inggris.",
-      "Kalimat umum untuk menjelaskan atraksi wisata di Papua.",
-      "Frasa penting untuk membantu wisatawan selama tur.",
-    ],
+  },
+
+  // =====================
+  // MODUL BARU – PUSTAKA PAPUA / BUDAYA
+  // =====================
+
+  {
+    id: "papua-intro",
+    title: "Pengenalan Papua dan Keberagaman Budaya",
+    category: "budaya",
+    level: "pemula",
+    durationMinutes: 30,
+    isOfflineAvailable: true,
+    shortDescription:
+      "Mengenal Papua, wilayah adat, dan kekayaan budaya yang dimiliki.",
+  },
+  {
+    id: "suku-papua-dasar",
+    title: "Suku-Suku di Papua",
+    category: "budaya",
+    level: "pemula",
+    durationMinutes: 45,
+    isOfflineAvailable: true,
+    shortDescription:
+      "Pengenalan suku-suku besar Papua beserta ciri khas dan wilayahnya.",
+  },
+  {
+    id: "tarian-adat-papua",
+    title: "Tarian Adat Papua",
+    category: "budaya",
+    level: "pemula",
+    durationMinutes: 40,
+    isOfflineAvailable: false,
+    shortDescription:
+      "Belajar jenis tarian adat Papua dan makna di balik setiap gerakan.",
+  },
+  {
+    id: "rumah-adat-papua",
+    title: "Rumah Adat Papua",
+    category: "budaya",
+    level: "pemula",
+    durationMinutes: 35,
+    isOfflineAvailable: true,
+    shortDescription:
+      "Mengenal Honai, Kariwari, dan rumah adat Papua lainnya beserta fungsinya.",
+  },
+  {
+    id: "bahasa-daerah-papua",
+    title: "Bahasa Daerah Papua (Dasar)",
+    category: "budaya",
+    level: "pemula",
+    durationMinutes: 45,
+    isOfflineAvailable: true,
+    shortDescription:
+      "Kosakata dasar dan salam dalam beberapa bahasa daerah Papua.",
+  },
+  {
+    id: "upacara-adat-papua",
+    title: "Upacara Adat dan Tradisi Papua",
+    category: "budaya",
+    level: "menengah",
+    durationMinutes: 50,
+    isOfflineAvailable: false,
+    shortDescription:
+      "Memahami upacara adat seperti bakar batu dan nilai sosial di dalamnya.",
   },
 ];

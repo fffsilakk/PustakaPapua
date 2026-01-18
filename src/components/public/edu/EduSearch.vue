@@ -90,6 +90,7 @@ const suggestions = [
   "Agrikultur",
   "Bahasa Inggris",
   "Pemasaran Digital",
+  "budaya",
 ];
 
 const handleInput = (event: Event) => {

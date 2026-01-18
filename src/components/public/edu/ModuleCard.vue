@@ -146,6 +146,8 @@ const categoryLabel = computed(() => {
       return "Agrikultur";
     case "bahasa":
       return "Bahasa Inggris";
+    case "budaya":
+      return "budaya";
     default:
       return "Modul Umum";
   }
