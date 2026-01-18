@@ -50,6 +50,93 @@ const handleCloseDetail = () => {
         @open-detail="handleOpenDetail"
         @toggle-favorite="destinationStore.toggleFavorite"
       />
+      <article
+        class="group relative flex flex-col overflow-hidden rounded-[24px] border border-dashed border-slate-300 bg-slate-50/50 p-2 transition-all duration-500 dark:border-slate-800 dark:bg-slate-900/40"
+      >
+        <div
+          class="relative aspect-[4/3] w-full overflow-hidden rounded-[18px] bg-slate-200/50 dark:bg-slate-800/50 flex items-center justify-center"
+        >
+          <div
+            class="absolute inset-0 animate-[shimmer_2.5s_infinite] bg-gradient-to-r from-transparent via-white/20 dark:via-slate-700/10 to-transparent"
+          ></div>
+
+          <div
+            class="relative z-10 flex flex-col items-center gap-2 text-slate-400 dark:text-slate-600"
+          >
+            <span
+              class="text-4xl group-hover:scale-110 transition-transform duration-500 group-hover:rotate-6"
+              >🏝️</span
+            >
+          </div>
+
+          <div
+            class="absolute left-3 top-3 inline-flex items-center rounded-xl bg-slate-200 dark:bg-slate-700 px-3 py-1.5 backdrop-blur-md"
+          >
+            <div
+              class="h-1.5 w-1.5 rounded-full bg-slate-300 dark:bg-slate-600 animate-pulse mr-2"
+            ></div>
+            <div class="h-2 w-12 bg-slate-300 dark:bg-slate-600 rounded"></div>
+          </div>
+        </div>
+
+        <div class="flex flex-1 flex-col px-3 pb-3 pt-4">
+          <div class="mb-2">
+            <div
+              class="h-2 w-20 bg-slate-200 dark:bg-slate-800 rounded animate-pulse"
+            ></div>
+          </div>
+
+          <div class="space-y-2 mb-4">
+            <div
+              class="h-4 w-full bg-slate-200 dark:bg-slate-800 rounded animate-pulse"
+            ></div>
+            <div
+              class="h-4 w-2/3 bg-slate-200 dark:bg-slate-800 rounded animate-pulse"
+            ></div>
+          </div>
+
+          <div class="space-y-2">
+            <div
+              class="h-1.5 w-full bg-slate-100 dark:bg-slate-800/50 rounded animate-pulse"
+            ></div>
+            <div
+              class="h-1.5 w-full bg-slate-100 dark:bg-slate-800/50 rounded animate-pulse"
+            ></div>
+          </div>
+
+          <div
+            class="mt-auto pt-4 flex items-center justify-between border-t border-dashed border-slate-200 dark:border-slate-800/50"
+          >
+            <div class="flex items-center gap-2">
+              <div
+                class="h-2 w-16 bg-slate-100 dark:bg-slate-800 rounded"
+              ></div>
+            </div>
+
+            <div class="flex items-center gap-1">
+              <span
+                class="text-[10px] font-black uppercase tracking-widest text-emerald-500/60 dark:text-emerald-400/60 animate-pulse"
+              >
+                New Paradise Soon
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-white/20 dark:bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-[2px]"
+        >
+          <div
+            class="bg-white/90 dark:bg-slate-800/90 px-4 py-2 rounded-2xl shadow-2xl border border-white/50 dark:border-slate-700"
+          >
+            <p
+              class="text-[10px] font-black uppercase tracking-widest text-slate-800 dark:text-white"
+            >
+              Explorasi Sedang Berlangsung
+            </p>
+          </div>
+        </div>
+      </article>
     </div>
 
     <div
@@ -225,5 +312,27 @@ const handleCloseDetail = () => {
 .custom-scrollbar {
   mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+}
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.animate-bounce-short {
+  animation: bounce 1s ease-in-out 1;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
 }
 </style>

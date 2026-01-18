@@ -27,7 +27,7 @@
     >
       <div class="lg:w-1/2 text-center lg:text-left">
         <div
-          class="group flex items-center justify-center lg:justify-start gap-3 rounded-full px-4 py-2 text-xs font-bold tracking-widest border bg-white/60 border-emerald-200 text-emerald-800 shadow-xl backdrop-blur-md dark:bg-zinc-900/60 dark:border-emerald-900/30 dark:text-emerald-400 mb-8 transition-all hover:border-emerald-400"
+          class="group flex items-center justify-center lg:justify-start gap-3 rounded-full px-4 py-1 text-xs font-bold tracking-widest border bg-white/60 border-emerald-200 text-emerald-800 shadow-xl backdrop-blur-md dark:bg-zinc-900/60 dark:border-emerald-900/30 dark:text-emerald-400 mb-8 transition-all hover:border-emerald-400"
           data-aos="fade-right"
           data-aos-duration="800"
         >

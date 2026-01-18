@@ -61,6 +61,96 @@ const handleCloseDetail = () => {
         :upacara="upacara"
         @open-detail="handleOpenDetail"
       />
+      <article
+        class="group relative flex flex-col overflow-hidden rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50/50 transition-all duration-500 dark:border-slate-800 dark:bg-slate-900/30"
+      >
+        <div
+          class="relative h-40 w-full overflow-hidden bg-slate-100 dark:bg-slate-800/50 flex items-center justify-center sm:h-44"
+        >
+          <div
+            class="absolute inset-0 animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/20 dark:via-slate-700/10 to-transparent"
+          ></div>
+
+          <div
+            class="relative z-10 flex flex-col items-center gap-2 opacity-30 group-hover:opacity-100 transition-all duration-500"
+          >
+            <span class="text-4xl group-hover:scale-110 transition-transform"
+              >🏮</span
+            >
+          </div>
+
+          <div
+            class="absolute left-3 top-3 inline-flex items-center rounded-full bg-slate-200 dark:bg-slate-800 px-3 py-1 shadow-sm"
+          >
+            <div
+              class="mr-1.5 h-1.5 w-1.5 rounded-full bg-slate-300 dark:bg-slate-600 animate-pulse"
+            />
+            <div class="h-2 w-10 bg-slate-300 dark:bg-slate-700 rounded"></div>
+          </div>
+        </div>
+
+        <div class="flex flex-1 flex-col px-4 pb-4 pt-3">
+          <header>
+            <div class="space-y-2 mb-2">
+              <div
+                class="h-4 w-full bg-slate-200 dark:bg-slate-800 rounded animate-pulse"
+              ></div>
+              <div
+                class="h-4 w-2/3 bg-slate-200 dark:bg-slate-800 rounded animate-pulse"
+              ></div>
+            </div>
+          </header>
+
+          <div
+            class="h-2 w-32 bg-emerald-500/20 dark:bg-emerald-500/10 rounded mb-4 animate-pulse"
+          ></div>
+
+          <div class="space-y-2">
+            <div
+              class="h-2 w-full bg-slate-100 dark:bg-slate-800/40 rounded"
+            ></div>
+            <div
+              class="h-2 w-full bg-slate-100 dark:bg-slate-800/40 rounded"
+            ></div>
+            <div
+              class="h-2 w-4/5 bg-slate-100 dark:bg-slate-800/40 rounded"
+            ></div>
+          </div>
+
+          <div
+            class="mt-auto pt-4 flex items-center justify-between border-t border-dashed border-slate-200 dark:border-slate-800/50"
+          >
+            <div class="flex gap-1.5">
+              <div
+                class="h-5 w-14 rounded-full bg-slate-100 dark:bg-slate-800"
+              ></div>
+              <div
+                class="h-5 w-14 rounded-full bg-slate-100 dark:bg-slate-800"
+              ></div>
+            </div>
+
+            <span
+              class="text-[10px] font-black uppercase tracking-widest text-emerald-600/40 dark:text-emerald-500/40 animate-pulse"
+            >
+              Ritual Baru
+            </span>
+          </div>
+        </div>
+
+        <div
+          class="absolute inset-0 z-20 flex items-center justify-center bg-white/5 dark:bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-[1px]"
+        >
+          <div
+            class="bg-white/90 dark:bg-slate-800 px-4 py-2 rounded-xl shadow-xl border border-emerald-500/20"
+          >
+            <p
+              class="text-[9px] font-black uppercase tracking-widest text-slate-800 dark:text-emerald-400"
+            >
+              Dokumentasi Budaya Segera Hadir
+            </p>
+          </div>
+        </div>
+      </article>
     </div>
 
     <div
@@ -181,6 +271,28 @@ const handleCloseDetail = () => {
 </template>
 
 <style scoped>
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
 /* Modal Transition */
 .modal-enter-active,
 .modal-leave-active {

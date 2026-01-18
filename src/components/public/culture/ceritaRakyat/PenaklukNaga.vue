@@ -1,5 +1,5 @@
 <template>
-  <main class="bg-slate-50 dark:bg-slate-950 min-h-screen">
+  <main class="bg-slate-50 dark:bg-slate-950 min-h-screen mt-5">
     <!-- Hero / header artikel -->
     <section
       class="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-slate-50 to-white px-4 py-10 sm:py-14 dark:border-slate-800 dark:from-slate-950 dark:to-slate-900"

@@ -13,6 +13,7 @@
         @add-to-cart="umkmStore.addToCart(product.id)"
         @show-detail="openDetail"
       />
+      <CardComingSoon />
     </div>
 
     <!-- Tombol Lihat selengkapnya -->
@@ -158,6 +159,7 @@ import UmkmSearchBar from "../../components/public/umkm/UmkmSearchBar.vue";
 import UmkmStatsStrip from "../../components/public/umkm/UmkmStatsStrip.vue";
 import UmkmStoryStrip from "../../components/public/umkm/UmkmStoryStrip.vue";
 import UmkmHighlightBlock from "../../components/public/umkm/UmkmHighlightBlock.vue";
+import CardComingSoon from "../../services/CardComingSoon.vue";
 import type { UmkmProduct } from "../../data/umkmProducts";
 
 const umkmStore = useUmkmStore();

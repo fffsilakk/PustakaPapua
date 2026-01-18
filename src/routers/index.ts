@@ -97,7 +97,7 @@ const routes = [
         props: true,
       },
       {
-        path: "/budaya/legenda-cobo-pui",
+        path: "/ceritaRakyat/legenda-cobo-pui",
         name: "legenda-cobo-pui",
         component: () =>
           import("../components/public/culture/ceritaRakyat/LegendaCaboPui.vue"),

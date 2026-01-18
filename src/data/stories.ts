@@ -22,7 +22,7 @@ export const stories: StoryItem[] = [
   {
     id: "empat-raja",
     title: "Asal Usul Raja Ampat",
-    category: "legenda",
+    category: "cerita-rakyat",
     region: "Raja Ampat, Papua Barat",
     shortDescription:
       "Legenda tentang asal usul empat raja yang menjadi nama kepulauan Raja Ampat.",
@@ -32,7 +32,7 @@ export const stories: StoryItem[] = [
   {
     id: "legenda-cobo-pui", // ID diperbaiki
     title: "Legenda Cabo Pui dan Batu Ajaib",
-    category: "cerita-rakyat",
+    category: "legenda",
     region: "Mimika",
     shortDescription:
       "Legenda Cabo Pui, pemuda Papua yang rela mengorbankan segalanya demi menyelamatkan kampungnya dari kelaparan.",
