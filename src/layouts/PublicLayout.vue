@@ -19,7 +19,6 @@
           class="flex items-center gap-1 font-bold text-xl text-black focus:outline-none focus:opacity-80 dark:text-white group transition-all duration-300 hover:scale-105"
           aria-label="Brand"
         >
-          <!-- Logo Badge -->
           <div
             class="flex h-20 w-15 items-center justify-center transition-all duration-300"
           >
@@ -50,28 +49,20 @@
     </div>
   </transition>
 
-  <!-- Main App Content -->
-  <!-- Menggunakan v-show agar elemen tetap ada di DOM (hanya hidden) saat loading -->
   <div v-show="!isLoading">
-    <!-- <PublicNavbar /> -->
     <Navbar />
     <BackToTop />
     <router-view />
     <Footer />
-    <!-- <PublicFooter /> -->
-    <!-- <ConnectionStatus /> -->
   </div>
 </template>
 
 <script setup lang="ts">
 import Navbar from "../components/public/common/Navbar.vue";
 import Footer from "../components/public/common/FooterSection.vue";
-// import PublicNavbar from "../components/public/PublicNavbar.vue";
-// import PublicFooter from "../components/public/PublicFooter.vue";
 import BackToTop from "../services/BackToTop.vue";
 import { ref, onMounted, nextTick } from "vue";
 import type { IStaticMethods } from "preline/preline";
-// import ConnectionStatus from "../components/public/common/ConnectionStatus.vue";
 const isLoading = ref(true);
 
 declare global {

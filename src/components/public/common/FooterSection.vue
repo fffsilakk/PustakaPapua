@@ -13,9 +13,17 @@
           <div class="flex items-center gap-2">
             <!-- Logo sederhana -->
             <div
-              class="h-9 w-9 rounded-xl bg-emerald-500 flex items-center justify-center text-white font-bold flex-shrink-0"
+              class="h-9 w-11 rounded-xl flex items-center justify-center text-white font-bold flex-shrink-0"
             >
-              PT
+              <div
+                class="flex items-center justify-center transition-all duration-300"
+              >
+                <img
+                  src="/Logo/Logoo.png"
+                  alt="Logo"
+                  class="h-full w-full transition-all hover:rotate-6 object-contain dark:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
+                />
+              </div>
             </div>
             <div class="flex flex-col">
               <span

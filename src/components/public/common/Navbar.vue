@@ -40,7 +40,7 @@
             <img
               src="/Logo/Logoo.png"
               alt="Logo"
-              class="h-8 w-full transition-transform hover:rotate-6"
+              class="h-8 w-full transition-transform hover:rotate-6 object-contain dark:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
             />
           </div>
           <span

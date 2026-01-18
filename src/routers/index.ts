@@ -228,7 +228,7 @@ const router = createRouter({
 
 router.beforeEach((to, _from, next) => {
   document.title =
-    (to.meta.title as string) || "PintarPustaka - Portal Edukasi dan Budaya";
+    (to.meta.title as string) || "Pustaka Papua - Portal Edukasi dan Budaya";
   next();
 });
 

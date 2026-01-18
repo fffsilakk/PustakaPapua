@@ -1,6 +1,6 @@
 <template>
   <main
-    class="relative flex min-h-[95vh] flex-col -mt-5 items-center justify-center overflow-hidden bg-slate-50 dark:bg-zinc-950 px-4"
+    class="relative flex min-h-[95vh] flex-col -mt-5 items-center justify-center overflow-hidden bg-slate-50 dark:bg-slate-900 px-4"
   >
     <div class="absolute inset-0 z-0">
       <div
