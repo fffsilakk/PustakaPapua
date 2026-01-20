@@ -3,8 +3,6 @@ import { onMounted } from "vue";
 import Swiper from "swiper";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
-// Jika gambar ada di src/assets, gunakan import.
-// Jika di public/Destination, path yang Anda gunakan sudah benar.
 const items = [
   {
     title: "Teluk Cendrawasih",
