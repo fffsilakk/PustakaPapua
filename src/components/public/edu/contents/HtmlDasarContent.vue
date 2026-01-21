@@ -1,6 +1,7 @@
 <!-- src/views/edu/HtmlDasarLearnView.vue -->
 <script setup lang="ts">
 import { ref } from "vue";
+import BackButton from "../../../../services/BackButton.vue";
 
 type TabKey = "struktur" | "teks" | "gambarLink";
 
@@ -22,12 +23,38 @@ const exampleHtml = {
   gambarLink: `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFqOEc2eoOVzMTexwgrhLyoMT6BRUqMGw1mA&s" alt="Pemandangan gunung di Papua" />
 <a href="https://example.com">Kunjungi situs favoritku</a>`,
 };
+
+// Data referensi kita simpan di array supaya rapi dan gampang ditambah
+const references = [
+  {
+    title: "Petani Kode: Belajar HTML Dasar",
+    url: "https://www.petanikode.com/html-dasar/",
+    domain: "petanikode.com",
+    desc: "Panduan belajar HTML dari nol untuk pemula dengan bahasa yang mudah dipahami.",
+    icon: "🌱",
+  },
+  {
+    title: "W3Schools: HTML Tutorial",
+    url: "https://www.w3schools.com/html/",
+    domain: "w3schools.com",
+    desc: "Dokumentasi lengkap dan interaktif untuk referensi standar HTML internasional.",
+    icon: "📚",
+  },
+  {
+    title: "Dicoding: Panduan Lengkap HTML",
+    url: "https://www.dicoding.com/blog/panduan-lengkap-belajar-coding-html-untuk-pemula/",
+    domain: "dicoding.com",
+    desc: "Artikel mendalam tentang dasar coding HTML dan tips karir developer.",
+    icon: "🚀",
+  },
+];
 </script>
 
 <template>
   <main
     class="max-w-5xl mx-auto px-4 mt-10 sm:px-6 lg:px-8 py-6 lg:py-8 text-left"
   >
+    <BackButton class="my-5" />
     <!-- Header -->
     <header
       class="mb-6 rounded-3xl border border-sky-200 bg-gradient-to-r from-sky-50 via-white to-emerald-50 px-5 py-4 shadow-sm dark:border-slate-700 dark:from-slate-900 dark:via-slate-900 dark:to-emerald-950/20"
@@ -225,6 +252,87 @@ const exampleHtml = {
           misalnya gunung, danau, atau pasar tradisional.
         </li>
       </ol>
+    </section>
+
+    <!-- <section>
+      <h2>Referensi</h2>
+      https://www.petanikode.com/html-dasar/
+      https://www.w3schools.com/html/
+      https://www.dicoding.com/blog/panduan-lengkap-belajar-coding-html-untuk-pemula/
+    </section> -->
+    <section class="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <!-- Header Section -->
+      <div
+        class="mb-6 flex items-center gap-3 border-b border-slate-200 pb-4 dark:border-slate-700"
+      >
+        <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100">
+          Referensi & Sumber Belajar
+        </h2>
+        <span
+          class="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-600 dark:bg-slate-800 dark:text-slate-400"
+        >
+          {{ references.length }} Tautan
+        </span>
+      </div>
+
+      <!-- Grid Layout untuk Kartu Referensi -->
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <a
+          v-for="(ref, index) in references"
+          :key="index"
+          :href="ref.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative flex flex-col rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition-all hover:-translate-y-1 hover:border-emerald-400/50 hover:shadow-md dark:border-slate-700 dark:bg-slate-800 dark:hover:border-emerald-500/50"
+        >
+          <!-- Header Kartu: Icon & Domain -->
+          <div class="mb-3 flex items-center justify-between">
+            <div
+              class="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-50 text-xl dark:bg-emerald-900/20"
+            >
+              {{ ref.icon }}
+            </div>
+            <span
+              class="text-[10px] font-medium uppercase tracking-wider text-slate-400 dark:text-slate-500"
+            >
+              {{ ref.domain }}
+            </span>
+          </div>
+
+          <!-- Judul & Deskripsi -->
+          <div class="flex-1">
+            <h3
+              class="mb-1 text-sm font-semibold text-slate-900 group-hover:text-emerald-600 dark:text-slate-100 dark:group-hover:text-emerald-400"
+            >
+              {{ ref.title }}
+            </h3>
+            <p
+              class="text-xs leading-relaxed text-slate-500 line-clamp-2 dark:text-slate-400"
+            >
+              {{ ref.desc }}
+            </p>
+          </div>
+
+          <!-- Tombol Link Eksternal -->
+          <div
+            class="mt-4 flex items-center gap-1 text-xs font-medium text-emerald-600 dark:text-emerald-400"
+          >
+            Kunjungi Website
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              class="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </div>
+        </a>
+      </div>
     </section>
   </main>
 </template>

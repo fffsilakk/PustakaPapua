@@ -1,9 +1,38 @@
 <!-- src/views/edu/EnglishGuideBasicLearnView.vue -->
 <script setup lang="ts">
 import { ref } from "vue";
-
+import BackButton from "../../../../services/BackButton.vue";
 const activeSection = ref<"greetings" | "tour" | "help">("greetings");
-
+const tourGuideReferences = [
+  {
+    title: "Kampung Inggris: Bahasa Inggris Dasar Tour Guide",
+    url: "https://www.kampunginggris.online/blog/belajar-bahasa-inggris-bahasa-inggris-dasar-untuk-tour-guide/",
+    domain: "kampunginggris.online",
+    desc: "Panduan lengkap belajar percakapan dasar bahasa Inggris untuk pemandu wisata.",
+    icon: "🗣️",
+  },
+  {
+    title: "Google Books: Basic English for Tourism",
+    url: "https://books.google.com/books/about/Basic_English_for_Tourism_Teori_Praktis.html?id=rAUQEQAAQBAJ",
+    domain: "books.google.com",
+    desc: "Buku teori dan praktis bahasa Inggris khusus untuk industri pariwisata.",
+    icon: "📖",
+  },
+  {
+    title: "Scribd: Booklet Bahasa Inggris Pemandu Wisata",
+    url: "https://id.scribd.com/document/609430016/Booklet-Bahasa-Inggris-untuk-Pemandu-Wisata",
+    domain: "scribd.com",
+    desc: "Booklet praktis berisi kosakata dan frasa penting untuk pemandu wisata profesional.",
+    icon: "📘",
+  },
+  {
+    title: "Karier.mu: Program Bahasa Inggris Pemandu Wisata",
+    url: "https://www.karier.mu/program/belajar-bahasa-inggris-dasar-untuk-pemandu-wisata",
+    domain: "karier.mu",
+    desc: "Kursus online terstruktur untuk meningkatkan kemampuan bahasa Inggris di bidang pariwisata.",
+    icon: "🎓",
+  },
+];
 const repeatSentences = {
   greetings: [
     {
@@ -80,6 +109,7 @@ const rolePlayExamples = {
   <main
     class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 mt-10 lg:py-8 text-left"
   >
+    <BackButton class="my-5" />
     <!-- Header modul -->
     <header
       class="mb-6 rounded-3xl border border-slate-200 bg-white px-5 py-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
@@ -235,6 +265,80 @@ const rolePlayExamples = {
           (pantai, bukit, atau tempat wisata lokal).
         </li>
       </ul>
+    </section>
+    <section class="mx-auto mt-8 max-w-5xl px-4 pb-12 sm:px-6">
+      <!-- Header Section -->
+      <div
+        class="mb-6 flex items-center gap-3 border-b border-sky-200 pb-4 dark:border-sky-900/30"
+      >
+        <h2 class="text-lg font-semibold text-sky-900 dark:text-sky-100">
+          Bahasa Inggris untuk Pemandu Wisata
+        </h2>
+        <span
+          class="rounded-full bg-sky-100 px-2.5 py-0.5 text-xs font-medium text-sky-800 dark:bg-sky-900/40 dark:text-sky-300"
+        >
+          {{ tourGuideReferences.length }} Sumber
+        </span>
+      </div>
+
+      <!-- Grid Layout Kartu -->
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <a
+          v-for="(ref, index) in tourGuideReferences"
+          :key="index"
+          :href="ref.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative flex flex-col rounded-xl border border-sky-100 bg-white p-4 shadow-sm transition-all hover:-translate-y-1 hover:border-sky-400/50 hover:shadow-md dark:border-slate-700 dark:bg-slate-800 dark:hover:border-sky-500/50"
+        >
+          <!-- Ikon & Domain -->
+          <div class="mb-3 flex items-center justify-between">
+            <div
+              class="flex h-10 w-10 items-center justify-center rounded-lg bg-sky-50 text-xl text-sky-700 dark:bg-sky-900/20 dark:text-sky-400"
+            >
+              {{ ref.icon }}
+            </div>
+            <span
+              class="text-[10px] font-medium uppercase tracking-wider text-slate-400 dark:text-slate-500"
+            >
+              {{ ref.domain }}
+            </span>
+          </div>
+
+          <!-- Konten Teks -->
+          <div class="flex-1">
+            <h3
+              class="mb-1 text-sm font-semibold text-slate-900 group-hover:text-sky-700 dark:text-slate-100 dark:group-hover:text-sky-400"
+            >
+              {{ ref.title }}
+            </h3>
+            <p
+              class="text-xs leading-relaxed text-slate-500 line-clamp-2 dark:text-slate-400"
+            >
+              {{ ref.desc }}
+            </p>
+          </div>
+
+          <!-- Link Action -->
+          <div
+            class="mt-4 flex items-center gap-1 text-xs font-medium text-sky-600 dark:text-sky-400"
+          >
+            Lihat Sumber
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              class="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </div>
+        </a>
+      </div>
     </section>
   </main>
 </template>

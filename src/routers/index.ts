@@ -210,6 +210,16 @@ const routes = [
         },
         props: true,
       },
+      {
+        path: "belajar/papua-intro",
+        name: "papua-intro",
+        component: () =>
+          import("../components/public/edu/contents/PapuaIntro.vue"),
+        meta: {
+          title: "Belajar | papua intro",
+        },
+        props: true,
+      },
     ],
   },
 ];
