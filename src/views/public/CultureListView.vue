@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { storeToRefs } from "pinia";
-import { useCultureStore } from "../../stores/cultureStore";
+// import { storeToRefs } from "pinia";
+// import { useCultureStore } from "../../stores/cultureStore";
 
 import CultureHeader from "../../components/public/culture/CultureHeader.vue";
 // import CultureCategoryTabs from "../../components/public/culture/CultureCategoryTabs.vue";
