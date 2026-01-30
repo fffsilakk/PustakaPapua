@@ -43,16 +43,6 @@ export const dances: Dance[] = [
       suasana: "Gembira dan penuh semangat",
     },
     isFavorite: false,
-    // funFacts: [
-    //   "Tari Sajojo sering dibawakan dalam acara-acara modern seperti pentas sekolah.",
-    //   "Lirik lagu Sajojo bercerita tentang seorang gadis yang disukai banyak pemuda.",
-    //   "Gerakan Sajojo mudah dipelajari sehingga cepat populer di luar Papua.",
-    // ],
-    // reflectionQuestions: [
-    //   "Menurutmu, mengapa Tari Sajojo mudah diterima oleh anak muda?",
-    //   "Bagaimana cara kamu menjaga supaya Tari Sajojo tetap dikenal di sekolahmu?",
-    //   "Jika kamu membuat gerakan baru untuk Sajojo, bagian mana yang ingin kamu ubah?",
-    // ],
   },
   {
     id: "tari-yospan",

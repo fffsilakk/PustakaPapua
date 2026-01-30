@@ -268,21 +268,22 @@ const allItems = ref<SearchItem[]>([
 
   // BELAJAR
   {
-    id: "belajar-matematika",
-    title: "Belajar Matematika Dasar",
+    id: "Html Dasar",
+    title: "Belajar Html Dasar",
     description: "Materi numerasi dan latihan untuk siswa SMP/SMA.",
     icon: "📐",
     category: "belajar",
-    route: "/belajar/matematika-dasar",
+    route: "/belajar/HtmlDasar",
     type: "module",
   },
   {
-    id: "belajar-literasi",
-    title: "Modul Literasi Membaca",
-    description: "Panduan meningkatkan kemampuan membaca pemahaman.",
+    id: "kopi wamena modern",
+    title: "Teknik Dasar Budidaya Kopi Wamena",
+    description:
+      "Langkah sederhana menanam kopi dengan cara yang lebih produktif.",
     icon: "📖",
     category: "belajar",
-    route: "/belajar/literasi",
+    route: "/belajar/kopi-wamena-modern",
     type: "module",
   },
 
@@ -293,16 +294,7 @@ const allItems = ref<SearchItem[]>([
     description: "Kumpulan cerita rakyat dari berbagai suku di Timur.",
     icon: "🔥",
     category: "budaya",
-    route: "/budaya/cerita-rakyat",
-    type: "page",
-  },
-  {
-    id: "budaya-lagu-daerah",
-    title: "Lagu Daerah & Rohani",
-    description: "Koleksi lagu daerah dan rohani untuk komunitas.",
-    icon: "🎵",
-    category: "budaya",
-    route: "/budaya/lagu",
+    route: "/ceritaRakyat",
     type: "page",
   },
 
@@ -314,15 +306,6 @@ const allItems = ref<SearchItem[]>([
     icon: "📶",
     category: "lainnya",
     route: "/panduan/offline-first",
-    type: "page",
-  },
-  {
-    id: "lainnya-tentang",
-    title: "Tentang Pustaka Timur",
-    description: "Info singkat tentang misi dan fitur aplikasi.",
-    icon: "ℹ️",
-    category: "lainnya",
-    route: "/tentang",
     type: "page",
   },
 ]);

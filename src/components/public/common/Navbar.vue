@@ -20,6 +20,7 @@
         >
           <ChGithub class="shrink-0" />
         </a>
+        <LuBadgeInfo @click="showInfoModal = true" />
         <ConnectionStatus />
       </div>
     </div>
@@ -566,6 +567,67 @@
     </Transition>
   </Teleport>
 
+  <div
+    v-if="showWelcomePrompt"
+    class="fixed inset-0 z-40 flex items-center justify-center bg-slate-900/40 backdrop-blur-[1.5px]"
+  >
+    <div class="w-full max-w-sm rounded-2xl bg-white p-5 shadow-2xl">
+      <h2 class="mb-2 text-sm font-semibold">Tentang aplikasi ini</h2>
+      <p class="mb-4 text-xs text-slate-600">
+        Mau baca penjelasan singkat tentang aplikasi ini sebelum mulai?
+      </p>
+      <div class="flex gap-2">
+        <button
+          class="flex-1 rounded-xl bg-emerald-500 px-3 py-2 text-xs font-semibold text-white"
+          @click="handleReadInfo"
+        >
+          Iya, jelaskan
+        </button>
+        <button
+          class="flex-1 rounded-xl border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-600"
+          @click="handleSkipInfo"
+        >
+          Tidak, langsung masuk
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal info utama -->
+  <div
+    v-if="showInfoModal"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 backdrop-blur-sm"
+  >
+    <div class="w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl">
+      <div class="mb-3 flex items-center justify-between">
+        <h2 class="text-base font-semibold">Tentang Pustaka Papua</h2>
+        <button
+          class="rounded-full p-1 text-slate-500 hover:bg-slate-100"
+          @click="handleCloseModal"
+        >
+          ✕
+        </button>
+      </div>
+
+      <p class="mb-3 text-sm text-slate-700">
+        (isi penjelasan aplikasi: tujuan, fitur utama, dsb.)
+      </p>
+
+      <ul class="mb-4 list-disc pl-5 text-xs text-slate-600">
+        <li>Akses materi belajar tentang Papua.</li>
+        <li>Temukan destinasi wisata dan budaya lokal.</li>
+        <li>Dukung UMKM lewat katalog produk.</li>
+      </ul>
+
+      <button
+        class="w-full rounded-xl bg-emerald-500 px-3 py-2.5 text-xs font-semibold text-white"
+        @click="handleCloseModal"
+      >
+        Mengerti, mulai gunakan aplikasi
+      </button>
+    </div>
+  </div>
+
   <!-- Spacer to prevent content from going under fixed navbar -->
   <div class="h-[60px]"></div>
   <!-- ========== END HEADER ========== -->
@@ -582,6 +644,7 @@ import {
   QuHamburgerSidebar,
   ChGithub,
   AkCart,
+  LuBadgeInfo,
 } from "@kalimahapps/vue-icons";
 
 // State management
@@ -629,6 +692,33 @@ const isAboutOpen = ref(false);
 const closeMobileMenu = () => {
   isMobileMenuOpen.value = false;
   isAboutOpen.value = false; // Opsional: agar saat dibuka lagi, dropdown tertutup
+};
+
+const showWelcomePrompt = ref(false); // popup kecil: "mau baca info?"
+const showInfoModal = ref(false); // modal besar tentang apk
+
+onMounted(() => {
+  const alreadySeen = localStorage.getItem("seenAppInfo");
+  if (!alreadySeen) {
+    // pertama kali buka
+    showWelcomePrompt.value = true;
+  }
+});
+
+const handleReadInfo = () => {
+  showWelcomePrompt.value = false;
+  showInfoModal.value = true;
+};
+
+const handleSkipInfo = () => {
+  showWelcomePrompt.value = false;
+  // simpan supaya besok2 tidak muncul lagi
+  localStorage.setItem("seenAppInfo", "true");
+};
+
+const handleCloseModal = () => {
+  showInfoModal.value = false;
+  localStorage.setItem("seenAppInfo", "true");
 };
 </script>
 
