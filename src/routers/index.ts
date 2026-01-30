@@ -20,7 +20,7 @@ import RumahAdatView from "../views/public/tentang papua/RumahAdatView.vue";
 import WisataView from "../views/public/tentang papua/WisataView.vue";
 import UpacaraView from "../views/public/tentang papua/UpacaraView.vue";
 import SenjataView from "../views/public/tentang papua/SenjataView.vue";
-
+import LanguageView from "../views/public/tentang papua/LanguageView.vue";
 // Module Belajar
 
 // File test
@@ -175,6 +175,15 @@ const routes = [
         props: true,
         meta: {
           title: "Tentang Papua | Senjata Tradisional",
+        },
+      },
+      {
+        path: "/bahasaDaerah",
+        name: "bahasaDaerah",
+        component: LanguageView,
+        props: true,
+        meta: {
+          title: "Tentang Papua | Bahasa Daerah",
         },
       },
       { path: "/test", name: "test", component: test },

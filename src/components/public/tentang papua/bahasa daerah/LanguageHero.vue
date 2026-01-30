@@ -82,7 +82,7 @@ const handleScrollToList = () => {
           data-aos-delay="500"
         >
           <div
-            class="relative w-64 h-[400px] sm:w-72 sm:h-[450px] lg:w-80 lg:h-[500px]"
+            class="relative w-52 h-[320px] sm:w-56 sm:h-[340px] lg:w-60 lg:h-[360px]"
           >
             <div
               class="absolute -left-10 top-10 z-20 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl p-4 rounded-2xl shadow-xl border border-white/20 hidden sm:block"
@@ -101,7 +101,7 @@ const handleScrollToList = () => {
               class="h-full w-full overflow-hidden rounded-[2.5rem] border-[8px] border-white dark:border-slate-800 shadow-2xl relative group"
             >
               <img
-                src="https://images.unsplash.com/photo-1612177996702-6c2e1a56a776?q=80&w=1000&auto=format&fit=crop"
+                src="https://jubitv.id/wp-content/uploads/2024/09/IMG-20240905-WA0068.jpg.webp"
                 alt="Belajar bahasa daerah Papua"
                 class="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
               />
