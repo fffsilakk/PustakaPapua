@@ -26,7 +26,9 @@ export interface Destination {
   bestTimeToVisit: string;
   activities: string; // aktivitas utama
   isFavorite?: boolean;
-  mapsUrl?: string;
+  mapsUrl?: string; // Link Google Maps (bisa embed atau link biasa)
+  latitude?: number; // Koordinat untuk fallback
+  longitude?: number; // Koordinat untuk fallback
 }
 
 export const destinations: Destination[] = [
@@ -48,6 +50,10 @@ export const destinations: Destination[] = [
     activities:
       "Snorkeling, diving, island hopping, melihat sunset di atas bukit karst.",
     isFavorite: false,
+    latitude: -0.2333,
+    longitude: 130.5167,
+    mapsUrl:
+      "https://maps.google.com/maps?q=Raja+Ampat&t=&z=9&ie=UTF8&iwloc=&output=embed",
   },
   {
     id: "danau-sentani",
@@ -68,6 +74,10 @@ export const destinations: Destination[] = [
     activities:
       "Naik perahu keliling danau, mengunjungi kampung adat, menikmati kuliner ikan danau.",
     isFavorite: false,
+    latitude: -2.6053,
+    longitude: 140.5369,
+    mapsUrl:
+      "https://maps.google.com/maps?q=Danau+Sentani&t=&z=11&ie=UTF8&iwloc=&output=embed",
   },
   {
     id: "lembah-baliem",
@@ -88,6 +98,10 @@ export const destinations: Destination[] = [
     activities:
       "Mengunjungi kampung adat, trekking ringan, menyaksikan festival dan tarian adat.",
     isFavorite: false,
+    latitude: -4.0956,
+    longitude: 138.9431,
+    mapsUrl:
+      "https://maps.google.com/maps?q=Lembah+Baliem&t=&z=10&ie=UTF8&iwloc=&output=embed",
   },
   {
     id: "teluk-cenderawasih",
@@ -108,6 +122,10 @@ export const destinations: Destination[] = [
     activities:
       "Snorkeling, diving, melihat hiu paus, menjelajahi pulau-pulau kecil.",
     isFavorite: false,
+    latitude: -2.25,
+    longitude: 134.5,
+    mapsUrl:
+      "https://maps.google.com/maps?q=Taman+Nasional+Teluk+Cenderawasih&t=&z=8&ie=UTF8&iwloc=&output=embed",
   },
   {
     id: "gua-binsari",
@@ -128,6 +146,10 @@ export const destinations: Destination[] = [
     activities:
       "Wisata sejarah, fotografi, eksplorasi gua, edukasi sejarah Perang Dunia II.",
     isFavorite: false,
+    latitude: -1.1685,
+    longitude: 136.0883,
+    mapsUrl:
+      "https://maps.google.com/maps?q=Gua+Jepang+Biak&t=&z=14&ie=UTF8&iwloc=&output=embed",
   },
   {
     id: "pantai-anggopi",
@@ -148,6 +170,10 @@ export const destinations: Destination[] = [
     activities:
       "Berenang di kolam air tawar, snorkeling, piknik keluarga, menikmati kelapa muda.",
     isFavorite: false,
+    latitude: -1.1218,
+    longitude: 136.1952,
+    mapsUrl:
+      "https://maps.google.com/maps?q=Pantai+Anggopi&t=&z=14&ie=UTF8&iwloc=&output=embed",
   },
   {
     id: "kali-biru-biak",
@@ -168,6 +194,10 @@ export const destinations: Destination[] = [
     activities:
       "Berenang, fotografi alam, relaksasi di tepi sungai, eksplorasi hutan sekitar.",
     isFavorite: false,
+    latitude: -0.9231,
+    longitude: 135.9419,
+    mapsUrl:
+      "https://maps.google.com/maps?q=Kali+Biru+Biak&t=&z=13&ie=UTF8&iwloc=&output=embed",
   },
   {
     id: "kali-biru-raja-ampat",
@@ -188,5 +218,9 @@ export const destinations: Destination[] = [
     activities:
       "Berenang di air dingin, bird watching (Cenderawasih), jungle trekking, fotografi alam.",
     isFavorite: false,
+    latitude: -0.4289,
+    longitude: 130.8167,
+    mapsUrl:
+      "https://maps.google.com/maps?q=Kali+Biru+Raja+Ampat&t=&z=13&ie=UTF8&iwloc=&output=embed",
   },
 ];

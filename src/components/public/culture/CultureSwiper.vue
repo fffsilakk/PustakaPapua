@@ -6,7 +6,7 @@ const cultureItems = [
   {
     title: "Tarian Adat",
     desc: "Gerak ritmis penuh makna leluhur tanah Papua.",
-    img: "https://images.unsplash.com/photo-1590731422709-775677095493?q=80&w=800",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrFsqaGI_xFnkt-cSaoFle6_4ghNoHamsHng&shttps://papuapegunungan.kpu.go.id/public/papuapegunungan/images/1760844590_76a14218db4d3c05c85f.jpg",
     url: "/tarianAdat",
     tag: "Seni",
   },
@@ -20,7 +20,7 @@ const cultureItems = [
   {
     title: "Alat Musik",
     desc: "Suara tifa yang menggetarkan jiwa di setiap upacara.",
-    img: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?q=80&w=800",
+    img: "https://i0.wp.com/antarpapua.com/wp-content/uploads/2024/04/Tifa-future-image.webp?resize=400%2C225&ssl=1",
     url: "/alatMusik",
     tag: "Musik",
   },
@@ -34,7 +34,7 @@ const cultureItems = [
   {
     title: "Situs Wisata",
     desc: "Keindahan alam dan sejarah yang tak ternilai.",
-    img: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=800",
+    img: "https://www.indonesia.travel/link/e1f6a3997dff4bb6888a384fbe715792.aspx",
     url: "/wisata",
     tag: "Alam",
   },

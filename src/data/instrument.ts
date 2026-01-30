@@ -32,8 +32,10 @@ export const instruments: Instrument[] = [
     name: "Tifa Papua",
     region: "pesisir",
     category: "ritmis",
-    thumbnail: "/images/alat-musik/tifa-thumb.jpg",
-    heroImage: "/images/alat-musik/tifa-hero.jpg",
+    thumbnail:
+      "https://www.rukita.co/stories/wp-content/uploads/2023/11/2244180226.webp",
+    heroImage:
+      "https://www.rukita.co/stories/wp-content/uploads/2023/11/2244180226.webp",
     shortDescription:
       "Gendang khas Papua yang mengatur ritme tarian dan nyanyian adat.",
     description:
@@ -45,32 +47,40 @@ export const instruments: Instrument[] = [
     isFavorite: false,
   },
   {
-    id: "kecapi-papua",
-    name: "Kecapi Papua",
+    id: "ukulele-papua",
+    name: "Ukulele Papua",
     region: "pesisir",
     category: "petik",
-    thumbnail: "/images/alat-musik/kecapi-thumb.jpg",
-    heroImage: "/images/alat-musik/kecapi-hero.jpg",
+    thumbnail:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmDZy8GaLAhML9HcrOl7b_De4DU1voQNB2bg&s",
+    heroImage:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmDZy8GaLAhML9HcrOl7b_De4DU1voQNB2bg&s",
     shortDescription:
-      "Alat musik petik bernada lembut untuk mengiringi lagu-lagu rakyat Papua.",
+      "Alat musik ikonik pembawa keceriaan, nadi utama irama String Band Papua.",
     description:
-      "Kecapi Papua adalah alat musik berdawai yang dimainkan dengan cara dipetik. Biasanya digunakan untuk mengiringi lagu-lagu rakyat dan pujian dengan suasana tenang.",
-    materials: "Badan dari kayu, senar dari nilon atau kawat.",
-    howToPlay: "Dipegang di pangkuan, senar dipetik dengan jari tangan.",
-    usageContext: "Mengiringi nyanyian santai, cerita rakyat, dan ibadah.",
+      "Ukulele (sering disebut 'Juk') sangat populer di Papua. Alat ini menjadi instrumen vital dalam musik String Band dan lagu-lagu rakyat, menghasilkan irama ritmis yang khas dan mengajak pendengarnya menari.",
+    materials:
+      "Kayu lokal (seperti kayu matoa), senar nilon (sering menggunakan senar pancing).",
+    howToPlay:
+      "Digenjreng (strumming) dengan teknik ritmis yang cepat dan dinamis.",
+    usageContext:
+      "Iringan String Band, pesta rakyat (bakar batu), ibadah kreatif, dan kumpul santai.",
     isFavorite: false,
   },
+
   {
     id: "fu",
     name: "Fu (Seruling Bambu Papua)",
-    region: "pegunungan",
+    region: "pesisir",
     category: "tiup",
-    thumbnail: "/images/alat-musik/fu-thumb.jpg",
-    heroImage: "/images/alat-musik/fu-hero.jpg",
+    thumbnail:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Fuu_dari_bagian_atas.png/500px-Fuu_dari_bagian_atas.png",
+    heroImage:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Fuu_dari_bagian_atas.png/500px-Fuu_dari_bagian_atas.png",
     shortDescription:
-      "Seruling bambu dengan nada lembut yang sering dimainkan di pegunungan Papua.",
+      "Seruling bambu dengan nada lembut yang sering dimainkan di Selatan Papua.",
     description:
-      "Fu adalah seruling bambu tradisional Papua yang menghasilkan nada-nada lembut dan melengking. Alat musik ini kerap dimainkan oleh anak muda sebagai hiburan dan pengiring tarian.",
+      "Fuu merupakan alat musik Papua yang terbuat dari kayu dan bambu dan dimainkan dengan cara meniupkan udara ke lubang atau bagian yang terbuka. Selain digunakan sebagai sarana komunikasi untuk memanggil orang lain, alat musik ini digunakan untuk mengiringi tarian masyarakat Papua, khususnya suku Asmat, Kabupaten Merauke.",
     materials: "Bambu pilihan yang dilubangi pada beberapa titik.",
     howToPlay:
       "Ditiup pada ujung bambu sambil menutup lubang nada dengan jari.",
@@ -83,8 +93,10 @@ export const instruments: Instrument[] = [
     name: "Pikon",
     region: "pegunungan",
     category: "tiup",
-    thumbnail: "/images/alat-musik/pikon-thumb.jpg",
-    heroImage: "/images/alat-musik/pikon-hero.jpg",
+    thumbnail:
+      "https://cdn.rri.co.id/berita/Bovendigoel/o/1727383303183-Pikon_failfaire/zvmegpbch93quyh.jpeg",
+    heroImage:
+      "https://cdn.rri.co.id/berita/Bovendigoel/o/1727383303183-Pikon_failfaire/zvmegpbch93quyh.jpeg",
     shortDescription: "Alat musik tiup suku Dani yang suara getarannya unik.",
     description:
       "Pikon adalah alat musik tradisional suku Dani di Lembah Baliem. Suaranya dihasilkan dari getaran tali yang ditegangkan dan dikuatkan dengan resonansi bambu.",
@@ -100,8 +112,10 @@ export const instruments: Instrument[] = [
     name: "Yi (Gong Papua)",
     region: "kepulauan",
     category: "melodis",
-    thumbnail: "/images/alat-musik/yi-thumb.jpg",
-    heroImage: "/images/alat-musik/yi-hero.jpg",
+    thumbnail:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdjV146BwCFopl_bf8RjB9JLiGuKscNTryAQ&s",
+    heroImage:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdjV146BwCFopl_bf8RjB9JLiGuKscNTryAQ&s",
     shortDescription:
       "Gong tradisional yang memberi penanda waktu dan momen penting.",
     description:

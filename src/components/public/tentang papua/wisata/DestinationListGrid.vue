@@ -4,6 +4,7 @@ import { storeToRefs } from "pinia";
 import { useDestinationStore } from "../../../../stores/destinationStore";
 import type { Destination } from "../../../../data/destination";
 import DestinationCard from "./DestinationCard.vue";
+import MapSidebar from "./MapSidebar.vue";
 
 const destinationStore = useDestinationStore();
 const { filteredItems } = storeToRefs(destinationStore);
@@ -20,6 +21,22 @@ const handleCloseDetail = () => {
   showDetail.value = false;
   selectedDestination.value = null;
 };
+// ==== STATE & HANDLER UNTUK SIDEBAR MAPS ====
+const isMapOpen = ref(false);
+const selectedMapDestination = ref<Destination | null>(null);
+
+const handleViewMap = (destination: Destination) => {
+  selectedMapDestination.value = destination;
+  isMapOpen.value = true;
+};
+
+const handleCloseMap = () => {
+  isMapOpen.value = false;
+  setTimeout(() => {
+    selectedMapDestination.value = null;
+  }, 300);
+};
+// ============================================
 </script>
 
 <template>
@@ -49,6 +66,7 @@ const handleCloseDetail = () => {
         :destination="destination"
         @open-detail="handleOpenDetail"
         @toggle-favorite="destinationStore.toggleFavorite"
+        @view-map="handleViewMap"
       />
       <article
         class="group relative flex flex-col overflow-hidden rounded-[24px] border border-dashed border-slate-300 bg-slate-50/50 p-2 transition-all duration-500 dark:border-slate-800 dark:bg-slate-900/40"
@@ -273,6 +291,11 @@ const handleCloseDetail = () => {
         </div>
       </transition>
     </Teleport>
+    <MapSidebar
+      :is-open="isMapOpen"
+      :destination="selectedMapDestination"
+      @close="handleCloseMap"
+    />
   </section>
 </template>
 
@@ -309,6 +332,62 @@ const handleCloseDetail = () => {
 }
 
 /* Efek masking untuk memberi petunjuk bahwa teks bisa di-scroll */
+.custom-scrollbar {
+  mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+}
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.animate-bounce-short {
+  animation: bounce 1s ease-in-out 1;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.modal-bounce-enter-active {
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.modal-bounce-leave-active {
+  transition: all 0.25s ease-in;
+}
+.modal-bounce-enter-from {
+  opacity: 0;
+  transform: scale(0.9) translateY(30px);
+}
+.modal-bounce-leave-to {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
 .custom-scrollbar {
   mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);

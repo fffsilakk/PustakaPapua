@@ -9,7 +9,7 @@ const props = defineProps<{
 const emit = defineEmits<{
   (e: "open-detail", destination: Destination): void;
   (e: "toggle-favorite", id: string): void;
-  (e: "open-map", destination: Destination): void;
+  (e: "view-map", destination: Destination): void; // ganti dari "open-map" -> "view-map"
 }>();
 
 const isHovered = ref(false);
@@ -25,7 +25,7 @@ const handleFavorite = (event: MouseEvent) => {
 
 const handleMap = (event: MouseEvent) => {
   event.stopPropagation();
-  emit("open-map", props.destination);
+  emit("view-map", props.destination); // pakai event baru
 };
 </script>
 
@@ -93,22 +93,14 @@ const handleMap = (event: MouseEvent) => {
       <div
         class="mt-auto pt-4 flex items-center justify-between border-t border-slate-100 dark:border-slate-800/50"
       >
-        <!-- <div class="flex items-center gap-1.5">
-          <div
-            class="flex h-7 items-center rounded-lg bg-emerald-50 px-2 text-[11px] font-bold text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300"
-          >
-            🗓 {{ destination.bestTimeToVisit }}
-          </div>
-        </div> -->
-
         <button
           @click="handleMap"
           type="button"
           class="group/btn flex items-center justify-center rounded-full font-bold transition-all text-slate-700 dark:text-slate-300 hover:text-emerald-500 dark:hover:text-emerald-400"
         >
-          <span class="text-xs group-hover/btn:scale-110 transition-transform"
-            >Lihat Maps</span
-          >
+          <span class="text-xs group-hover/btn:scale-110 transition-transform">
+            Lihat Maps
+          </span>
         </button>
 
         <button
@@ -152,7 +144,6 @@ const handleMap = (event: MouseEvent) => {
   }
 }
 
-/* Custom shadow untuk dark mode agar lebih smooth */
 .dark .group:hover {
   box-shadow: 0 20px 50px -12px rgba(16, 185, 129, 0.25);
 }
