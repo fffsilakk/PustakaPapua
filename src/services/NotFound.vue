@@ -54,7 +54,7 @@
           class="mx-auto max-w-md text-lg text-slate-600 dark:text-slate-400 leading-relaxed"
         >
           Mungkin karena halamannya yang salah, atau halamannya memang belum
-          sempat saya buat .
+          sempat saya buat Maaf yah, atas ketidaknyamanannya.
         </p>
       </div>
 
@@ -77,7 +77,7 @@
         </RouterLink>
       </div>
 
-      <div class="mt-16 pt-8 border-t border-slate-100 dark:border-slate-900">
+      <div class="mt-10 pt-8 border-t border-slate-100 dark:border-slate-900">
         <p
           class="text-[11px] font-mono text-slate-400 uppercase tracking-widest leading-loose"
         >
