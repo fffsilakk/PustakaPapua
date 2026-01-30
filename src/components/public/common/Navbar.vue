@@ -20,7 +20,7 @@
         >
           <ChGithub class="shrink-0" />
         </a>
-        <LuBadgeInfo @click="showInfoModal = true" />
+        <LuBadgeInfo class="cursor-pointer" @click="showInfoModal = true" />
         <ConnectionStatus />
       </div>
     </div>
@@ -602,29 +602,28 @@
       <div class="mb-3 flex items-center justify-between">
         <h2 class="text-base font-semibold">Tentang Pustaka Papua</h2>
         <button
-          class="rounded-full p-1 text-slate-500 hover:bg-slate-100"
           @click="handleCloseModal"
+          class="p-2 bg-red-400 hover:bg-red-600 rounded-full transition-colors"
+          aria-label="Tutup peta"
         >
-          ✕
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
         </button>
       </div>
 
-      <p class="mb-3 text-sm text-slate-700">
-        (isi penjelasan aplikasi: tujuan, fitur utama, dsb.)
-      </p>
-
-      <ul class="mb-4 list-disc pl-5 text-xs text-slate-600">
-        <li>Akses materi belajar tentang Papua.</li>
-        <li>Temukan destinasi wisata dan budaya lokal.</li>
-        <li>Dukung UMKM lewat katalog produk.</li>
-      </ul>
-
-      <button
-        class="w-full rounded-xl bg-emerald-500 px-3 py-2.5 text-xs font-semibold text-white"
-        @click="handleCloseModal"
-      >
-        Mengerti, mulai gunakan aplikasi
-      </button>
+      <InfoApp />
     </div>
   </div>
 
@@ -637,6 +636,7 @@
 import { ref, onMounted, onUnmounted } from "vue";
 import DarkMode from "../../../services/DarkMode.vue";
 import SearchButton from "../../../services/SearchButton.vue";
+import InfoApp from "./InfoApp.vue";
 
 import ConnectionStatus from "../common/ConnectionStatus.vue";
 import {
