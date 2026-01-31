@@ -165,7 +165,7 @@ const currentDialect = computed<LanguageDialect>(() => {
       <div class="grid gap-4 sm:grid-cols-2">
         <transition-group name="list">
           <div
-            v-for="(item, idx) in currentDialect.vocab"
+            v-for="(item, _idx) in currentDialect.vocab"
             :key="item.local"
             class="group relative overflow-hidden rounded-3xl border border-slate-100 bg-white p-6 transition-all hover:border-indigo-200 hover:shadow-md dark:border-slate-800 dark:bg-slate-900/50"
           >
