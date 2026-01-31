@@ -578,13 +578,13 @@
       </p>
       <div class="flex gap-2">
         <button
-          class="flex-1 rounded-xl bg-emerald-500 px-3 py-2 text-xs font-semibold text-white"
+          class="flex-1 rounded-xl cursor-pointer bg-emerald-500 px-3 py-2 text-xs font-semibold text-white"
           @click="handleReadInfo"
         >
           Iya, jelaskan
         </button>
         <button
-          class="flex-1 rounded-xl border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-600"
+          class="flex-1 rounded-xl cursor-pointer border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-600"
           @click="handleSkipInfo"
         >
           Tidak, langsung masuk
