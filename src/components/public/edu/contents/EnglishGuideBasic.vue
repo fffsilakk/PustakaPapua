@@ -340,5 +340,6 @@ const rolePlayExamples = {
         </a>
       </div>
     </section>
+    <ModuleDevelopmentNotice />
   </main>
 </template>

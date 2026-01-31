@@ -229,6 +229,56 @@ const routes = [
         },
         props: true,
       },
+      {
+        path: "belajar/Papua-Tribes",
+        name: "Papua-Tribes",
+        component: () =>
+          import("../components/public/edu/contents/PapuaTribes.vue"),
+        meta: {
+          title: "Belajar | Papua Tribes",
+        },
+        props: true,
+      },
+      {
+        path: "belajar/Papua-Dances",
+        name: "Papua-Dances",
+        component: () =>
+          import("../components/public/edu/contents/PapuaDances.vue"),
+        meta: {
+          title: "Belajar | Papua Dances",
+        },
+        props: true,
+      },
+      {
+        path: "belajar/Papua-Houses",
+        name: "Papua-Houses",
+        component: () =>
+          import("../components/public/edu/contents/PapuaHouses.vue"),
+        meta: {
+          title: "Belajar | Papua Houses",
+        },
+        props: true,
+      },
+      {
+        path: "belajar/Papua-Languages",
+        name: "Papua-Languages",
+        component: () =>
+          import("../components/public/edu/contents/PapuaLanguages.vue"),
+        meta: {
+          title: "Belajar | Papua Languages",
+        },
+        props: true,
+      },
+      {
+        path: "belajar/Papua-Traditions",
+        name: "Papua-Traditions",
+        component: () =>
+          import("../components/public/edu/contents/PapuaTraditions.vue"),
+        meta: {
+          title: "Belajar | Papua Traditions",
+        },
+        props: true,
+      },
     ],
   },
 ];

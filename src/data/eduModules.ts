@@ -60,7 +60,7 @@ export const eduModules: EduModule[] = [
       "Mengenal Papua, wilayah adat, dan kekayaan budaya yang dimiliki.",
   },
   {
-    id: "suku-papua-dasar",
+    id: "Papua-Tribes",
     title: "Suku-Suku di Papua",
     category: "budaya",
     level: "pemula",
@@ -70,7 +70,7 @@ export const eduModules: EduModule[] = [
       "Pengenalan suku-suku besar Papua beserta ciri khas dan wilayahnya.",
   },
   {
-    id: "tarian-adat-papua",
+    id: "Papua-Dances",
     title: "Tarian Adat Papua",
     category: "budaya",
     level: "pemula",
@@ -80,7 +80,7 @@ export const eduModules: EduModule[] = [
       "Belajar jenis tarian adat Papua dan makna di balik setiap gerakan.",
   },
   {
-    id: "rumah-adat-papua",
+    id: "Papua-Houses",
     title: "Rumah Adat Papua",
     category: "budaya",
     level: "pemula",
@@ -90,7 +90,7 @@ export const eduModules: EduModule[] = [
       "Mengenal Honai, Kariwari, dan rumah adat Papua lainnya beserta fungsinya.",
   },
   {
-    id: "bahasa-daerah-papua",
+    id: "Papua-Languages",
     title: "Bahasa Daerah Papua (Dasar)",
     category: "budaya",
     level: "pemula",
@@ -100,7 +100,7 @@ export const eduModules: EduModule[] = [
       "Kosakata dasar dan salam dalam beberapa bahasa daerah Papua.",
   },
   {
-    id: "upacara-adat-papua",
+    id: "Papua-Traditions",
     title: "Upacara Adat dan Tradisi Papua",
     category: "budaya",
     level: "menengah",

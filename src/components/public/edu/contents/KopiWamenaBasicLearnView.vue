@@ -299,5 +299,6 @@ const kopiReferences = [
         </a>
       </div>
     </section>
+    <ModuleDevelopmentNotice />
   </main>
 </template>

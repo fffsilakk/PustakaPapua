@@ -330,5 +330,6 @@ const references = [
         </a>
       </div>
     </section>
+    <ModuleDevelopmentNotice />
   </main>
 </template>
