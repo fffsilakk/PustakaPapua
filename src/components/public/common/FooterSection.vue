@@ -27,7 +27,7 @@
             </div>
             <div class="flex flex-col">
               <span
-                class="text-base font-semibold text-slate-900 dark:text-slate-100"
+                class="text-base font-Aclonica font-semibold text-slate-900 dark:text-slate-100"
               >
                 Pustaka Papua
               </span>

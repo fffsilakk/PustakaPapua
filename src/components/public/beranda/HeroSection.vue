@@ -31,7 +31,7 @@
       </div>
 
       <h1
-        class="mt-6 text-center md:text-left text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-slate-900 dark:text-white"
+        class="mt-6 font-family text-center md:text-left text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-slate-900 dark:text-white"
       >
         Jelajahi,<br />
         <span class="text-emerald-600 dark:text-emerald-400"

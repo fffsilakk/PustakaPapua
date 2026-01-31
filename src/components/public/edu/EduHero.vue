@@ -43,7 +43,7 @@
         </div>
 
         <h1
-          class="text-5xl md:text-7xl lg:text-[4.8rem] font-black text-zinc-900 dark:text-white leading-[1.05] tracking-tighter mb-6"
+          class="text-5xl font-Akaya md:text-7xl lg:text-[4.8rem] font-black text-zinc-900 dark:text-white leading-[1.05] tracking-tighter mb-6"
           data-aos="fade-right"
           data-aos-delay="200"
           data-aos-duration="1000"

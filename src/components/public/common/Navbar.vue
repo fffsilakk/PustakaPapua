@@ -45,7 +45,7 @@
             />
           </div>
           <span
-            class="bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent dark:from-emerald-400 dark:to-cyan-400"
+            class="bg-gradient-to-r font-Aclonica from-emerald-600 to-cyan-600 bg-clip-text text-transparent dark:from-emerald-400 dark:to-cyan-400"
           >
             Pustaka
             <span class="block -mt-2"> Papua </span>

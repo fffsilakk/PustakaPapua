@@ -6,6 +6,7 @@ import EduHeader from "../../components/public/edu/EduHero.vue";
 import EduFilterSection from "../../components/public/edu/EduFilterSection.vue";
 import EduModuleGrid from "../../components/public/edu/EduModuleGrid.vue";
 import EduSearch from "../../components/public/edu/EduSearch.vue";
+import EduAbout from "../../components/public/edu/EduAbout.vue";
 
 const eduStore = useEduStore();
 
@@ -89,7 +90,6 @@ const categoryText = computed(() => {
       :total-products="filteredModules.length"
       @offline-click="handleOfflineClick"
     />
-
     <div
       v-if="visibleCount < filteredModules.length"
       class="flex justify-center mt-10"
@@ -109,5 +109,7 @@ const categoryText = computed(() => {
     >
       Semua modul edukasi telah ditampilkan.
     </p>
+
+    <EduAbout />
   </main>
 </template>
