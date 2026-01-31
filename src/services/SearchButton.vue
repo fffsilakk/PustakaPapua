@@ -201,7 +201,7 @@
             <p
               class="text-[10px] font-black italic text-emerald-600 uppercase tracking-widest"
             >
-              Pustaka Timur
+              Pustaka papua
             </p>
           </div>
         </div>
