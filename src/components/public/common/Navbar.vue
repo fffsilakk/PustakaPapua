@@ -598,7 +598,9 @@
     v-if="showInfoModal"
     class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 backdrop-blur-sm"
   >
-    <div class="w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl">
+    <div
+      class="w-full max-w-lg rounded-3xl bg-white dark:bg-slate-950 p-6 shadow-2xl"
+    >
       <div class="mb-3 flex items-center justify-between">
         <h2 class="text-base font-semibold">Tentang Pustaka Papua</h2>
         <button
