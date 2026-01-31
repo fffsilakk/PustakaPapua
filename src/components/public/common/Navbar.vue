@@ -571,8 +571,12 @@
     v-if="showWelcomePrompt"
     class="fixed inset-0 z-40 flex items-center justify-center bg-slate-900/40 backdrop-blur-[1.5px]"
   >
-    <div class="w-full max-w-sm rounded-2xl bg-white p-5 shadow-2xl">
-      <h2 class="mb-2 text-sm font-semibold">Tentang aplikasi ini</h2>
+    <div
+      class="w-full max-w-sm rounded-2xl dark:bg-slate-950 bg-white p-5 shadow-2xl"
+    >
+      <h2 class="mb-2 text-sm font-semibold dark:text-white text-black">
+        Tentang aplikasi ini
+      </h2>
       <p class="mb-4 text-xs text-slate-600">
         Mau baca penjelasan singkat tentang aplikasi ini sebelum mulai?
       </p>
